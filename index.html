@@ -14,11 +14,12 @@
     </header>
 
     <main class="container">
-      <p id="ref-texto" class="unselectable">
+      <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <input id="ipt-texto" class="unselectable" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba">
+      <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba"
+             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
     </main>
 
     <footer>
