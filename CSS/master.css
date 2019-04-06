@@ -1,1 +1,68 @@
-/* CSS MAESTRA */
+
+/* RECURSOS */
+/* Variables */
+:root {
+  --bg-color: rgb(245, 245, 245);
+  --font-color: rgb(30, 30, 30);
+  --theme-color: rgb(241, 133, 6);
+}
+/* Configuración general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--bg-color,white);
+  color: var(--font-color,black);
+}
+a,a:visited{
+	color: var(--theme-color,orange);
+  text-decoration: none;
+}
+select, textarea, input {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(120,120,120);
+}
+select:focus, textarea:focus, input:focus {
+	outline: none;
+	border-color: transparent;
+	box-shadow: 0 0 1pt 1pt var(--theme-color,orange);
+}
+.btn {
+  box-sizing: content-box;
+	display: inline-block;
+	padding: 10px 15px;
+	background-color: var(--theme-color,orange);
+	border-style: none;
+	font-weight: 700;
+}
+.btn:hover {
+  transform: scale(1.05);
+	cursor: pointer;
+}
+.unselectable {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	top: auto;
+	overflow: hidden;
+}
+
+/* PÁGINA */
+main {
+
+}
+#ref-texto {
+
+}
