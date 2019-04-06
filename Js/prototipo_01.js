@@ -22,8 +22,19 @@ function GameManager(event)
     iptTexto.value = subIpt;
 
     iptCorrecto = Comparacion(subIpt, subRef);
-    if (iptCorrecto) { alert("input correcto"); }
-    else             { alert("input incorrecto"); }
+    if (iptCorrecto)
+    {
+      if (GameOver() === false)
+      {
+        AvanzarPalabra();
+        ResetInput();
+      }
+      else
+      {
+        ResetInput();
+        alert("FIN");
+      }
+    }
   }
   // Si no, comprobamos si el input que hay hasta ahora es correcto
   else
@@ -33,14 +44,25 @@ function GameManager(event)
     else             { iptTexto.style.backgroundColor = "red";   }
   }
 }
+
 function Comparacion(subIpt, subRef)
 {
-  if (subIpt === subRef)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+  if (subIpt === subRef) { return true;  }
+  else                   { return false; }
+}
+
+function GameOver()
+{
+  if (palabraActualId === palabras.length-1) { return true;  }
+  else                                       { return false; }
+}
+
+function AvanzarPalabra()
+{
+  palabraActualId += 1;
+}
+
+function ResetInput()
+{
+  iptTexto.value = "";
 }
