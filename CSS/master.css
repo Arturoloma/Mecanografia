@@ -73,6 +73,12 @@ select:focus, textarea:focus, input:focus {
 }
 /* PÁGINA */
 #ipt-texto {
+  margin: 15px auto;
   padding: 10px 15px;
   width: 100%;
+}
+#opt-ppm {
+  margin: 15px auto;
+  font-size: 1.6em;
+  text-align: center;
 }
