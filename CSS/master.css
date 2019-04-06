@@ -5,6 +5,7 @@
   --bg-color: rgb(245, 245, 245);
   --font-color: rgb(30, 30, 30);
   --theme-color: rgb(241, 133, 6);
+  --content-width: 1100px;
 }
 /* Configuración general */
 * {
@@ -13,8 +14,15 @@
   padding: 0;
 }
 body {
+  font-family: "Lato", sans-serif;
   background-color: var(--bg-color,white);
   color: var(--font-color,black);
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0px 0px 15px 0px;
+}
+p {
+  margin: 0px 0px 10px 0px;
 }
 a,a:visited{
 	color: var(--theme-color,orange);
@@ -58,11 +66,13 @@ select:focus, textarea:focus, input:focus {
 	top: auto;
 	overflow: hidden;
 }
-
-/* PÁGINA */
-main {
-
+.container{
+  max-width: var(--content-width,1000px);
+  width: 100%;
+  margin: 0 auto;
 }
-#ref-texto {
-
+/* PÁGINA */
+#ipt-texto {
+  padding: 10px 15px;
+  width: 100%;
 }
