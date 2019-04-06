@@ -82,6 +82,11 @@ select:focus, textarea:focus, input:focus {
   font-size: 1.6em;
   text-align: center;
 }
+#opt-progreso {
+  margin: 15px auto;
+  font-size: 1.6em;
+  text-align: center;
+}
 .palabra-actual {
   color: red;
   text-decoration: underline;

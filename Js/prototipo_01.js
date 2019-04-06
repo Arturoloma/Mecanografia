@@ -1,25 +1,36 @@
 
+// CONSTANTES GLOBALES
+const refTextoString = "En la actualidad, en lengua española, se utilizan los términos mecanógrafo y mecanógrafa para denominar a personas con conocimientos de mecanografía, es decir que, con soltura (a alta velocidad, sin necesidad de mirar el teclado) son capaces de introducir texto en una máquina de escribir. Además la mecanografía es una asignatura que por lo general suele impartirse a jóvenes que cursan la secundaria. En algunas escuelas esta disciplina incluye taquigrafía: taquimecanografía. Entre otros ejercicios que se realizan en la clase de mecanografía, se emprenden prácticas de tres quintetos, hojas enteras, etc.";
+const palabras = refTextoString.match(/\S+/gi);                                 // Con esto evitamos obtener " xxxx" o " " como una palabra en caso de encontrar más de un espacio seguido con .split()
+const refTexto = document.getElementById("ref-texto");                          // Elemento del texto de referencia
+const iptTexto = document.getElementById("ipt-texto");                          // Elemento del input para el usuario
+const optPpm = document.getElementById("opt-ppm");                              // Elemento de output de pulsaciones correctas por minuto
+const optProgreso = document.getElementById("opt-progreso");                    // Elemento de output de progreso actual
+const tIni = new Date();                                                        // Momento de inicio del juego
+
 // VAR GLOBALES
-var refTextoString = "En la actualidad, en lengua española, se utilizan los términos mecanógrafo y mecanógrafa para denominar a personas con conocimientos de mecanografía, es decir que, con soltura (a alta velocidad, sin necesidad de mirar el teclado) son capaces de introducir texto en una máquina de escribir. Además la mecanografía es una asignatura que por lo general suele impartirse a jóvenes que cursan la secundaria. En algunas escuelas esta disciplina incluye taquigrafía: taquimecanografía. Entre otros ejercicios que se realizan en la clase de mecanografía, se emprenden prácticas de tres quintetos, hojas enteras, etc.";
-var palabras = refTextoString.match(/\S+/gi);                                   // Con esto evitamos obtener " xxxx" o " " como una palabra en caso de encontrar más de un espacio seguido con .split()
 var palabraActualId = 0;                                                        // Id del array de la palabra que el jugador tiene que escribir
 var refPalabraActualId = 0;                                                     // Id del primer caracter de la palabra actual dentro de la variable del texto completo
-var refTexto = document.getElementById("ref-texto");                            // Elemento del texto de referencia
-var iptTexto = document.getElementById("ipt-texto");                            // Elemento del input para el usuario
-var optPpm = document.getElementById("opt-ppm");                                // Elemento de output de pulsaciones correctas por minuto
-var tIni = new Date();                                                          // Momento de inicio del juego
-var charCorrectos = 0;
+var charCorrectos = 0;                                                          // Número de caracteres introducidos correctamente
 
-refTexto.innerHTML = refTextoString;                                            // Asignación del texto al elemento del texto de referencia
-iptTexto.placeholder = palabras[palabraActualId];                               // Placeholder de la palabra que tienes que escribir
-ResaltarPalabra();
+// INICIALIZACIÓN
+Start();
 
 // FUNCIONES
+function Start()
+{
+  refTexto.innerHTML = refTextoString;                                          // Asignación del texto al elemento del texto de referencia
+  iptTexto.placeholder = palabras[palabraActualId];                             // Placeholder de la palabra que tienes que escribir
+  ResaltarPalabra();                                                            // Resalte de la primera palabra
+}
+
 function GameManager()
 {
-  var subIpt = iptTexto.value;
-  var subRef = palabras[palabraActualId].substring(0,subIpt.length);
+  var subIpt = iptTexto.value;                                                  // Lo que ha escrito el usuario
+  var subRef = palabras[palabraActualId].substring(0,subIpt.length);            // Substring de la palabra actual del mismo largo que lo que lleva escrito el usuario
   var iptCorrecto = false;
+  var ppm = 0;                                                                  // Pulsaciones por minuto
+  var charCorrectosAdd = 0;                                                     // Número de caracteres que se han introducido correctamente en la última palabra y que hay que añadir a la cuenta
 
   // Si es la última palabra, comprobamos si es fin del juego
   if (palabraActualId === palabras.length-1)
@@ -29,8 +40,14 @@ function GameManager()
     iptCorrecto = Comparacion(subIpt, palabras[palabraActualId]);
     if (iptCorrecto)
     {
-        ResetInput();
-        alert("FIN");
+      charCorrectosAdd = subIpt.length;
+      ppm = CalcularPPM(charCorrectosAdd);
+      MostrarPPM(ppm);
+      var progreso = CalcularProgreso();
+      MostrarProgreso(progreso);
+      ResetInput();
+      iptTexto.placeholder = "¡COMPLETADO!";
+      iptTexto.readOnly = true;
     }
   }
   else
@@ -45,11 +62,13 @@ function GameManager()
       EstiloInput(iptCorrecto);
       if (iptCorrecto)
       {
-        var charCorrectosAdd = subIpt.length + 1;                               // Añado 1 por el " " que he quitado anteriormente
+        charCorrectosAdd = subIpt.length + 1;                                   // Añado 1 por el " " que he quitado anteriormente
         AvanzarPalabra(charCorrectosAdd);
         ResaltarPalabra();
-        var ppm = CalcularPPM(charCorrectosAdd);
+        ppm = CalcularPPM(charCorrectosAdd);
         MostrarPPM(ppm);
+        var progreso = CalcularProgreso();
+        MostrarProgreso(progreso);
         ResetInput();
       }
     }
@@ -107,6 +126,16 @@ function CalcularPPM(charCorrectosAdd)
 function MostrarPPM(ppm)
 {
   optPpm.innerHTML = ppm.toString() + " ppm";
+}
+
+function CalcularProgreso()
+{
+  return Math.floor(100*((charCorrectos) / refTextoString.length));
+}
+
+function MostrarProgreso(progreso)
+{
+  optProgreso.innerHTML = progreso + "%";
 }
 
 function ResetInput()
