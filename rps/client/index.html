@@ -12,14 +12,22 @@
       <ul id="events"></ul>
 
       <div class="button-wrapper">
-        <input type="text" id="chat">
+        <form id="chat-form">
+          <input type="text" id="chat">
+          <button type="submit" id="say">Say</button>
+        </form>
+
         <button type="button" id="rock">Rock</button>
         <button type="button" id="paper">Paper</button>
         <button type="button" id="scissors">Scissors</button>
-        <button type="button" id="say">Say</button>
       </div>
 
     </div>
+<!-- El archivo socket.io.js no existe todavía. Lo creará el server cuando
+conecte clientes. Aquí es donde se pasará la info. de conexión, el 'tunel'.
+IMPORTANTE que esté antes del script que llama a client.js -->
+    <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="src/client.js"></script>
+
   </body>
 </html>

@@ -15,7 +15,13 @@ const io = socketio(server);
 
 io.on('connection', (sock) => {
 
-  sock.emit('message', 'Hi, you are connected');
+  console.log('Someone connected');
+  sock.emit('message', 'Hi, you are connected'); /*Manda el mensaje solo al cliente que manda el mensaje */
+
+  sock.on('message', (text) => {
+    io.emit('message', text); /*Manda el mensaje a todos los conectados, incluido el que emite el mensaje*/
+
+  });
 
 });
 

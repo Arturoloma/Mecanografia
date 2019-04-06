@@ -11,4 +11,25 @@ const writeEvent = (text) => {
 
 };
 
+const onFormSubmitted = (e) => {
+  e.preventDefault();
+
+  const input = document.querySelector('#chat');
+  const text = input.value;
+  input.value='';
+
+  sock.emit('message', text);
+};
+
+
 writeEvent('Welcome to RPS');
+
+const sock = io();
+/*Event listener del io. Sock es igual en ambos lados, server y client */
+sock.on('message', (text) => {
+  writeEvent(text)
+});
+
+document
+  .querySelector('#chat-form')
+  .addEventListener('submit', onFormSubmitted);
