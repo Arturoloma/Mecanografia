@@ -207,26 +207,27 @@ function zona(){
     alert("Avanza la tormenta");
   }
 
+/* Fin de la primera fase -- Dificultad baja */
+
   if (tiempoActual == "2:33"){
     alert("Fin de la primera fase");
-    for (a = 0; a<=indexOfprimerCuarto; a++){
-      if (palabraActualId<=a){
-          alert("Estás eliminado.");
-      }
+    if (palabraActualId<=indexOfprimerCuarto){                                  // Si cuando se termina la fase el usuario no ha llegado a la última palabra del primer cuarto del texto, se para el tiempo y se le informa de que está eliminado
+        alert("Estás eliminado.");                                              // Informe de eliminación
+        interruptortimer = false;                                               // Para el interruptor
     }
   }
-
 
   if (tiempoActual == "2:09"){
     alert("Avanza la tormenta");
   }
 
+/* Fin de la segunda fase -- Dificultad media-baja */
+
   if (tiempoActual == "1:35"){
     alert("Fin de la segunda fase");
-    for (a = indexOfprimerCuarto; a<=indexOfsegundoCuarto; a++){
-      if (palabraActualId<=a){
-          alert("Estás eliminado.");
-      }
+    if (palabraActualId<=indexOfsegundoCuarto){
+        alert("Estás eliminado.");
+        interruptortimer = false;
     }
   }
 
@@ -234,12 +235,13 @@ function zona(){
     alert("Avanza la tormenta");
   }
 
+/* Fin de la tercera fase -- Dificultad media-alta */
+
   if (tiempoActual == "0:36"){
     alert("Fin de la tercera fase");
-    for (a = indexOfsegundoCuarto; a<=indexOftercerCuarto; a++){
-      if (palabraActualId<=a){
-          alert("Estás eliminado.");
-      }
+    if (palabraActualId<=indexOftercerCuarto){
+        alert("Estás eliminado.");
+        interruptortimer = false;
     }
   }
 
@@ -247,12 +249,12 @@ function zona(){
     alert("Avanza la tormenta");
   }
 
+/* Fin de la cuarta fase -- Dificultad alta */
+
   if (tiempoActual == "0:00"){
     alert("FIN DE JUEGO");
-    for (a = indexOftercerCuarto; a<=indexOfcuartoCuarto; a++){
-      if (palabraActualId<=a){
-          alert("Estás eliminado.");
-      }
+    if (palabraActualId<=indexOfcuartoCuarto){
+        alert("Estás eliminado.");
     }
   }
 }
