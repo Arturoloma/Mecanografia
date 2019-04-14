@@ -53,10 +53,10 @@ function GameManager()
   else
   {
     // Si el usuario ha presionado la barra espaciadora, comprobamos si podemos pasar a la siguiente palabra
-    if (subIpt.charAt(subIpt.length-1) === " ")
+    if (subIpt.charAt(subIpt.length-1) === " ")                                 // Si el último caracter es un espacio //
     {
-      subIpt = subIpt.substring(0,subIpt.length-1);
-      iptTexto.value = subIpt;
+      subIpt = subIpt.substring(0,subIpt.length-1);                             //Guardo lo que ha introducido el usuario sin el espacio, que es el último caracter //
+      iptTexto.value = subIpt;                                                   // Si se ha equivocado y ha metido un espacio donde no iba, se borra automáticamente, no tiene que corregirlo //
 
       iptCorrecto = Comparacion(subIpt, subRef);
       EstiloInput(iptCorrecto);
@@ -89,8 +89,8 @@ function Comparacion(subIpt, subRef)
 
 function AvanzarPalabra(charCorrectosAdd)
 {
-  palabraActualId += 1;
-  refPalabraActualId += charCorrectosAdd;
+  palabraActualId += 1;                                                         // Sumamos uno al index en el array de palabras para poder hacer las comparaciones (la lógica general)
+  refPalabraActualId += charCorrectosAdd;                                       // Avanzamos según el número de caracteres para poder resaltar la palabra que toca (cuando usamos el texto completo)
   // Prevención de espacios consecutivos que alterarían el correcto índice de comienzo de la palabra actual en el texto de referencia
   var refPalabraActualIdEsEspacio = false;
   do  {
@@ -120,7 +120,7 @@ function CalcularPPM(charCorrectosAdd)
   var tNow = new Date();
   var tTotal = (tNow.getTime() - tIni.getTime()) / 1000 / 60;                   // getTime() devuelve el tiempo desde 1970 en ms. Divido entre 1000 para convertir a segundos y entre 60 para convertir a mins.
   charCorrectos += charCorrectosAdd;
-  return Math.abs(Math.floor(charCorrectos / tTotal));
+  return Math.abs(Math.floor(charCorrectos / tTotal));                          // Math.floor() corta los decimales (redondea a la baja)
 }
 
 function MostrarPPM(ppm)
@@ -160,32 +160,68 @@ function EstiloInput(iptCorrecto)
 
 
 /* Prototipo BR */
+
+/* -- Cronómetro -- */
 var interruptortimer = true;
 
-document.getElementById('timer').innerHTML =
-  03 + ":" + 00;
+document.getElementById('timer').innerHTML =  03 + ":" + 00;
 startTimer();
 
 function startTimer() {
-  if (interruptortimer == true){
-    var presentTime = document.getElementById('timer').innerHTML;
-    var timeArray = presentTime.split(/[:]+/);
+  if (interruptortimer == true){                                                // El interruptor apaga el cronómetro al llegar al 0:00
+    var presentTime = document.getElementById('timer').innerHTML;               // Saca del html el tiempo total del cronómetro, en este caso, 3 minutos y 00 segundos
+    var timeArray = presentTime.split(/[:]+/);                                  // Introduce en un array el tiempo presente dividido en minutos (timeArray[0]) y segundos (timeArray[1])
     var m = timeArray[0];
-    var s = checkSecond((timeArray[1] - 1));
-    if(s==59){m=m-1}
-    if(m==0 & s==0){
+    var s = checkSecond((timeArray[1] - 1));                                    // Va restando 1 a los segundos
+    if(s==59){m=m-1}                                                            // Si los segundos vuelven a 59, resta 1 a los minutos
+    if(m==0 & s==0){                                                            // Si hemos llegado a 0 minutos y 0 segundos, se apaga el cronómetro
       interruptortimer = false;
     }
 
-    document.getElementById('timer').innerHTML =
-    m + ":" + s;
-    setTimeout(startTimer, 1000);
+    document.getElementById('timer').innerHTML =  m + ":" + s;                  // Actualiza el tiempo en el html
+    setTimeout(startTimer, 1000);                                               // Marca la velocidad a la que transcurre la función. 1000ms = 1s
+    zona();
   }
 }
 
 
 function checkSecond(sec) {
-  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-  if (sec < 0) {sec = "59"};
+  if (sec < 10 && sec >= 0) {sec = "0" + sec};                                  // Añade un 0 a los segundos menores de 10
+  if (sec < 0) {sec = "59"};                                                    // Cuando los segundos llegan a 0, los vuelve a poner en 59
   return sec;
+}
+
+
+/* -- La zona -- */
+
+/* Primera zona */
+
+/* Tiempo inicial (carrerilla) */
+
+function zona(){
+  var tiempoActual = document.getElementById('timer').innerHTML;
+  if (tiempoActual == "2:47"){
+    alert("Avanza la tormenta");
+  }
+  if (tiempoActual == "2:33"){
+    alert("Fin de la primera fase");
+  }
+  if (tiempoActual == "2:09"){
+    alert("Avanza la tormenta");
+  }
+  if (tiempoActual == "1:35"){
+    alert("Fin de la segunda fase");
+  }
+  if (tiempoActual == "1:16"){
+    alert("Avanza la tormenta");
+  }
+  if (tiempoActual == "0:36"){
+    alert("Fin de la tercera fase");
+  }
+  if (tiempoActual == "0:27"){
+    alert("Avanza la tormenta");
+  }
+  if (tiempoActual == "0:00"){
+    alert("FIN DE JUEGO");
+  }
 }
