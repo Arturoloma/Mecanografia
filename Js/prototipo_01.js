@@ -205,6 +205,7 @@ function zona(){
   /*Al llegar a este tiempo, empieza a desaparecer el primer cuarto del texto */
   if (tiempoActual == "2:47"){
     alert("Avanza la tormenta");
+    desaparecerTexto();
   }
 
 /* Fin de la primera fase -- Dificultad baja */
@@ -214,6 +215,7 @@ function zona(){
     if (palabraActualId<=indexOfprimerCuarto){                                  // Si cuando se termina la fase el usuario no ha llegado a la última palabra del primer cuarto del texto, se para el tiempo y se le informa de que está eliminado
         alert("Estás eliminado.");                                              // Informe de eliminación
         interruptortimer = false;                                               // Para el interruptor
+        iptTexto.readOnly = true;
     }
   }
 
@@ -228,6 +230,7 @@ function zona(){
     if (palabraActualId<=indexOfsegundoCuarto){
         alert("Estás eliminado.");
         interruptortimer = false;
+        iptTexto.readOnly = true;
     }
   }
 
@@ -242,6 +245,7 @@ function zona(){
     if (palabraActualId<=indexOftercerCuarto){
         alert("Estás eliminado.");
         interruptortimer = false;
+        iptTexto.readOnly = true;
     }
   }
 
@@ -254,7 +258,14 @@ function zona(){
   if (tiempoActual == "0:00"){
     alert("FIN DE JUEGO");
     if (palabraActualId<=indexOfcuartoCuarto){
-        alert("Estás eliminado.");
+      alert("Estás eliminado.");
+      iptTexto.readOnly = true;
     }
+  }
+}
+
+function desaparecerTexto (){
+  for (a=0; a<=indexOfprimerCuarto; a++){
+
   }
 }
