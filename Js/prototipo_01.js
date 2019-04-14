@@ -194,34 +194,65 @@ function checkSecond(sec) {
 
 /* -- La zona -- */
 
-/* Primera zona */
-
-/* Tiempo inicial (carrerilla) */
-
 function zona(){
   var tiempoActual = document.getElementById('timer').innerHTML;
+
+  var indexOfprimerCuarto = Math.floor((palabras.length)/4);
+  var indexOfsegundoCuarto = Math.floor((palabras.length)/2);
+  var indexOftercerCuarto = Math.floor(3*(palabras.length)/4);
+  var indexOfcuartoCuarto = Math.floor(palabras.length-1);
+
+  /*Al llegar a este tiempo, empieza a desaparecer el primer cuarto del texto */
   if (tiempoActual == "2:47"){
     alert("Avanza la tormenta");
   }
+
   if (tiempoActual == "2:33"){
     alert("Fin de la primera fase");
+    for (a = 0; a<=indexOfprimerCuarto; a++){
+      if (palabraActualId<=a){
+          alert("Estás eliminado.");
+      }
+    }
   }
+
+
   if (tiempoActual == "2:09"){
     alert("Avanza la tormenta");
   }
+
   if (tiempoActual == "1:35"){
     alert("Fin de la segunda fase");
+    for (a = indexOfprimerCuarto; a<=indexOfsegundoCuarto; a++){
+      if (palabraActualId<=a){
+          alert("Estás eliminado.");
+      }
+    }
   }
+
   if (tiempoActual == "1:16"){
     alert("Avanza la tormenta");
   }
+
   if (tiempoActual == "0:36"){
     alert("Fin de la tercera fase");
+    for (a = indexOfsegundoCuarto; a<=indexOftercerCuarto; a++){
+      if (palabraActualId<=a){
+          alert("Estás eliminado.");
+      }
+    }
   }
+
   if (tiempoActual == "0:27"){
     alert("Avanza la tormenta");
   }
+
   if (tiempoActual == "0:00"){
     alert("FIN DE JUEGO");
+    for (a = indexOftercerCuarto; a<=indexOfcuartoCuarto; a++){
+      if (palabraActualId<=a){
+          alert("Estás eliminado.");
+      }
+    }
   }
 }
