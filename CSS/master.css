@@ -96,3 +96,9 @@ select:focus, textarea:focus, input:focus {
   color: red;
   text-decoration: underline;
 }
+
+
+.trans {
+  opacity: 0;
+  filter: alpha(opacity: 0);
+}

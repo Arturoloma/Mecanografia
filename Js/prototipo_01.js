@@ -191,16 +191,38 @@ function checkSecond(sec) {
   return sec;
 }
 
+var indexOfprimerCuarto = Math.floor((palabras.length)/4);
+var indexOfsegundoCuarto = Math.floor((palabras.length)/2);
+var indexOftercerCuarto = Math.floor(3*(palabras.length)/4);
+var indexOfcuartoCuarto = Math.floor(palabras.length-1);
+
+/* Desaparecer texto*/
+
+
+
+function desaparecerTexto(){
+  var i=0;                                                                      // Indice de la palabra en el array palabras
+  var ln = 0;                                                                   // Longitud de "avance". Se actualiza sumando el número de caracteres de las palabras del array palabras
+  (function theLoop (a) {
+    setTimeout(function () {
+      ln = ln + palabras[i].length+1;
+      var textcambiado = refTextoString.substring(0,ln);                        // Texto desde 0 hasta el número de caracteres = suma de los caracteres de las palabras que se han ido borrando
+      var textnocambiado = refTextoString.substring(ln,refTextoString.length);  // El resto del texto, que no tiene que borrarse
+
+      refTexto.innerHTML = "<span class='trans'>" + textcambiado + "</span>" + textnocambiado;
+      i++;                                                                      // Hago avanzar el index de uno en uno para que vaya recorriendo el array de palabras
+      if (--a) {                                                                // Si a > 0, sigue
+        theLoop(a);                                                              // Llama al bucle otra vez y le pasa el valor actual de a
+      }
+    }, 590);                                                                    // Ms de delay en cada vuelta del bucle (en setTimeout). nº palabras (22)/tiempo para hacerlas desaparecer (13s) = 590ms
+  })(indexOfprimerCuarto);                                                      // Veces que quiero que se repita el bucle, tantas como palabras he de hacer desaparecer
+}
 
 /* -- La zona -- */
 
 function zona(){
   var tiempoActual = document.getElementById('timer').innerHTML;
 
-  var indexOfprimerCuarto = Math.floor((palabras.length)/4);
-  var indexOfsegundoCuarto = Math.floor((palabras.length)/2);
-  var indexOftercerCuarto = Math.floor(3*(palabras.length)/4);
-  var indexOfcuartoCuarto = Math.floor(palabras.length-1);
 
   /*Al llegar a este tiempo, empieza a desaparecer el primer cuarto del texto */
   if (tiempoActual == "2:47"){
@@ -261,11 +283,5 @@ function zona(){
       alert("Estás eliminado.");
       iptTexto.readOnly = true;
     }
-  }
-}
-
-function desaparecerTexto (){
-  for (a=0; a<=indexOfprimerCuarto; a++){
-
   }
 }
