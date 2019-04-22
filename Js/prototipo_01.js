@@ -216,6 +216,7 @@ function desaparecerTexto(i, ln, index, ms){
         var textcambiado = refTextoString.substring(0,ln);                      // Texto desde 0 hasta el número de caracteres = suma de los caracteres de las palabras que se han ido borrando
         var textnocambiado = refTextoString.substring(ln,refTextoString.length);  // El resto del texto, que no tiene que borrarse
 
+        refTexto.innerHTML="<span class='trans'>" + textcambiado + "<img class='anime' src='./Images/boom.png' width='20' height='20' alt='X'></span>" + textnocambiado;
 
   /* Control de error que te para si has llegado a la palabra que ha desaparecido */
 
@@ -307,5 +308,3 @@ function zona(){
 
   /* Fin de la cuarta fase -- Dificultad alta */
 }
-
-		refTexto.innerHTML="<span class='trans'>" + textcambiado + "<img class='anime' src='./Images/boom.png' width='20' height='20' alt='X'></span>" + textnocambiado;
