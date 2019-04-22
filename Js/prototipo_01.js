@@ -53,10 +53,10 @@ function GameManager()
   else
   {
     // Si el usuario ha presionado la barra espaciadora, comprobamos si podemos pasar a la siguiente palabra
-    if (subIpt.charAt(subIpt.length-1) === " ")
+    if (subIpt.charAt(subIpt.length-1) === " ")                                 // Si el último caracter es un espacio //
     {
-      subIpt = subIpt.substring(0,subIpt.length-1);
-      iptTexto.value = subIpt;
+      subIpt = subIpt.substring(0,subIpt.length-1);                             //Guardo lo que ha introducido el usuario sin el espacio, que es el último caracter //
+      iptTexto.value = subIpt;                                                   // Si se ha equivocado y ha metido un espacio donde no iba, se borra automáticamente, no tiene que corregirlo //
 
       iptCorrecto = Comparacion(subIpt, subRef);
       EstiloInput(iptCorrecto);
@@ -89,8 +89,8 @@ function Comparacion(subIpt, subRef)
 
 function AvanzarPalabra(charCorrectosAdd)
 {
-  palabraActualId += 1;
-  refPalabraActualId += charCorrectosAdd;
+  palabraActualId += 1;                                                         // Sumamos uno al index en el array de palabras para poder hacer las comparaciones (la lógica general)
+  refPalabraActualId += charCorrectosAdd;                                       // Avanzamos según el número de caracteres para poder resaltar la palabra que toca (cuando usamos el texto completo)
   // Prevención de espacios consecutivos que alterarían el correcto índice de comienzo de la palabra actual en el texto de referencia
   var refPalabraActualIdEsEspacio = false;
   do  {
@@ -120,7 +120,7 @@ function CalcularPPM(charCorrectosAdd)
   var tNow = new Date();
   var tTotal = (tNow.getTime() - tIni.getTime()) / 1000 / 60;                   // getTime() devuelve el tiempo desde 1970 en ms. Divido entre 1000 para convertir a segundos y entre 60 para convertir a mins.
   charCorrectos += charCorrectosAdd;
-  return Math.abs(Math.floor(charCorrectos / tTotal));
+  return Math.abs(Math.floor(charCorrectos / tTotal));                          // Math.floor() corta los decimales (redondea a la baja)
 }
 
 function MostrarPPM(ppm)
@@ -156,4 +156,139 @@ function EstiloInput(iptCorrecto)
      iptTexto.style.backgroundColor = "red";
      iptTexto.style.color = "white";
   }
+}
+
+
+/* Prototipo BR */
+
+/* -- Cronómetro -- */
+var interruptortimer = true;
+
+document.getElementById('timer').innerHTML =  03 + ":" + 00;
+startTimer();
+
+function startTimer() {
+  if (interruptortimer == true){                                                // El interruptor apaga el cronómetro al llegar al 0:00
+    var presentTime = document.getElementById('timer').innerHTML;               // Saca del html el tiempo total del cronómetro, en este caso, 3 minutos y 00 segundos
+    var timeArray = presentTime.split(/[:]+/);                                  // Introduce en un array el tiempo presente dividido en minutos (timeArray[0]) y segundos (timeArray[1])
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));                                    // Va restando 1 a los segundos
+    if(s==59){m=m-1}                                                            // Si los segundos vuelven a 59, resta 1 a los minutos
+    if(m==0 & s==0){                                                            // Si hemos llegado a 0 minutos y 0 segundos, se apaga el cronómetro
+      interruptortimer = false;
+    }
+
+    document.getElementById('timer').innerHTML =  m + ":" + s;                  // Actualiza el tiempo en el html
+    setTimeout(startTimer, 1000);                                               // Marca la velocidad a la que transcurre la función. 1000ms = 1s
+    zona();
+  }
+}
+
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec};                                  // Añade un 0 a los segundos menores de 10
+  if (sec < 0) {sec = "59"};                                                    // Cuando los segundos llegan a 0, los vuelve a poner en 59
+  return sec;
+}
+
+var indexOfprimerCuarto = Math.floor((palabras.length)/4);
+var indexOfsegundoCuarto = Math.floor((palabras.length)/2);
+var indexOftercerCuarto = Math.floor(3*(palabras.length)/4);
+var indexOfcuartoCuarto = Math.floor(palabras.length-1);
+
+/* Desaparecer texto*/
+
+
+
+function desaparecerTexto(){
+  var i=0;                                                                      // Indice de la palabra en el array palabras
+  var ln = 0;                                                                   // Longitud de "avance". Se actualiza sumando el número de caracteres de las palabras del array palabras
+  (function theLoop (a) {
+    setTimeout(function () {
+      ln = ln + palabras[i].length+1;
+      var textcambiado = refTextoString.substring(0,ln);                        // Texto desde 0 hasta el número de caracteres = suma de los caracteres de las palabras que se han ido borrando
+      var textnocambiado = refTextoString.substring(ln,refTextoString.length);  // El resto del texto, que no tiene que borrarse
+	
+		refTexto.innerHTML="<span class='trans'>" + textcambiado + "<img class='anime' src='./Images/boom.png' width='20' height='20' alt='X'></span>" + textnocambiado;
+		
+      i++;                                                                      // Hago avanzar el index de uno en uno para que vaya recorriendo el array de palabras
+      if (--a) {                                                                // Si a > 0, sigue
+        theLoop(a);                                                              // Llama al bucle otra vez y le pasa el valor actual de a
+      }
+    }, 590);                                                                    // Ms de delay en cada vuelta del bucle (en setTimeout). nº palabras (22)/tiempo para hacerlas desaparecer (13s) = 590ms
+  })(indexOfprimerCuarto);                                                      // Veces que quiero que se repita el bucle, tantas como palabras he de hacer desaparecer
+}
+
+/* -- La zona -- */
+
+function zona(){
+  var tiempoActual = document.getElementById('timer').innerHTML;
+
+
+  /*Al llegar a este tiempo, empieza a desaparecer el primer cuarto del texto */
+  if (tiempoActual == "2:47"){
+    alert("Avanza la tormenta");
+    desaparecerTexto();
+  }
+
+/* Fin de la primera fase -- Dificultad baja */
+
+  if (tiempoActual == "2:33"){
+    alert("Fin de la primera fase");
+    if (palabraActualId<=indexOfprimerCuarto){                                  // Si cuando se termina la fase el usuario no ha llegado a la última palabra del primer cuarto del texto, se para el tiempo y se le informa de que está eliminado
+        alert("Estás eliminado.");                                              // Informe de eliminación
+        interruptortimer = false;                                               // Para el interruptor
+        iptTexto.readOnly = true;
+    }
+  }
+
+  if (tiempoActual == "2:09"){
+    alert("Avanza la tormenta");
+  }
+
+/* Fin de la segunda fase -- Dificultad media-baja */
+
+  if (tiempoActual == "1:35"){
+    alert("Fin de la segunda fase");
+    if (palabraActualId<=indexOfsegundoCuarto){
+        alert("Estás eliminado.");
+        interruptortimer = false;
+        iptTexto.readOnly = true;
+    }
+  }
+
+  if (tiempoActual == "1:16"){
+    alert("Avanza la tormenta");
+  }
+
+/* Fin de la tercera fase -- Dificultad media-alta */
+
+  if (tiempoActual == "0:36"){
+    alert("Fin de la tercera fase");
+    if (palabraActualId<=indexOftercerCuarto){
+        alert("Estás eliminado.");
+        interruptortimer = false;
+        iptTexto.readOnly = true;
+    }
+  }
+
+  if (tiempoActual == "0:27"){
+    alert("Avanza la tormenta");
+  }
+
+/* Fin de la cuarta fase -- Dificultad alta */
+
+  if (tiempoActual == "0:00"){
+    alert("FIN DE JUEGO");
+    if (palabraActualId<=indexOfcuartoCuarto){
+      alert("Estás eliminado.");
+      iptTexto.readOnly = true;
+    }
+  }
+}
+
+function animacion(){
+	
+	pal.innerHTML="<div class='anime'><img src='./Images/boom.png' height='10px' width='10px'></div>";
+	alert("hello");
 }
