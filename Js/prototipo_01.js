@@ -193,16 +193,12 @@ function checkSecond(sec) {
 
 var indexOfprimerCuarto = Math.floor((palabras.length)/4);
 var index01 = indexOfprimerCuarto;
-alert(index01);
 var indexOfsegundoCuarto = Math.floor((palabras.length)/2);
 var index02 = indexOfsegundoCuarto-indexOfprimerCuarto;
-alert(index02);
 var indexOftercerCuarto = Math.floor(3*(palabras.length)/4);
 var index03 = indexOftercerCuarto-indexOfsegundoCuarto;
-alert(index03);
 var indexOfcuartoCuarto = Math.floor(palabras.length-1);
 var index04 = indexOfcuartoCuarto-indexOftercerCuarto;
-alert(index04);
 
 /* Desaparecer texto*/
 
