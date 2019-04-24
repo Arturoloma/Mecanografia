@@ -5,7 +5,7 @@
   --bg-color: rgb(245, 245, 245);
   --font-color: rgb(30, 30, 30);
   --theme-color: rgb(241, 133, 6);
-  --content-width: 1100px;
+  --content-width: 1920px;
 }
 /* Configuración general */
 * {
@@ -13,16 +13,21 @@
   margin: 0;
   padding: 0;
 }
+
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Lato", sans-serif;
   background-color: var(--bg-color,white);
   color: var(--font-color,black);
 }
 h1,h2,h3,h4,h5,h6 {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 15px 0px;
 }
 p {
-  margin: 10px 0px 15px 0px;
+  margin: 0px 0px 10px 0px;
 }
 a,a:visited{
 	color: var(--theme-color,orange);
@@ -58,6 +63,8 @@ select:focus, textarea:focus, input:focus {
 	-ms-user-select: none;
 	user-select: none;
 }
+
+/* Clase que inicialmente se estaba aplicando al h1 del header
 .sr-only {
 	position: absolute;
 	left: -10000px;
@@ -66,8 +73,10 @@ select:focus, textarea:focus, input:focus {
 	top: auto;
 	overflow: hidden;
 }
+*/
+
 .container{
-  max-width: var(--content-width,1000px);
+  max-width: var(--content-width,1920px);
   width: 100%;
   margin: 0 auto;
 }
@@ -87,33 +96,369 @@ select:focus, textarea:focus, input:focus {
   font-size: 1.6em;
   text-align: center;
 }
-#timer{
-  margin: 15px auto;
-  font-size: 1.6em;
-  text-align: center;
-}
 .palabra-actual {
   color: red;
   text-decoration: underline;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
 }
 
+/*================ ESTILOS NUEVOS ==================*/
 
-.trans {
-visibility: hidden;
-	
-}
-.anime{
-	visibility: visible;
-	object-fit: cover;
-	animation: explosion 1s linear normal;
-	z-index: 100;
-  	margin-left: 15;
- 	 margin-right: 15;
+/***** ESTILOS CABECERA WEB *****/
+
+header{
+  width: 100%;
+  height: 180px;
+  margin: 0 auto;
 }
 
-@keyframes explosion{
-	from{transform:  scale(0);}
-	50%{transform: scale(1.5);}
-	99%{transform: scale(1);}
-	to{transform: scale(0);}
+#div_logo{
+  background-color: #000;
+  height: 100px;
+}
+
+#div_logo h1{
+  color: #FFF;
+  text-align: center;
+  line-height: 100px;
+}
+
+#span_logo{
+  color: tomato;
+}
+
+nav{
+  width: 100%;
+  background-color: #222;
+}
+
+.naviFixed{
+  position: fixed;
+  background-color: #000;
+  opacity: .9;
+  top: 0;
+  z-index: 100;
+}
+
+header nav ul{
+  list-style: none;
+  text-align: center;
+}
+
+header nav ul li{
+  display: inline-block;
+  margin-right: 15px;
+  line-height: 80px;
+}
+
+header nav ul li a{
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+header nav ul li a:hover{
+  font-size: 25px;
+  text-decoration: underline;
+  color: #FFF;
+  text-shadow: 2px 0 0 #10C9CA, -2px 0 0 #10C9CA, 0 2px 0 #10C9CA, 0 -2px 0 #10C9CA, 1px 1px #10C9CA, -1px -1px 0 #10C9CA, 1px -1px 0 #10C9CA, -1px 1px 0 #10C9CA;
+}
+
+/***** ESTILOS CUERPO WEB *****/
+
+main{
+  width: 100%;
+  height: 100%;
+  background-image: url("blue_01.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+section{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+section h2{
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  color: #FFF;
+  margin-bottom: 30px;
+  text-align: justify;
+  text-shadow: 2px 0 0 #FC247B, -2px 0 0 #FC247B, 0 2px 0 #FC247B, 0 -2px 0 #FC247B, 1px 1px 0 #FC247B, -1px -1px 0 #FC247B, 1px -1px 0 #FC247B, -1px 1px 0 #FC247B;
+}
+
+section h3{
+  color: #FFF;
+  font-size: 1.5em;
+  margin-top: 25px;
+}
+
+section p{
+  font-size: 1.3em;
+  color: #FFF;
+  letter-spacing: 1px;
+  text-align: justify;
+  text-shadow: 2px 0 0 #111, -2px 0 0 #111, 0 2px 0 #111, 0 -2px 0 #111, 1px 1px #111, -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111;
+}
+
+#section_inicio{
+  margin-bottom: 50px;
+}
+
+#section_jugar{
+  border-top: 1px solid white;
+  margin-bottom: 50px;
+}
+
+/*==================== PANTALLA DEL JUEGO ==================*/
+
+#pantalla_juego{
+  position: relative;
+  width: 100%;
+  height: 700px;
+  margin-top: 25px;
+  background-color: #000;
+  opacity: .9;
+}
+
+#div_dificultad{
+  position: absolute;
+  width: 80%;
+  height: 500px;
+  background-color: purple;
+  margin-left:auto;
+  margin-right:auto;
+  left:0;
+  right:0;
+  top: 100px;
+  /*display: none;*/
+}
+
+#span_dificultad{
+  display: block;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px auto;
+}
+
+#boton_nivel_facil, #boton_nivel_normal, #boton_nivel_dificil{
+  position: absolute;
+  width: 20%;
+  height: 250px;
+  background-color: tomato;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: #FFF;
+  font-size: 1.3em;
+  text-align: center;
+  line-height: 250px;
+}
+
+#boton_nivel_facil:hover, #boton_nivel_normal:hover, #boton_nivel_dificil:hover{
+  cursor: pointer;
+}
+
+#boton_nivel_facil{
+  left: 15%;
+}
+
+#boton_nivel_normal{
+  left: 40%;
+}
+
+#boton_nivel_dificil{
+  left: 65%;
+}
+
+#boton_jugar{
+  position: absolute;
+  width: 220px;
+  height: 80px;
+  background-color: orange;
+  margin-left:auto;
+  margin-right:auto;
+  left:0;
+  right:0;
+  bottom: 7%;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+
+#boton_jugar:hover{
+  cursor: pointer;
+}
+
+#span_jugar{
+  color: #FFF;
+  display: block;
+  text-align: center;
+  line-height: 80px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+#div_cuenta_atras{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: purple;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 200px;
+  color: #FFF;
+  font-size: 7em;
+  text-align: center;
+  line-height: 300px;
+  display: none;
+}
+
+#div_juego{
+  position: absolute;
+  width: 90%;
+  height: 600px;
+  background-color: purple;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50px;
+  display: none;
+}
+
+#boton_volver_inicio, #boton_reiniciar_juego{
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background-color: orange;
+  color: #FFF;
+  font-size: 1.3em;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#boton_volver_inicio{
+  left: 20px;
+  bottom: 50px;
+}
+
+#boton_reiniciar_juego{
+  right: 20px;
+  bottom: 50px;
+}
+
+#div_resultados{
+  position: absolute;
+  width: 60%;
+  height: 600px;
+  background-color: #FFF;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50px;
+  display: none;
+}
+
+#span_resultados{
+  display: block;
+  color: #000;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#div_resultados p{
+  font-size: 1.5em;
+  color: #000;
+  text-shadow: none;
+  margin-bottom: 30px;
+}
+
+/*======================================================*/
+
+#section_practicar{
+  border-top: 1px solid white;
+  margin-bottom: 50px;
+}
+
+#section_reglas{
+  border-top: 1px solid white;
+  margin-bottom: 50px;
+}
+
+#section_reglas ul li{
+  margin-bottom: 15px;
+}
+
+#section_reglas ul{
+  list-style: inside;
+  color: #FFF;
+  font-size: 1.3em;
+  text-align: justify;
+}
+
+#section_faqs{
+  border-top: 1px solid white;
+  margin-bottom: 50px;
+}
+
+#section_contacto{
+  border-top: 1px solid white;
+}
+
+#section_contacto form input{
+  display: block;
+  width: 50%;
+  text-align: left;
+  margin-top: 15px;
+  padding: 10px 15px;
+}
+
+#caja_texto{
+  width: 50%;
+  height: 300px;
+  text-align: left;
+  margin-top: 15px;
+}
+
+#boton_enviar{
+  display: block;
+  width: 25%;
+  height: 50px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  margin-left: 12%;
+  background-color: orange;
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#boton_enviar:hover{
+  cursor: pointer;
+}
+
+/***** ESTILOS PIE WEB *****/
+
+footer{
+  width: 100%;
+  height: 150px;
+  background-color: #000;
+  font-size: 1.1em;
+  color: #FFF;
+  text-align: justify;
+  padding: 20px;
 }
