@@ -104,6 +104,7 @@ libreria[39] = "Cerca de unos prados que hay en mi lugar, pasaba un Borrico por 
 
 libreria[40] = "A orillas de un estanque, diciendo estaba un Pato: ¿A qué animal dió el cielo los dones que me ha dado? Soy de agua, tierra y aire: Cuando de andar me canso, si se me antoja, vuelo; si se me antoja, nado. Una Serpiente astuta, que le estaba escuchando, le llamó con un silbo, y le dijo: No hay que echar tantas plantas; pues ni anda como el gamo, ni vuela como el sacre, ni nada como el barbo; y así tenga sabido que lo importante y raro no es entender de todo, sino ser diestro en algo.";
 
-/* Comprobar longitud */
+/* Comprobar longitud
 var longitud = libreria[40].split(" ").length;
 console.log(longitud);
+ */
