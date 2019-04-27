@@ -13,10 +13,10 @@ var Vista = function()
   {
     optTexto.innerHTML = texto;
     iptTexto.placeholder = palabraActual;
-    resaltarPalabra(texto, palabraActual.length, idPalabraActual);
+    resaltarPalabra(palabraActual.length, idPalabraActual);
   }
 
-  function resaltarPalabra(texto, largoPalabraActual, idPalabraActual)
+  function resaltarPalabra(largoPalabraActual, idPalabraActual)
   {
     for (var i = 0 ; i < largoPalabraActual ; i++)
     {
