@@ -1,4 +1,5 @@
 
+
 // CONSTANTES GLOBALES
 const refTextoString = "En la actualidad, en lengua española, se utilizan los términos mecanógrafo y mecanógrafa para denominar a personas con conocimientos de mecanografía, es decir que, con soltura (a alta velocidad, sin necesidad de mirar el teclado) son capaces de introducir texto en una máquina de escribir. Además la mecanografía es una asignatura que por lo general suele impartirse a jóvenes que cursan la secundaria. En algunas escuelas esta disciplina incluye taquigrafía: taquimecanografía. Entre otros ejercicios que se realizan en la clase de mecanografía, se emprenden prácticas de tres quintetos, hojas enteras, etc.";
 const palabras = refTextoString.match(/\S+/gi);                                 // Con esto evitamos obtener " xxxx" o " " como una palabra en caso de encontrar más de un espacio seguido con .split()
@@ -153,7 +154,17 @@ function EstiloInput(iptCorrecto)
   }
   else
   {
-     iptTexto.style.backgroundColor = "red";
-     iptTexto.style.color = "white";
+    iptTexto.style.backgroundColor = "red";
+    iptTexto.style.color = "white";
+  }
+}
+
+window.onscroll = function(){ navFixed() };
+
+function navFixed() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    document.getElementById("navi").className = "naviFixed";
+  } else {
+    document.getElementById("navi").className = "";
   }
 }
