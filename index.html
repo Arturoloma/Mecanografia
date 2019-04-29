@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Mecanografía</title>
+    <!--Favicon-->
+    <link rel= "shortcut icon" type= "image/x-icon" href= "./Images/favicon.ico">
     <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Schoolbell|Shadows+Into+Light|Indie+Flower" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./CSS/master.css">
     <!-- JavaScript -->
@@ -13,7 +16,9 @@
   <body translate="no" onscroll="navFixed()">
     <header>
       <div id="div_logo">
-        <h1>Logo<span id="span_logo">WEB</span></h1>
+        <h1>Wasa<span id="span_logo">bee</span></h1>
+        <img class="logo_bee" src="./Images/logo.png" alt="Wasabee">
+
       </div>
       <nav id="navi">
         <ul>
@@ -44,10 +49,25 @@
         </p>
         <div id="pantalla_juego">
           <div id="div_dificultad">
+            <img class="logo_bee_juego" src="./Images/logo.png" alt="Wasabee">
+            <div class="logo_wasabee">Wasabee</div>
             <span id="span_dificultad">NIVEL DE DIFICULTAD</span>
-            <div id="boton_nivel_facil">FÁCIL</div>
-            <div id="boton_nivel_normal">NORMAL</div>
-            <div id="boton_nivel_dificil">DIFÍCIL</div>
+            <div id="boton_nivel_facil">FÁCIL
+              <div id="lunares_facil"><div class="lunar"></div></div>
+            </div>
+            <div id="boton_nivel_normal">NORMAL
+              <div id="lunares_normal">
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+              </div>
+            </div>
+            <div id="boton_nivel_dificil">DIFÍCIL
+              <div id="lunares_dificil">
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+              </div>
+            </div>
             <div id="boton_jugar" onclick=""><span id="span_jugar">JUGAR</span></div>
           </div>
 
@@ -55,7 +75,7 @@
           </div>
 
           <div id="div_juego">
-            <!--
+
 
             <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
             <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
@@ -66,8 +86,8 @@
             </div>
             <div id="boton_reiniciar_juego">Reiniciar juego
             </div>
-            
-          -->
+
+
           </div>
 
           <div id="div_resultados">
@@ -93,6 +113,7 @@
                onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
         <p id="opt-ppm">0 ppm</p>
         <p id="opt-progreso">0%</p>
+        <p id="timer">0:00</p>
       </section>
 
       <section id="section_reglas">

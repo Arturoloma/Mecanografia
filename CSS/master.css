@@ -14,6 +14,15 @@
   padding: 0;
 }
 
+@font-face {
+    font-family: 'letters_for_learnersregular';
+    src: url('../Fonts/wasabee/letters_for_learners-webfont.woff2') format('woff2'),
+         url('../Fonts/wasabee/letters_for_learners-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html{
   scroll-behavior: smooth;
 }
@@ -96,6 +105,11 @@ select:focus, textarea:focus, input:focus {
   font-size: 1.6em;
   text-align: center;
 }
+#timer{
+  margin: 15px auto;
+  font-size: 1.6em;
+  text-align: center;
+}
 .palabra-actual {
   color: red;
   text-decoration: underline;
@@ -126,8 +140,33 @@ header{
 }
 
 #span_logo{
-  color: tomato;
+  color: rgb(1, 255, 0); /*Verde wasabee*/
 }
+
+.logo_bee{
+  position: absolute;
+  top: 3%;
+  left: 1%;
+  width: 150px;
+  height: 120px;
+}
+
+.logo_bee_juego{
+  position: absolute;
+  top: 3%;
+  left: 1%;
+  width: 120px;
+  height: 100px;
+}
+
+.logo_wasabee{
+  position: absolute;
+  top: 20%;
+  left: 3%;
+  font-family: 'letters_for_learnersregular';
+  font-size: 2em;
+}
+
 
 nav{
   width: 100%;
@@ -188,7 +227,8 @@ section h2{
   color: #FFF;
   margin-bottom: 30px;
   text-align: justify;
-  text-shadow: 2px 0 0 #FC247B, -2px 0 0 #FC247B, 0 2px 0 #FC247B, 0 -2px 0 #FC247B, 1px 1px 0 #FC247B, -1px -1px 0 #FC247B, 1px -1px 0 #FC247B, -1px 1px 0 #FC247B;
+  text-shadow: 2px 0 0 #00FF00, -2px 0 0 #00FF00, 0 2px 0 #00FF00, 0 -2px 0 #00FF00, 1px 1px 0 #00FF00, -1px -1px 0 #00FF00, 1px -1px 0 #00FF00, -1px 1px 0 #00FF00;
+  /*text-shadow: 2px 0 0 #FC247B, -2px 0 0 #FC247B, 0 2px 0 #FC247B, 0 -2px 0 #FC247B, 1px 1px 0 #FC247B, -1px -1px 0 #FC247B, 1px -1px 0 #FC247B, -1px 1px 0 #FC247B;*/
 }
 
 section h3{
@@ -221,28 +261,31 @@ section p{
   width: 100%;
   height: 700px;
   margin-top: 25px;
-  background-color: #000;
-  opacity: .9;
+  background-color: #00f0ff; /* Azul cyan */
+  border-radius: 25px;
+/*  opacity: .9; */
+  font-family: 'letters_for_learnersregular', "Gloria Hallelujah";
 }
 
 #div_dificultad{
   position: absolute;
   width: 80%;
   height: 500px;
-  background-color: purple;
+  border-radius: 25px;
+  background-color: white;
   margin-left:auto;
   margin-right:auto;
   left:0;
   right:0;
   top: 100px;
-  /*display: none;*/
+  display: none;
 }
 
 #span_dificultad{
   display: block;
-  color: white;
-  font-size: 1.5em;
-  font-weight: bold;
+  color: black;
+  font-size: 2.6em;
+  font-weight: normal;
   text-align: center;
   margin: 30px auto;
 }
@@ -251,11 +294,12 @@ section p{
   position: absolute;
   width: 20%;
   height: 250px;
-  background-color: tomato;
+  background-color: #00f0ff;
   border: 2px solid black;
   border-radius: 20px;
-  color: #FFF;
-  font-size: 1.3em;
+  box-shadow: 5px 10px 18px #888888;
+  color: black;
+  font-size: 2em;
   text-align: center;
   line-height: 250px;
 }
@@ -276,18 +320,49 @@ section p{
   left: 65%;
 }
 
+
+.lunar{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 3px #035dff;
+  background-color: white;
+  z-index: 2;
+  float:left;
+  margin-right: 20px;
+}
+
+#lunares_facil{
+  position: absolute;
+  top: 70%;
+  left: 40%;
+}
+
+#lunares_normal{
+  position: absolute;
+  top: 70%;
+  left: 29%;
+}
+
+#lunares_dificil{
+  position: absolute;
+  top: 70%;
+  left: 17%;
+}
+
 #boton_jugar{
   position: absolute;
   width: 220px;
   height: 80px;
-  background-color: orange;
+  background-color: #00f0ff;
   margin-left:auto;
   margin-right:auto;
   left:0;
   right:0;
   bottom: 7%;
   border-radius: 20px;
-  border: 2px solid white;
+  border: 2px solid black;
+  box-shadow: 5px 10px 18px #888888;
 }
 
 #boton_jugar:hover{
@@ -299,7 +374,7 @@ section p{
   display: block;
   text-align: center;
   line-height: 80px;
-  font-size: 1.4em;
+  font-size: 2.1em;
   font-weight: bold;
 }
 
@@ -307,31 +382,49 @@ section p{
   position: absolute;
   width: 300px;
   height: 300px;
-  background-color: purple;
+  background-color: white;
+  border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 200px;
-  color: #FFF;
-  font-size: 7em;
+  color: #00f0ff;
+  font-size: 8em;
   text-align: center;
   line-height: 300px;
   display: none;
 }
 
+
 #div_juego{
   position: absolute;
   width: 90%;
   height: 600px;
-  background-color: purple;
-  padding: 20px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 50px;
-  display: none;
+  font-family: "letters_for_learnersregular";
+  /*display: none;*/
+}
+
+#ref-texto{
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: white;
+  font-family: "letters_for_learnersregular" !important;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  color: black;
+  margin-bottom: 30px;
+  text-align: justify;
+  text-shadow: none;
 }
 
 #boton_volver_inicio, #boton_reiniciar_juego{
