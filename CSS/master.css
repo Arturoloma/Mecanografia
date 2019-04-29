@@ -261,7 +261,14 @@ section p{
   width: 100%;
   height: 700px;
   margin-top: 25px;
-  background-color: #00f0ff; /* Azul cyan */
+  /* fondo de lunares */
+  background:
+        radial-gradient(white 15%, transparent 16%),
+        radial-gradient(white 15%, transparent 16%),
+        #a2feff;
+  background-position: 0 0, 100px 100px;
+  background-size: 180px 180px;
+  padding-bottom: 56.25%;
   border-radius: 25px;
 /*  opacity: .9; */
   font-family: 'letters_for_learnersregular', "Gloria Hallelujah";
@@ -278,7 +285,7 @@ section p{
   left:0;
   right:0;
   top: 100px;
-  display: none;
+  /*display: none;*/
 }
 
 #span_dificultad{
@@ -407,7 +414,7 @@ section p{
   right: 0;
   top: 50px;
   font-family: "letters_for_learnersregular";
-  /*display: none;*/
+  display: none;
 }
 
 #ref-texto{
