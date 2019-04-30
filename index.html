@@ -73,7 +73,7 @@
             </div>
             <div id="boton_jugar" onclick=""><span id="span_jugar">JUGAR</span></div>
           </div>
-      
+
 
           <div id="div_cuenta_atras">3
           </div>
@@ -81,14 +81,20 @@
           <div id="div_juego">
 
 
+            <p id="timer">0:00</p>
             <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
             <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
             <p id="opt-progreso">0%</p>
-            <div id="boton_volver_inicio">Volver al Inicio
+
+            <div id="boton_volver_inicio">
+              <img src="./Images/logo.png" alt="Inicio" width="80px" height="70px">
+              <p id="inicio">Inicio</p>
             </div>
-            <div id="boton_reiniciar_juego">Reiniciar juego
+            <div id="boton_reiniciar_juego">
+              <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
+              <p id="reinicio">Reiniciar</p>
             </div>
 
 
@@ -117,7 +123,7 @@
                onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
         <p id="opt-ppm">0 ppm</p>
         <p id="opt-progreso">0%</p>
-        <p id="timer">0:00</p>
+
       </section>
 
       <section id="section_reglas">
