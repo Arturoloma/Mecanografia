@@ -395,7 +395,7 @@ section p{
   right: 0;
   top: 50px;
   font-family: "letters_for_learnersregular";
-  display: none;
+  /*display: none;*/
 }
 
 #ref-texto{
@@ -492,7 +492,7 @@ section p{
   left: 0;
   right: 0;
   top: 50px;
-  /*display: none;*/
+  display: none;
 }
 #resultados{
   position: relative;
