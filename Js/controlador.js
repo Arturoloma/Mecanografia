@@ -2,9 +2,9 @@
 
 var Controlador = function()
 {
-  const palabras = libreria[elegirTextoAleatorio()].match(/\S+/gi);             // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
-  const texto    = construirTextoRevisado(palabras);                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
-  var idPalabraActual = 0;
+  const Palabras = libreria[elegirTextoAleatorio()].match(/\S+/gi);             // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
+  const Texto    = construirTextoRevisado(palabras);                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
+  var IdPalabraActual = 0;
   Vista.Inicializar(texto, palabras[0], idPalabraActual);
 
 
@@ -45,6 +45,9 @@ var Controlador = function()
 
   // NO DAR SALTO DE CARRO A LA LLAVE DE APERTURA DEL RETURN (SE ROMPE EL LITERAL)
   return {
+    Palabras:Palabras,
+    Texto:Texto,
+    IdPalabraActual:IdPalabraActual,
     PruebaControlador:PruebaControlador
   }
 }();
