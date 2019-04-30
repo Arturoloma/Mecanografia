@@ -485,27 +485,67 @@ section p{
 }
 #div_resultados{
   position: absolute;
-  width: 60%;
+  width: 100%;
   height: 600px;
-  background-color: #FFF;
-  padding: 20px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 50px;
-  display: none;
+  /*display: none;*/
 }
-
+#resultados{
+  position: relative;
+  width: 50%;
+  height: 80%;
+  top: 5%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #c8d5d9;
+  border-radius: 25px;
+}
 #span_resultados{
   display: block;
   color: #000;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
   text-align: center;
   margin-bottom: 50px;
 }
 
+#boton_volver_inicio_res, #boton_reiniciar_juego_res{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+#boton_volver_inicio_res{
+  left: 5%;
+  bottom: 0;
+}
+#inicio_res{
+  position: absolute;
+  font-size: 2em;
+  font-family: "letters_for_learnersregular" !important;
+  text-shadow: none;
+  color: black;
+  left:8%;
+}
+#boton_reiniciar_juego_res{
+  left: 85%;
+  bottom: 32%;
+}
+#reinicio_res{
+  position: absolute;
+  font-size: 2em;
+  font-family: "letters_for_learnersregular" !important;
+  text-shadow: none;
+  color: black;
+  left:-4%;
+  bottom: 40%;
+}
 #div_resultados p{
   font-size: 1.5em;
   color: #000;
