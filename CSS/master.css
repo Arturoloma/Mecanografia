@@ -464,15 +464,22 @@ footer{
 }
 /*********ANIMACIONES *****/
 
+
 .p-oleada{
 	border-bottom: 0.10em solid brown;
 	padding-bottom: 0.6em;
 }
-.p-chispa{
+.l-sin-quemar{
 	border-bottom: 0.10em solid brown;
 	padding-bottom: 0.6em;
+	color:red;}
+
+.l-chispa{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+	color:red;
 }
-.p-chispa::after{
+.l-chispa::after{
 	content:"";
 	background-image:url("chispa.png");
 	position:absolute;
@@ -484,16 +491,18 @@ footer{
 	height: 1.5em;
 	width: 1.5em;
 	z-index: 100;
-	animation: mecha 0.5s linear infinite;
+	animation: chispa 0.5s linear infinite;
 }
-p-quemada{
-  border-bottom: 0.08em dotted gray;
+.l-quemada{
+	border-bottom: 0.08em dotted grey;
 	padding-bottom: 0.6em;
+	color:red;
 }
 .p-explosion{
 	border-bottom: 0.08em dotted grey;
 	padding-bottom: 0.6em;
-	animation: humo 1s linear 0.4s forwards normal,inflar	0.5s linear forwards normal;
+	animation: humo 1s linear 0.4s forwards normal;
+	color:red;
 }
 
 .p-explosion::after{
@@ -508,17 +517,11 @@ p-quemada{
 	animation: explosion 1s linear 0.5 forwards  normal;
 }
 
-@keyframes mecha{
+@keyframes chispa{
 	from{transform:  scale(1.1);}
 	50%{transform: scale(1);}
 	99%{transform: scale(1.1);}
 	to{transform: scale(1);}
-}
-
-@keyframes inflar{
-	from{color:rgb(254, 140, 0);}
-	50%{color:rgb(245, 121, 10);}
-	to{color:red;}
 }
 
 @keyframes explosion{
