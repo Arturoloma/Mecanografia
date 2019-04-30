@@ -3,17 +3,19 @@
 // ON INPUT
 document.getElementById("ipt-texto").addEventListener("input", function()
 {
-  alert("hay input");
+  const subIpt = iptTexto.value;                                                // Lo que ha escrito el usuario
+  const subRef = palabras[idPalabraActual].substring(0,subIpt.length);          // Substring de la palabra actual del mismo largo que lo que lleva escrito el usuario
+  var charCorrectosAdd = 0;
+
   if (!EsUltimaPalabra())
   {
-    alert ("No es ultima palabra");
-    if (UltimoCharEsEspacio())
+    if (UltimoCharEsEspacio(subIpt))
     {
-
+      ControlarAvanceDePalabra(subIpt, subRef);
     }
     else
     {
-
+      ControlarSiInputCorrecto(subIpt, subRef);
     }
   }
   else
@@ -28,7 +30,7 @@ function EsUltimaPalabra()
   return idPalabraActual === palabras.length - 1;
 }
 
-function UltimoCharEsEspacio()
+function UltimoCharEsEspacio(subIpt)
 {
-  return document.getElementById("ipt-texto")
+  return subIpt.charAt(subIpt.length-1) === " ";
 }

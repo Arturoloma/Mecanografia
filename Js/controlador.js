@@ -1,38 +1,61 @@
 'use strict'
 
 // INICIALIZACIÓN
-var idPalabraActual = 0;
-InicializarVista(texto, palabras[0], idPalabraActual);
+InicializarVista(idPalabraActual);
 
 
 
 // FUNCIONES
-function PruebaControlador()
+function ControlarAvanceDePalabra(subIpt, subRef)
 {
-  console.log("PruebaControlador()");
-}
+  const subIptNoEspacio = EliminarEspacioDelInput(subIpt);
+  const iptCorrecto = ControlarSiInputCorrecto(subIptNoEspacio, subRef);
 
-function ElegirTextoAleatorio()
-{
-  var indice = Math.floor(Math.random() * (libreria.length - 1));
-  return indice;
-}
-
-
-function ConstruirTextoRevisado(palabras)
-{
-  var textoRevisado = "";
-
-  for (var i = 0 ; i < palabras.length ; i++)
+  if (iptCorrecto)
   {
-    textoRevisado += "<span data-word='" + i + "' class=''>";
-
-    for (var j = 0 ; j < palabras[i].length ; j++)
-    {
-      if   (j !== palabras[i].length - 1) { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span>"; }
-      else                                { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span></span>" + " "; }
-    }
+    AvanzarPalabra();
+    CalcularPPM();
+    CalcularProgreso();
   }
+}
 
-  return textoRevisado;
+function ControlarSiInputCorrecto(subIpt, subRef)
+{
+  EstilizarInput(subIpt === subRef);
+  return subIpt === subRef;
+}
+
+function EliminarEspacioDelInput(subIpt)
+{
+  subIpt = subIpt.substring(0,subIpt.length-1);
+  MostrarInputSinEspacio(subIpt);
+
+  return subIpt;
+}
+
+function AvanzarPalabra()
+{
+  QuitarResaltePalabraAnterior();
+
+  idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
+  // alert(idCharActual);
+  idPalabraActual += 1;                                                         // Actualizo el id de la palabra actual DESPUÉS de lo anterior
+
+  ResaltarPalabraActual();
+  ResetInput();
+}
+
+function CalcularPPM()
+{
+  const tAhora = new Date();
+  const tTotal = (tAhora.getTime() - tIni.getTime()) / 1000 / 60;                   // getTime() devuelve el tiempo desde 1970 en ms. Divido entre 1000 para convertir a segundos y entre 60 para convertir a mins.
+  const ppm = Math.abs(Math.floor((idCharActual) / tTotal));
+
+  MostrarPPM(ppm);
+}
+
+function CalcularProgreso()
+{
+  const progreso = Math.floor(100*((idCharActual) / largoTexto));
+  MostrarProgreso(progreso);
 }
