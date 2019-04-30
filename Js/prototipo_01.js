@@ -158,13 +158,3 @@ function EstiloInput(iptCorrecto)
     iptTexto.style.color = "white";
   }
 }
-
-window.onscroll = function(){ navFixed() };
-
-function navFixed() {
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    document.getElementById("navi").className = "naviFixed";
-  } else {
-    document.getElementById("navi").className = "";
-  }
-}

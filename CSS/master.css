@@ -14,7 +14,7 @@
   padding: 0;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -104,36 +104,37 @@ select:focus, textarea:focus, input:focus {
   text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
 }
 
-/*================ ESTILOS NUEVOS ==================*/
+/*========================= ESTILOS NUEVOS ==========================*/
 
 /***** ESTILOS CABECERA WEB *****/
 
 header{
   width: 100%;
-  height: 180px;
+  height: 80px;
   margin: 0 auto;
 }
 
-#div_logo{
-  background-color: #000;
-  height: 100px;
-}
-
-#div_logo h1{
+header h1{
   color: #FFF;
-  text-align: center;
-  line-height: 100px;
+  float: left;
+  line-height: 80px;
+  margin-left: 5%;
 }
 
 #span_logo{
   color: tomato;
 }
 
-nav{
+header nav{
   width: 100%;
-  background-color: #222;
+  position: fixed;
+  background-color: #000;
+  opacity: .9;
+  top: 0;
+  z-index: 100;
 }
 
+/*
 .naviFixed{
   position: fixed;
   background-color: #000;
@@ -141,6 +142,7 @@ nav{
   top: 0;
   z-index: 100;
 }
+*/
 
 header nav ul{
   list-style: none;
@@ -154,8 +156,12 @@ header nav ul li{
 }
 
 header nav ul li a{
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
+  color: #FFF;
+}
+
+#navi ul li a:visited{
   color: #FFF;
 }
 
@@ -179,7 +185,7 @@ main{
 section{
   width: 90%;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 section h2{
@@ -389,28 +395,12 @@ section p{
 
 /*======================================================*/
 
-#section_practicar{
+#section_creditos{
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
 
-#section_reglas{
-  border-top: 1px solid white;
-  margin-bottom: 50px;
-}
-
-#section_reglas ul li{
-  margin-bottom: 15px;
-}
-
-#section_reglas ul{
-  list-style: inside;
-  color: #FFF;
-  font-size: 1.3em;
-  text-align: justify;
-}
-
-#section_faqs{
+#section_sobre_proyecto{
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
@@ -461,4 +451,10 @@ footer{
   color: #FFF;
   text-align: justify;
   padding: 20px;
+  overflow: hidden;
+}
+
+/********** Clases para JS **********/
+.ocultar_elemento{
+  display: none;
 }
