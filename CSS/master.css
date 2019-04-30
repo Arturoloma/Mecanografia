@@ -1,4 +1,4 @@
-﻿
+
 /* RECURSOS */
 /* Variables */
 :root {
@@ -485,6 +485,10 @@ footer{
 	width: 1.5em;
 	z-index: 100;
 	animation: mecha 0.5s linear infinite;
+}
+p-quemada{
+  border-bottom: 0.08em dotted gray;
+	padding-bottom: 0.6em;
 }
 .p-explosion{
 	border-bottom: 0.08em dotted grey;
