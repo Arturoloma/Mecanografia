@@ -1,4 +1,4 @@
-
+﻿
 /* RECURSOS */
 /* Variables */
 :root {
@@ -463,3 +463,74 @@ footer{
   padding: 20px;
 }
 /*********ANIMACIONES *****/
+
+.p-oleada{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+}
+.p-chispa{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+}
+.p-chispa::after{
+	content:"";
+	background-image:url("chispa.png");
+	position:absolute;
+	top: 1.25em;
+	left: -1.3em;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 1.5em;
+	width: 1.5em;
+	z-index: 100;
+	animation: mecha 0.5s linear infinite;
+}
+.p-explosion{
+	border-bottom: 0.08em dotted grey;
+	padding-bottom: 0.6em;
+	animation: humo 1s linear 0.4s forwards normal,inflar	0.5s linear forwards normal;
+}
+
+.p-explosion::after{
+	content:"";
+	position:absolute;
+	bottom: 0.6em;
+	left: 0.5em;
+	width: 1em;
+	height: 1em;
+	background-size: cover;
+	z-index: 100;
+	animation: explosion 1s linear 0.5 forwards  normal;
+}
+
+@keyframes mecha{
+	from{transform:  scale(1.1);}
+	50%{transform: scale(1);}
+	99%{transform: scale(1.1);}
+	to{transform: scale(1);}
+}
+
+@keyframes inflar{
+	from{color:rgb(254, 140, 0);}
+	50%{color:rgb(245, 121, 10);}
+	to{color:red;}
+}
+
+@keyframes explosion{
+	from{
+		background-image:url("boom.png");
+		transform:scale(1);}
+	50%{transform:scale(1.5);}
+	99%{transform:scale(1);}
+	to{transform:scale(0);}
+}
+
+@keyframes humo{
+	from{transform: translateX(0px);
+		opacity: 1;
+		filter:blur(1px);}
+	to{transform: translateX(-10px);
+		opacity: 0;
+		filter:blur(20px);}
+}
