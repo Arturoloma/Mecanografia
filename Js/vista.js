@@ -1,32 +1,18 @@
 'use strict'
 
-var Vista = function()
+// FUNCIONES
+function InicializarVista(texto, palabraActual, idPalabraActual)
 {
-  const iptTexto = document.getElementById("ipt-texto");
-  const optTexto = document.getElementById("ref-texto");
-  const optPpm = document.getElementById("opt-ppm");
-  const optProgreso = document.getElementById("opt-progreso");
+  optTexto.innerHTML = texto;
+  iptTexto.placeholder = palabraActual;
+  resaltarPalabra(palabraActual.length, idPalabraActual);
+}
 
-
-
-  function Inicializar(texto, palabraActual, idPalabraActual)
+function resaltarPalabra(largoPalabraActual, idPalabraActual)
+{
+  for (var i = 0 ; i < largoPalabraActual ; i++)
   {
-    optTexto.innerHTML = texto;
-    iptTexto.placeholder = palabraActual;
-    resaltarPalabra(palabraActual.length, idPalabraActual);
+    var elementoChar = document.querySelector("span[data-word='" + idPalabraActual + "'] span[data-char='" + i + "']");
+    elementoChar.classList.add("palabra-actual");
   }
-
-  function resaltarPalabra(largoPalabraActual, idPalabraActual)
-  {
-    for (var i = 0 ; i < largoPalabraActual ; i++)
-    {
-      var elementoChar = document.querySelector("span[data-word='" + idPalabraActual + "'] span[data-char='" + i + "']");
-      elementoChar.classList.add("palabra-actual");
-    }
-  }
-
-  // NO DAR SALTO DE CARRO A LA LLAVE DE APERTURA DEL RETURN (SE ROMPE EL LITERAL)
-  return {
-    Inicializar:Inicializar
-  }
-}();
+}

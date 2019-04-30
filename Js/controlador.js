@@ -1,53 +1,38 @@
 'use strict'
 
-var Controlador = function()
+// INICIALIZACIÓN
+var idPalabraActual = 0;
+InicializarVista(texto, palabras[0], idPalabraActual);
+
+
+
+// FUNCIONES
+function PruebaControlador()
 {
-  const Palabras = libreria[elegirTextoAleatorio()].match(/\S+/gi);             // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
-  const Texto    = construirTextoRevisado(palabras);                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
-  var IdPalabraActual = 0;
-  Vista.Inicializar(texto, palabras[0], idPalabraActual);
+  console.log("PruebaControlador()");
+}
+
+function ElegirTextoAleatorio()
+{
+  var indice = Math.floor(Math.random() * (libreria.length - 1));
+  return indice;
+}
 
 
+function ConstruirTextoRevisado(palabras)
+{
+  var textoRevisado = "";
 
-
-  function PruebaControlador()
+  for (var i = 0 ; i < palabras.length ; i++)
   {
-    console.log("PruebaControlador()");
-  }
+    textoRevisado += "<span data-word='" + i + "' class=''>";
 
-  function elegirTextoAleatorio()
-  {
-    var indice = Math.floor(Math.random() * (libreria.length - 1));
-    return indice;
-  }
-
-
-  function construirTextoRevisado(palabras)
-  {
-    var textoRevisado = "";
-
-    for (var i = 0 ; i < palabras.length ; i++)
+    for (var j = 0 ; j < palabras[i].length ; j++)
     {
-      textoRevisado += "<span data-word='" + i + "' class=''>";
-
-      for (var j = 0 ; j < palabras[i].length ; j++)
-      {
-        if   (j !== palabras[i].length - 1) { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span>"; }
-        else                                { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span></span>" + " "; }
-      }
+      if   (j !== palabras[i].length - 1) { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span>"; }
+      else                                { textoRevisado += "<span data-char='" + j + "' class=''>" + palabras[i].charAt(j) + "</span></span>" + " "; }
     }
-
-    return textoRevisado;
   }
 
-
-
-
-  // NO DAR SALTO DE CARRO A LA LLAVE DE APERTURA DEL RETURN (SE ROMPE EL LITERAL)
-  return {
-    Palabras:Palabras,
-    Texto:Texto,
-    IdPalabraActual:IdPalabraActual,
-    PruebaControlador:PruebaControlador
-  }
-}();
+  return textoRevisado;
+}

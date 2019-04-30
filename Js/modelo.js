@@ -4,10 +4,10 @@
 document.getElementById("ipt-texto").addEventListener("input", function()
 {
   alert("hay input");
-  if (esUltimaPalabra() === false)
+  if (!EsUltimaPalabra())
   {
-    alert ("es ultima palabra");
-    if (ultimoCharEsEspacio())
+    alert ("No es ultima palabra");
+    if (UltimoCharEsEspacio())
     {
 
     }
@@ -22,15 +22,13 @@ document.getElementById("ipt-texto").addEventListener("input", function()
   }
 });
 
-function esUltimaPalabra()
+// FUNCIONES
+function EsUltimaPalabra()
 {
-  alert(Controlador.IdPalabraActual);
-  alert(Controlador.Palabras.length);
-  //if (Controlador.IdPalabraActual === Controlador.Palabras.length -1) { return true; }
-  //else                                                                { return false;}
+  return idPalabraActual === palabras.length - 1;
 }
 
-function ultimoCharEsEspacio()
+function UltimoCharEsEspacio()
 {
-
+  return document.getElementById("ipt-texto")
 }
