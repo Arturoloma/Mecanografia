@@ -19,11 +19,33 @@ function ControlarAvanceDePalabra(subIpt, subRef)
   }
 }
 
+
+function ControlarVictoria(subIpt, subRef)
+{
+  const iptCorrecto = ControlarSiUltimaPalabraCorrecta(subIpt, subRef);
+
+  if (iptCorrecto)
+  {
+    CompletarJuego();
+    CalcularPPM();
+    CalcularProgreso();
+  }
+}
+
+
 function ControlarSiInputCorrecto(subIpt, subRef)
 {
   EstilizarInput(subIpt === subRef);
   return subIpt === subRef;
 }
+
+
+function ControlarSiUltimaPalabraCorrecta(subIpt, subRef)
+{
+  EstilizarInput(subIpt === subRef);
+  return subIpt === palabras[idPalabraActual];
+}
+
 
 function EliminarEspacioDelInput(subIpt)
 {
@@ -33,29 +55,41 @@ function EliminarEspacioDelInput(subIpt)
   return subIpt;
 }
 
+
 function AvanzarPalabra()
 {
-  QuitarResaltePalabraAnterior();
+  ResaltarPalabraActual(false);
 
   idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
-  // alert(idCharActual);
   idPalabraActual += 1;                                                         // Actualizo el id de la palabra actual DESPUÉS de lo anterior
 
-  ResaltarPalabraActual();
+  ResaltarPalabraActual(true);
   ResetInput();
 }
+
+
+function CompletarJuego()
+{
+  ResaltarPalabraActual(false);
+
+  idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
+
+  BloquearInput();
+}
+
 
 function CalcularPPM()
 {
   const tAhora = new Date();
-  const tTotal = (tAhora.getTime() - tIni.getTime()) / 1000 / 60;                   // getTime() devuelve el tiempo desde 1970 en ms. Divido entre 1000 para convertir a segundos y entre 60 para convertir a mins.
-  const ppm = Math.abs(Math.floor((idCharActual) / tTotal));
+  const tTotal = (tAhora.getTime() - tIni.getTime()) / 1000 / 60;               // getTime() devuelve el tiempo desde 1970 en ms. Divido entre 1000 para convertir a segundos y entre 60 para convertir a mins.
+  const ppm = Math.abs(Math.floor(idCharActual / tTotal));
 
   MostrarPPM(ppm);
 }
 
+
 function CalcularProgreso()
 {
-  const progreso = Math.floor(100*((idCharActual) / largoTexto));
+  const progreso = Math.floor(100*(idCharActual / largoTexto));
   MostrarProgreso(progreso);
 }
