@@ -463,3 +463,83 @@ footer{
 .ocultar_elemento {
   display: none;
 }
+
+/*********ANIMACIONES *****/
+
+
+.p-oleada{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+}
+.l-sin-quemar{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+	color:red;}
+
+.l-chispa{
+	border-bottom: 0.10em solid brown;
+	padding-bottom: 0.6em;
+	color:red;
+}
+.l-chispa::after{
+	content:"";
+	background-image:url("chispa.png");
+	position:absolute;
+	top: 1.25em;
+	left: -1.3em;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 1.5em;
+	width: 1.5em;
+	z-index: 100;
+	animation: chispa 0.5s linear infinite;
+}
+.l-quemada{
+	border-bottom: 0.08em dotted grey;
+	padding-bottom: 0.6em;
+	color:red;
+}
+.p-explosion{
+	border-bottom: 0.08em dotted grey;
+	padding-bottom: 0.6em;
+	animation: humo 1s linear 0.4s forwards normal;
+	color:red;
+}
+
+.p-explosion::after{
+	content:"";
+	position:absolute;
+	bottom: 0.6em;
+	left: 0.5em;
+	width: 1em;
+	height: 1em;
+	background-size: cover;
+	z-index: 100;
+	animation: explosion 1s linear 0.5 forwards  normal;
+}
+
+@keyframes chispa{
+	from{transform:  scale(1.1);}
+	50%{transform: scale(1);}
+	99%{transform: scale(1.1);}
+	to{transform: scale(1);}
+}
+
+@keyframes explosion{
+	from{
+		background-image:url("boom.png");
+		transform:scale(1);}
+	50%{transform:scale(1.5);}
+	99%{transform:scale(1);}
+	to{transform:scale(0);}
+}
+
+@keyframes humo{
+	from{transform: translateX(0px);
+		opacity: 1;
+		filter:blur(1px);}
+	to{transform: translateX(-10px);
+		opacity: 0;
+		filter:blur(20px);}
+}

@@ -52,6 +52,30 @@ var palabras   = [];                                                            
 var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
 var texto      = "";                                                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
 
+var dificultad =
+{
+  fase1:
+  {
+    carga: 14,
+    descarga: 13
+  },
+  fase2:
+  {
+    carga: 34,
+    descarga: 24
+  },
+  fase3:
+  {
+    carga: 40,
+    descarga: 19
+  },
+  fase4:
+  {
+    carga: 27,
+    descarga: 9
+  }
+}
+
 
 function InicializarControlador()
 {
@@ -62,6 +86,8 @@ function InicializarControlador()
   palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
   texto      = ConstruirTextoRevisado(palabras);
+
+  alert(dificultad.fase2.descarga);
 }
 
 

@@ -59,7 +59,7 @@ function SceneMachine(direccion)
     case scJuego:
       InicializarControlador();
       InicializarVista(idPalabraActual);
-      panelJuego.classList.remove("ocultar_elemento");      
+      panelJuego.classList.remove("ocultar_elemento");
       iptTexto.focus();
       break;
 
