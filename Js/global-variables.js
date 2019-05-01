@@ -1,29 +1,73 @@
 'use strict'
 
+/* ------- SCENE MANAGER ------- */
+const panelDificultad  = document.getElementById("div_dificultad");
+const panelCuentaAtras = document.getElementById("div_cuenta_atras");
+const panelJuego       = document.getElementById("div_juego");
+const panelResultados  = document.getElementById("div_resultados");
+
+// Nombres de las escenas en la máquina de escenas de scenemanager.js
+const scDificultad  = 0;
+const scCuentaAtras = 1;
+const scJuego       = 2;
+const scResultados  = 3;
+
+// Tiempo de la cuenta atrás en segundos
+var tTotalCuentaAtras    = 5;
+var tRestanteCuentaAtras = tTotalCuentaAtras;
+
+var escenaActual = scDificultad;
+/* ----------------------------- */
+
+
+
 /* ----------- VISTA ----------- */
-const iptTexto = document.getElementById("ipt-texto");
-const optTexto = document.getElementById("ref-texto");
-const optPpm = document.getElementById("opt-ppm");
+const iptTexto    = document.getElementById("ipt-texto");
+const optTexto    = document.getElementById("ref-texto");
+const optPpm      = document.getElementById("opt-ppm");
 const optProgreso = document.getElementById("opt-progreso");
+
+function InicializarVista()
+{
+  iptTexto.placeholder = palabras[idPalabraActual];
+  iptTexto.readOnly = false;
+  iptTexto.value = "";
+
+  optTexto.innerHTML = texto;
+  optPpm.innerHTML = "0 ppm";
+  optProgreso.innerHTML = "0%";
+
+  ResaltarPalabraActual(true);
+}
 /* ----------------------------- */
 
 
 
 /* -------- CONTROLADOR -------- */
-var idPalabraActual = 0;
-var idCharActual = 0;
+var idPalabraActual = 0;                                                        // Id de la palabra que tiene que escribir el jugador.
+var idCharActual    = 0;                                                        // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
+var tIni            = new Date();                                               // Momento de inicio del juego.
 
-const palabras = libreria[IndexarTextoAleatorio()].match(/\S+/gi);              // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
-const largoTexto = CalcularLargoDelTexto();                                     // Número de caracteres del texto, incluyendo espacios.
-const texto    = ConstruirTextoRevisado(palabras);                              // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
-const tIni     = new Date();                                                    // Momento de inicio del juego.
+var palabras   = [];                                                            // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
+var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
+var texto      = "";                                                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
 
+
+function InicializarControlador()
+{
+  idPalabraActual = 0;                                                          // Id de la palabra que tiene que escribir el jugador.
+  idCharActual    = 0;                                                          // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
+  tIni = new Date();                                                            // Momento de inicio del juego.
+
+  palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
+  largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
+  texto      = ConstruirTextoRevisado(palabras);
+}
 
 
 function IndexarTextoAleatorio()
 {
-  var indice = Math.floor(Math.random() * (libreria.length - 1));
-  return indice;
+  return Math.floor(Math.random() * (libreria.length - 1));
 }
 
 
@@ -79,8 +123,4 @@ function ConstruirTextoRevisado(palabras)
 
   return textoRevisado;
 }
-/* ----------------------------- */
-
-
-/* ----------- MODELO ---------- */
 /* ----------------------------- */

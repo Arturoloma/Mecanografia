@@ -11,6 +11,7 @@
     <!-- <script type="text/javascript" src="./Js/prototipo_01.js" defer></script> -->
     <script type="text/javascript" src="./Js/libreria.js" defer></script>
     <script type="text/javascript" src="./Js/global-variables.js" defer></script>
+    <script type="text/javascript" src="./Js/scenemanager.js" defer></script>
     <script type="text/javascript" src="./Js/vista.js" defer></script>
     <script type="text/javascript" src="./Js/controlador.js" defer></script>
     <script type="text/javascript" src="./Js/modelo.js" defer></script>
@@ -48,44 +49,42 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div id="pantalla_juego">
-          <div id="div_dificultad">
+
+          <div id="div_dificultad" class="">
             <span id="span_dificultad">NIVEL DE DIFICULTAD</span>
             <div id="boton_nivel_facil">FÁCIL</div>
             <div id="boton_nivel_normal">NORMAL</div>
             <div id="boton_nivel_dificil">DIFÍCIL</div>
-            <div id="boton_jugar" onclick=""><span id="span_jugar">JUGAR</span></div>
+            <button id="inicio_jugar"><span id="span_jugar">JUGAR</span></button>
           </div>
 
-          <div id="div_cuenta_atras">3
-          </div>
+          <div id="div_cuenta_atras" class="ocultar_elemento">3</div>
 
-          <div id="div_juego">
-            <!--
-
+          <div id="div_juego" class="ocultar_elemento">
             <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
-            <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
+            <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba"
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
             <p id="opt-progreso">0%</p>
-            <div id="boton_volver_inicio">Volver al Inicio
-            </div>
-            <div id="boton_reiniciar_juego">Reiniciar juego
-            </div>
-
-          -->
+            <button id="juego_inicio">Inicio</button>
+            <button id="juego_juego">Reiniciar juego</button>
           </div>
 
-          <div id="div_resultados">
-            <span id="span_resultados">RESULTADOS</span>
-            <p>Dificultad: </p>
-            <p>Progreso: </p>
-            <p>Pulsaciones por minuto: </p>
-            <p>Número de errores: </p>
-            <p>Porcentaje de error: </p>
-          </div>
+        <div id="div_resultados" class="ocultar_elemento">
+          <span id="span_resultados">RESULTADOS</span>
+          <p>Dificultad: </p>
+          <p>Progreso: </p>
+          <p>Pulsaciones por minuto: </p>
+          <p>Número de errores: </p>
+          <p>Porcentaje de error: </p>
+          <button id="resultados_jugar">Volver a jugar</button>
+          <button id="resultados_inicio">Inicio</button>
         </div>
-      </section>
 
+      </div>
+      
+      </section>
+<!--
       <section id="section_practicar">
         <h2>PRUEBA EL JUEGO</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -99,7 +98,7 @@
         <p id="opt-ppm">0 ppm</p>
         <p id="opt-progreso">0%</p>
       </section>
-
+-->
       <section id="section_reglas">
         <h2>REGLAS DEL JUEGO</h2>
         <ul>

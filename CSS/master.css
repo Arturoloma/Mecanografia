@@ -236,7 +236,6 @@ section p{
   left:0;
   right:0;
   top: 100px;
-  /*display: none;*/
 }
 
 #span_dificultad{
@@ -318,7 +317,6 @@ section p{
   font-size: 7em;
   text-align: center;
   line-height: 300px;
-  display: none;
 }
 
 #div_juego{
@@ -332,7 +330,6 @@ section p{
   left: 0;
   right: 0;
   top: 50px;
-  display: none;
 }
 
 #boton_volver_inicio, #boton_reiniciar_juego{
@@ -369,7 +366,6 @@ section p{
   left: 0;
   right: 0;
   top: 50px;
-  display: none;
 }
 
 #span_resultados{
@@ -462,4 +458,8 @@ footer{
   color: #FFF;
   text-align: justify;
   padding: 20px;
+}
+
+.ocultar_elemento {
+  display: none;
 }

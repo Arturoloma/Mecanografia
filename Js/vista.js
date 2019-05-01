@@ -1,14 +1,5 @@
 'use strict'
 
-// FUNCIONES
-function InicializarVista()
-{
-  optTexto.innerHTML = texto;
-  iptTexto.placeholder = palabras[idPalabraActual];
-  ResaltarPalabraActual(true);
-}
-
-
 function ResaltarPalabraActual(resaltar)
 {
   for (var i = 0 ; i < palabras[idPalabraActual].length ; i++)

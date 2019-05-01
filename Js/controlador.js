@@ -1,11 +1,6 @@
 'use strict'
 
-// INICIALIZACIÓN
-InicializarVista(idPalabraActual);
 
-
-
-// FUNCIONES
 function ControlarAvanceDePalabra(subIpt, subRef)
 {
   const subIptNoEspacio = EliminarEspacioDelInput(subIpt);
@@ -26,7 +21,7 @@ function ControlarVictoria(subIpt, subRef)
 
   if (iptCorrecto)
   {
-    CompletarJuego();
+    Victoria();
     CalcularPPM();
     CalcularProgreso();
   }
@@ -68,13 +63,12 @@ function AvanzarPalabra()
 }
 
 
-function CompletarJuego()
+function Victoria()
 {
   ResaltarPalabraActual(false);
-
   idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
-
   BloquearInput();
+  SceneMachine(scResultados);
 }
 
 
