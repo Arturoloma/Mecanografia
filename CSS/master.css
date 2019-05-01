@@ -6,6 +6,7 @@
   --font-color: rgb(30, 30, 30);
   --theme-color: rgb(241, 133, 6);
   --content-width: 1920px;
+  --progreso: 0%;
 }
 /* Configuración general */
 * {

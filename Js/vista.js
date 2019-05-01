@@ -66,4 +66,5 @@ function MostrarPPM(ppm)
 function MostrarProgreso(progreso)
 {
   optProgreso.innerHTML = progreso + "%";
+  document.documentElement.style.setProperty('--progreso', progreso + "%");
 }
