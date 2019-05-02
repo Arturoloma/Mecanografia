@@ -52,10 +52,10 @@ const dificultades =
               fase3: { carga: 14, descarga: 13 },
               fase4: { carga: 14, descarga: 13 }
            },
-  medio:   {  fase1: { carga: 14, descarga: 13 },
-              fase2: { carga: 34, descarga: 24 },
-              fase3: { carga: 40, descarga: 19 },
-              fase4: { carga: 30, descarga:  7 }
+  medio:   {  fases: [{ carga: 14, descarga: 13 },
+                      { carga: 34, descarga: 24 },
+                      { carga: 40, descarga: 19 },
+                      { carga: 30, descarga:  7 }]
            },
   dificil: {  fase1: { carga: 14, descarga: 13 },
               fase2: { carga: 14, descarga: 13 },
@@ -66,6 +66,10 @@ const dificultades =
 
 var dificultad = {};
 var tHotZone = 0;
-var charsPorFase = 0;
+var charsPorCarga = 0;
+var charsPorDescarga = 0;
+var charsUltimaCarga = 0;
+var charsUltimaDescarga = 0;
 var idCharCarga = 0;
+var idCharDescarga = 0;
 /* ----------------------------- */

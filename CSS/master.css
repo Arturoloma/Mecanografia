@@ -469,16 +469,16 @@ footer{
 
 .p-oleada{
 	border-bottom: 0.10em solid brown;
-	padding-bottom: 0.6em;
+	padding-bottom: 0.2em;
 }
 .l-sin-quemar{
 	border-bottom: 0.10em solid brown;
-	padding-bottom: 0.6em;
+	padding-bottom: 0.2em;
 	color:red;}
 
 .l-chispa{
 	border-bottom: 0.10em solid brown;
-	padding-bottom: 0.6em;
+	padding-bottom: 0.2em;
 	color:red;
 }
 .l-chispa::after{
@@ -497,12 +497,12 @@ footer{
 }
 .l-quemada{
 	border-bottom: 0.08em dotted grey;
-	padding-bottom: 0.6em;
+	padding-bottom: 0.2em;
 	color:red;
 }
 .p-explosion{
 	border-bottom: 0.08em dotted grey;
-	padding-bottom: 0.6em;
+	padding-bottom: 0.2em;
 	animation: humo 1s linear 0.4s forwards normal;
 	color:red;
 }

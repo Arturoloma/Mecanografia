@@ -34,14 +34,14 @@ function SceneMachine(direccion)
       break;
 
     case scCuentaAtras:
+      InicializarControlador();
+      InicializarHotZone("medio");
       IniciarCuentaAtras();
       panelCuentaAtras.classList.remove("ocultar_elemento");
       break;
 
     case scJuego:
-      InicializarControlador();
       InicializarVista(idPalabraActual);
-      InicializarHotZone("medio");
       StartHotZone();
       panelJuego.classList.remove("ocultar_elemento");
       iptTexto.focus();
