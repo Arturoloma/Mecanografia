@@ -1,14 +1,13 @@
 'use strict'
 
-function StartHotZone()
+function CargarZona (i)
 {
-  var hotZoneTick = setInterval(function()
-  {
-    idCharCarga += 1;
-    console.log(idCharCarga);
-    if (escenaActual !== scJuego)
-    {
-      clearInterval(hotZoneTick);
-    }
-  }, (tHotZone * 1000) / largoTexto);
+   setTimeout(function ()
+   {
+      alert('hello');
+      if (--i)
+      {
+        CargarZona(i);
+      }
+   }, (dificultad.fases[faseActual].carga * 1000) / charsPorCarga);
 }
