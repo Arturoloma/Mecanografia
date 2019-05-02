@@ -21,26 +21,6 @@ function InicializarVista()
 
 
 /* -------- CONTROLADOR -------- */
-function SeleccionarDificultad(dificultad)
-{
-  switch (dificultad)
-  {
-    case "facil":
-      dificultad = dificultades.facil;
-      break;
-
-    default:
-    case "medio":
-      dificultad = dificultades.medio;
-      break;
-
-    case "dificil":
-      dificultad = dificultades.dificil;
-      break;
-  }
-}
-
-
 function InicializarControlador()
 {
   idPalabraActual = 0;                                                          // Id de la palabra que tiene que escribir el jugador.
@@ -50,8 +30,6 @@ function InicializarControlador()
   palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
   texto      = ConstruirTextoRevisado(palabras);
-
-  dificultad = dificultades.medio;
 }
 
 
@@ -112,5 +90,45 @@ function ConstruirTextoRevisado(palabras)
   }
 
   return textoRevisado;
+}
+/* ----------------------------- */
+
+
+
+
+/* ---------- HOT ZONE --------- */
+function InicializarHotZone(dificultad)
+{
+  idCharCarga = 0;
+  charsPorFase = Math.round(largoTexto / 4);
+
+  // Selección de la dificultad
+  switch (dificultad)
+  {
+    case "facil":
+      dificultad = dificultades.facil;
+      tHotZone += dificultades.facil.fase1.carga + dificultades.facil.fase1.descarga
+                + dificultades.facil.fase2.carga + dificultades.facil.fase2.descarga
+                + dificultades.facil.fase3.carga + dificultades.facil.fase3.descarga
+                + dificultades.facil.fase4.carga + dificultades.facil.fase4.descarga;
+      break;
+
+    default:
+    case "medio":
+      dificultad = dificultades.medio;
+      tHotZone += dificultades.medio.fase1.carga + dificultades.medio.fase1.descarga
+                + dificultades.medio.fase2.carga + dificultades.medio.fase2.descarga
+                + dificultades.medio.fase3.carga + dificultades.medio.fase3.descarga
+                + dificultades.medio.fase4.carga + dificultades.medio.fase4.descarga;
+      break;
+
+    case "dificil":
+      dificultad = dificultades.dificil;
+      tHotZone += dificultades.dificil.fase1.carga + dificultades.dificil.fase1.descarga
+                + dificultades.dificil.fase2.carga + dificultades.dificil.fase2.descarga
+                + dificultades.dificil.fase3.carga + dificultades.dificil.fase3.descarga
+                + dificultades.dificil.fase4.carga + dificultades.dificil.fase4.descarga;
+      break;
+  }
 }
 /* ----------------------------- */

@@ -1,5 +1,26 @@
 'use strict'
 
+/* ---------- ESCENAS ---------- */
+// Seleccionar dificultad => Juego
+document.getElementById("inicio_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
+
+// Juego => Seleccionar dificultad
+document.getElementById("juego_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
+
+// Juego => Juego
+document.getElementById("juego_juego").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
+
+// Resultados => Juego
+document.getElementById("resultados_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
+
+// Resultados => Seleccionar dificultad
+document.getElementById("resultados_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
+/* ----------------------------- */
+
+
+
+
+/* ----------- JUEGO ----------- */
 /**
  * Este evento se activa cada vez que el usuario introduce un input en la caja
  * de texto con el id "ipt-texto" y está encargado de determinar qué tiene
@@ -41,3 +62,4 @@ function UltimoCharEsEspacio(subIpt)
 {
   return subIpt.charAt(subIpt.length-1) === " ";
 }
+/* ----------------------------- */

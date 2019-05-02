@@ -1,22 +1,4 @@
 
-// Seleccionar dificultad => Juego
-document.getElementById("inicio_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
-
-// Juego => Seleccionar dificultad
-document.getElementById("juego_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
-
-// Juego => Juego
-document.getElementById("juego_juego").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
-
-// Resultados => Juego
-document.getElementById("resultados_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
-
-// Resultados => Seleccionar dificultad
-document.getElementById("resultados_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
-
-
-
-
 function SceneMachine(direccion)
 {
   // Oculto el panel que se estaba mostrando
@@ -59,6 +41,8 @@ function SceneMachine(direccion)
     case scJuego:
       InicializarControlador();
       InicializarVista(idPalabraActual);
+      InicializarHotZone("medio");
+      StartHotZone();
       panelJuego.classList.remove("ocultar_elemento");
       iptTexto.focus();
       break;

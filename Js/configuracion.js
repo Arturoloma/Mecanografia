@@ -38,8 +38,13 @@ var tIni            = new Date();                                               
 
 var palabras   = [];                                                            // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
 var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
-var texto      = "";                                                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
+var texto      = "";
+/* ----------------------------- */
 
+
+
+
+/* ---------- HOT ZONE --------- */
 const dificultades =
 {
   facil:   {  fase1: { carga: 14, descarga: 13 },
@@ -60,4 +65,7 @@ const dificultades =
 };
 
 var dificultad = {};
+var tHotZone = 0;
+var charsPorFase = 0;
+var idCharCarga = 0;
 /* ----------------------------- */
