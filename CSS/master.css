@@ -101,14 +101,11 @@ select:focus, textarea:focus, input:focus {
 
 header{
   width: 100%;
-  height: 120px;
+  height: 65px;
   margin: 0 auto;
+  background-color: white;
 }
 
-#div_logo{
-  background-color: white;
-  height: 20px;
-}
 
 #div_logo h1{
   color: black;
@@ -124,8 +121,8 @@ header{
   position: absolute;
   top: 1%;
   left: 2%;
-  width: 120px;
-  height: 100px;
+  width: 90px;
+  height: 80px;
 }
 
 .logo_bee_juego{
@@ -166,7 +163,7 @@ header nav ul{
 header nav ul li{
   display: inline-block;
   margin-right: 15px;
-  line-height: 80px;
+  line-height: 65px;
 }
 
 header nav ul li a{
@@ -394,7 +391,7 @@ section p{
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 100px;
+  top: 50px;
   font-family: "letters_for_learnersregular";
   display: none;
 }
@@ -497,7 +494,7 @@ section p{
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 0px;
   /*display: none;*/
 }
 
@@ -509,7 +506,7 @@ section p{
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #cfcfcf;
+  background-color: #f5f1f1;
   border-radius: 25px;
 }
 
@@ -552,7 +549,7 @@ section p{
 
 #boton_volver_inicio_res{
   left: 5%;
-  bottom: 0;
+  bottom: 0%;
 }
 
 #inicio_res{
@@ -566,7 +563,7 @@ section p{
 
 #boton_reiniciar_juego_res{
   left: 85%;
-  bottom: 32%;
+  bottom: 31%;
 }
 
 #reinicio_res{
@@ -575,8 +572,8 @@ section p{
   font-family: "letters_for_learnersregular" !important;
   text-shadow: none;
   color: black;
-  left:-2%;
-  bottom: 36%;
+  left:-3%;
+  bottom: 33%;
 }
 
 #div_resultados p{
@@ -598,41 +595,6 @@ section p{
   margin-bottom: 50px;
 }
 
-#section_contacto{
-  border-top: 1px solid white;
-}
-
-#section_contacto form input{
-  display: block;
-  width: 50%;
-  text-align: left;
-  margin-top: 15px;
-  padding: 10px 15px;
-}
-
-#caja_texto{
-  width: 50%;
-  height: 300px;
-  text-align: left;
-  margin-top: 15px;
-}
-
-#boton_enviar{
-  display: block;
-  width: 25%;
-  height: 50px;
-  margin-top: 25px;
-  margin-bottom: 50px;
-  margin-left: 12%;
-  background-color: #31da41;
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-#boton_enviar:hover{
-  cursor: pointer;
-}
 
 /***** ESTILOS PIE WEB *****/
 
