@@ -33,6 +33,14 @@ body {
 h1,h2,h3,h4,h5,h6 {
   margin: 0px 0px 15px 0px;
 }
+h1{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  left: -10000px;
+  overflow: hidden;
+}
 p {
   margin: 0px 0px 10px 0px;
 }
@@ -93,13 +101,13 @@ select:focus, textarea:focus, input:focus {
 
 header{
   width: 100%;
-  height: 140px;
+  height: 120px;
   margin: 0 auto;
 }
 
 #div_logo{
   background-color: white;
-  height: 60px;
+  height: 20px;
 }
 
 #div_logo h1{
@@ -115,9 +123,9 @@ header{
 .logo_bee{
   position: absolute;
   top: 1%;
-  left: 1%;
-  width: 150px;
-  height: 120px;
+  left: 2%;
+  width: 120px;
+  height: 100px;
 }
 
 .logo_bee_juego{
@@ -580,28 +588,12 @@ section p{
 
 /*======================================================*/
 
-#section_practicar{
+#section_creditos{
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
 
-#section_reglas{
-  border-top: 1px solid white;
-  margin-bottom: 50px;
-}
-
-#section_reglas ul li{
-  margin-bottom: 15px;
-}
-
-#section_reglas ul{
-  list-style: inside;
-  color: #FFF;
-  font-size: 1.3em;
-  text-align: justify;
-}
-
-#section_faqs{
+#section_sobre_proyecto{
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
@@ -652,4 +644,9 @@ footer{
   color: #FFF;
   text-align: justify;
   padding: 20px;
+}
+
+/********** Clases para JS **********/
+.ocultar_elemento{
+  display: none;
 }
