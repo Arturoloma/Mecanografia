@@ -110,7 +110,6 @@ select:focus, textarea:focus, input:focus {
 
 header{
   width: 100%;
-  height: 80px;
   margin: 0 auto;
 }
 
@@ -119,14 +118,21 @@ header h1{
   float: left;
   line-height: 80px;
   margin-left: 5%;
+  margin-right: 5px;
+  font-size: 1.7em;
 }
 
 #span_logo{
   color: tomato;
 }
 
+header h1:hover{
+  cursor: pointer;
+}
+
 header nav{
   width: 100%;
+  height: 80px;
   position: fixed;
   background-color: #000;
   opacity: .9;
@@ -151,12 +157,12 @@ header nav ul{
 
 header nav ul li{
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 10px;
   line-height: 80px;
 }
 
 header nav ul li a{
-  font-size: 21px;
+  font-size: 22px;
   font-weight: bold;
   color: #FFF;
 }
@@ -166,7 +172,7 @@ header nav ul li a{
 }
 
 header nav ul li a:hover{
-  font-size: 25px;
+  font-size: 24px;
   text-decoration: underline;
   color: #FFF;
   text-shadow: 2px 0 0 #10C9CA, -2px 0 0 #10C9CA, 0 2px 0 #10C9CA, 0 -2px 0 #10C9CA, 1px 1px #10C9CA, -1px -1px 0 #10C9CA, 1px -1px 0 #10C9CA, -1px 1px 0 #10C9CA;
@@ -185,7 +191,7 @@ main{
 section{
   width: 90%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 90px;
 }
 
 section h2{
@@ -211,12 +217,13 @@ section p{
   text-shadow: 2px 0 0 #111, -2px 0 0 #111, 0 2px 0 #111, 0 -2px 0 #111, 1px 1px #111, -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111;
 }
 
-#section_inicio{
-  margin-bottom: 50px;
+section article img{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 #section_jugar{
-  border-top: 1px solid white;
   margin-bottom: 50px;
 }
 
@@ -226,7 +233,7 @@ section p{
   position: relative;
   width: 100%;
   height: 700px;
-  margin-top: 25px;
+  margin-top: 30px;
   background-color: #000;
   opacity: .9;
 }
@@ -402,44 +409,9 @@ section p{
 
 #section_sobre_proyecto{
   border-top: 1px solid white;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
-#section_contacto{
-  border-top: 1px solid white;
-}
-
-#section_contacto form input{
-  display: block;
-  width: 50%;
-  text-align: left;
-  margin-top: 15px;
-  padding: 10px 15px;
-}
-
-#caja_texto{
-  width: 50%;
-  height: 300px;
-  text-align: left;
-  margin-top: 15px;
-}
-
-#boton_enviar{
-  display: block;
-  width: 25%;
-  height: 50px;
-  margin-top: 25px;
-  margin-bottom: 50px;
-  margin-left: 12%;
-  background-color: orange;
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-#boton_enviar:hover{
-  cursor: pointer;
-}
 
 /***** ESTILOS PIE WEB *****/
 
@@ -452,6 +424,7 @@ footer{
   text-align: justify;
   padding: 20px;
   overflow: hidden;
+  text-align: center;
 }
 
 /********** Clases para JS **********/
