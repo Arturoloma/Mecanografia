@@ -17,7 +17,7 @@
     <header>
       <div id="div_logo">
         <h1>Wasa<span id="span_logo">bee</span></h1>
-        <img class="logo_bee" src="./Images/logo.png" alt="Wasabee">
+        <img class="logo_bee" src="./Images/logo2.png" alt="Wasabee">
 
       </div>
       <nav id="navi">
@@ -48,10 +48,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div id="pantalla_juego">
-          <!--
-          <img class="logo_bee_juego" src="./Images/logo.png" alt="Wasabee">
-          <div class="logo_wasabee">Wasabee</div>
-        -->
+
           <div id="div_dificultad">
             <div id="span_dificultad">ELIGE DIFICULTAD</div>
             <div id="boton_nivel_facil">Fácil
@@ -64,7 +61,6 @@
               </div>
             </div>
             <div id="boton_nivel_dificil">Difícil
-
               <div id="lunares_dificil">
                 <div class="lunar"></div>
                 <div class="lunar"></div>
@@ -78,39 +74,35 @@
           <div id="div_cuenta_atras">3
           </div>
 
+
           <div id="div_juego">
-
-
-            <p id="timer">0:00</p>
             <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
             <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
             <p id="opt-progreso">0%</p>
-
             <div id="boton_volver_inicio">
-              <img src="./Images/logo.png" alt="Inicio" width="80px" height="70px">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio">Inicio</p>
             </div>
             <div id="boton_reiniciar_juego">
               <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
               <p id="reinicio">Reiniciar</p>
             </div>
-
-
           </div>
+
 
           <div id="div_resultados">
             <div id="resultados">
               <span id="span_resultados">RESULTADOS</span>
-              <p>Dificultad: </p>
-              <p>Progreso: </p>
-              <p>Pulsaciones por minuto: </p>
-              <p>Número de errores: </p>
-              <p>Porcentaje de error: </p>
+              <div id="etiqueta">Dificultad:</div><div id="info"> Fácil </div>
+              <div id="etiqueta">Progreso: </div><div id="info"> 100% </div>
+              <div id="etiqueta">Pulsaciones por minuto: </div><div id="info"> 300 ppm </div>
+              <div id="etiqueta">Número de errores: </div><div id="info"> 15 </div>
+              <div id="etiqueta">Porcentaje de error: </div><div id="info"> 5% </div>
             </div>
             <div id="boton_volver_inicio_res">
-              <img src="./Images/logo.png" alt="Inicio" width="80px" height="70px">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio_res">Inicio</p>
             </div>
             <div id="boton_reiniciar_juego_res">
@@ -118,23 +110,10 @@
               <p id="reinicio_res">Reiniciar</p>
             </div>
           </div>
+
         </div>
       </section>
 
-      <section id="section_practicar">
-        <h2>PRUEBA EL JUEGO</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <h3>DEMO</h3>
-        <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
-        <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
-               onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
-        <p id="opt-ppm">0 ppm</p>
-        <p id="opt-progreso">0%</p>
-
-      </section>
 
       <section id="section_reglas">
         <h2>REGLAS DEL JUEGO</h2>

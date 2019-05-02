@@ -2,9 +2,6 @@
 /* RECURSOS */
 /* Variables */
 :root {
-  --bg-color: rgb(245, 245, 245);
-  --font-color: rgb(30, 30, 30);
-  --theme-color: rgb(241, 133, 6);
   --content-width: 1920px;
 }
 /* Configuración general */
@@ -14,13 +11,14 @@
   padding: 0;
 }
 
+/* Fuente del área de juego */
+
 @font-face {
     font-family: 'letters_for_learnersregular';
     src: url('../Fonts/wasabee/letters_for_learners-webfont.woff2') format('woff2'),
          url('../Fonts/wasabee/letters_for_learners-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 html{
@@ -39,7 +37,7 @@ p {
   margin: 0px 0px 10px 0px;
 }
 a,a:visited{
-	color: var(--theme-color,orange);
+	color: black;
   text-decoration: none;
 }
 select, textarea, input {
@@ -73,23 +71,14 @@ select:focus, textarea:focus, input:focus {
 	user-select: none;
 }
 
-/* Clase que inicialmente se estaba aplicando al h1 del header
-.sr-only {
-	position: absolute;
-	left: -10000px;
-	width: 1px;
-	height: 1px;
-	top: auto;
-	overflow: hidden;
-}
-*/
-
 .container{
   max-width: var(--content-width,1920px);
   width: 100%;
   margin: 0 auto;
 }
+
 /* PÁGINA */
+
 .palabra-actual {
   color: red;
   text-decoration: underline;
@@ -120,12 +109,12 @@ header{
 }
 
 #span_logo{
-  color: rgb(1, 255, 0); /*Verde wasabee*/
+  color: #31da41; /*Verde abeja*/
 }
 
 .logo_bee{
   position: absolute;
-  top: 2%;
+  top: 1%;
   left: 1%;
   width: 150px;
   height: 120px;
@@ -181,7 +170,7 @@ header nav ul li a{
 header nav ul li a:hover{
   font-size: 25px;
   text-decoration: underline;
-  color: rgb(1, 255, 0);
+  color: #31da41;
 /*  text-shadow: 2px 0 0 #10C9CA, -2px 0 0 #10C9CA, 0 2px 0 #10C9CA, 0 -2px 0 #10C9CA, 1px 1px #10C9CA, -1px -1px 0 #10C9CA, 1px -1px 0 #10C9CA, -1px 1px 0 #10C9CA;*/
   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 
@@ -210,7 +199,7 @@ section{
 section h2{
   font-size: 1.8em;
   letter-spacing: 1px;
-  color: rgb(1, 255, 0);
+  color: #31da41;
   margin-bottom: 30px;
   text-align: justify;
   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
@@ -249,9 +238,10 @@ section p{
   margin-top: 25px;
   padding-bottom: 56.25%;
   border-radius: 25px;
-/*  opacity: .9; */
   font-family: 'letters_for_learnersregular', "Gloria Hallelujah";
 }
+
+/* == Elegir nivel de dificultad == */
 
 #div_dificultad{
   position: absolute;
@@ -286,7 +276,6 @@ section p{
   width: 20%;
   height: 100px;
   background-color: #a2feff;
-  /*border: 2px solid black;*/
   border-radius: 20px;
   box-shadow: 5px 10px 18px #006061;
   color: black;
@@ -297,6 +286,7 @@ section p{
 
 #boton_nivel_facil:hover, #boton_nivel_normal:hover, #boton_nivel_dificil:hover{
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 #boton_nivel_facil{
@@ -350,12 +340,12 @@ section p{
   right:0;
   bottom: 7%;
   border-radius: 20px;
-/*  border: 2px solid black;*/
   box-shadow: 5px 10px 18px #006061;
 }
 
 #boton_jugar:hover{
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 #span_jugar{
@@ -365,6 +355,8 @@ section p{
   line-height: 70px;
   font-size: 3em;
 }
+
+/* == Cuenta atrás == */
 
 #div_cuenta_atras{
   position: absolute;
@@ -384,6 +376,7 @@ section p{
   display: none;
 }
 
+/* == Juego == */
 
 #div_juego{
   position: absolute;
@@ -393,9 +386,9 @@ section p{
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 100px;
   font-family: "letters_for_learnersregular";
-  /*display: none;*/
+  display: none;
 }
 
 #ref-texto{
@@ -435,6 +428,7 @@ section p{
   font-family: "letters_for_learnersregular" !important;
   font-size: 2em;
 }
+
 #opt-progreso{
   position: relative;
   width: 60%;
@@ -444,12 +438,6 @@ section p{
   font-size: 2em;
   background-color: #659f6e;
   border-radius: 25px;
-}
-#timer{
-  margin: 15px auto;
-  font-size: 2em;
-  text-align: center;
-  font-family: "letters_for_learnersregular" !important;
 }
 
 #boton_volver_inicio, #boton_reiniciar_juego{
@@ -463,6 +451,7 @@ section p{
   left: 0;
   bottom: 12%;
 }
+
 #inicio{
   position: absolute;
   font-size: 2em;
@@ -471,10 +460,12 @@ section p{
   color: black;
   left:7%;
 }
+
 #boton_reiniciar_juego{
   left: 95%;
   bottom: 40%;
 }
+
 #reinicio{
   position: absolute;
   font-size: 2em;
@@ -483,35 +474,62 @@ section p{
   color: black;
   left:-4%;
 }
+
+#boton_volver_inicio:hover, #boton_reiniciar_juego:hover{
+  transform:scale(1.1);
+}
+
+/* == Resultados == */
+
 #div_resultados{
   position: absolute;
   width: 100%;
-  height: 600px;
+  height: 650px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 50px;
-  display: none;
+  /*display: none;*/
 }
+
 #resultados{
   position: relative;
-  width: 50%;
-  height: 80%;
+  width: 55%;
+  height: 75%;
   top: 5%;
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #c8d5d9;
+  background-color: #cfcfcf;
   border-radius: 25px;
 }
+
 #span_resultados{
   display: block;
   color: #000;
-  font-size: 3em;
-  font-weight: bold;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  font-size: 4em;
+}
+
+#etiqueta{
+  display: inline-block;
+  width: 55%;
+  text-align: right;
+  padding-right: 20px;
+  vertical-align: top;
+  font-size: 2.6em;
+}
+
+#info{
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+  margin-right: 5%;
+  padding-left: 30px;
+	vertical-align: baseline;
+  font-size: 2.6em;
 }
 
 #boton_volver_inicio_res, #boton_reiniciar_juego_res{
@@ -520,11 +538,15 @@ section p{
   height: 200px;
   cursor: pointer;
 }
+#boton_volver_inicio_res:hover, #boton_reiniciar_juego_res:hover{
+  transform:scale(1.1);
+}
 
 #boton_volver_inicio_res{
   left: 5%;
   bottom: 0;
 }
+
 #inicio_res{
   position: absolute;
   font-size: 2em;
@@ -533,10 +555,12 @@ section p{
   color: black;
   left:8%;
 }
+
 #boton_reiniciar_juego_res{
   left: 85%;
   bottom: 32%;
 }
+
 #reinicio_res{
   position: absolute;
   font-size: 2em;
@@ -546,6 +570,7 @@ section p{
   left:-2%;
   bottom: 36%;
 }
+
 #div_resultados p{
   font-size: 2em;
   color: #000;
@@ -607,7 +632,7 @@ section p{
   margin-top: 25px;
   margin-bottom: 50px;
   margin-left: 12%;
-  background-color: orange;
+  background-color: #31da41;
   color: #222;
   font-size: 16px;
   font-weight: bold;
