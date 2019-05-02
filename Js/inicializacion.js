@@ -1,37 +1,13 @@
 'use strict'
 
-/* ------- SCENE MANAGER ------- */
-const panelDificultad  = document.getElementById("div_dificultad");
-const panelCuentaAtras = document.getElementById("div_cuenta_atras");
-const panelJuego       = document.getElementById("div_juego");
-const panelResultados  = document.getElementById("div_resultados");
-
-// Nombres de las escenas en la máquina de escenas de scenemanager.js
-const scDificultad  = 0;
-const scCuentaAtras = 1;
-const scJuego       = 2;
-const scResultados  = 3;
-
-// Tiempo de la cuenta atrás en segundos
-var tTotalCuentaAtras    = 5;
-var tRestanteCuentaAtras = tTotalCuentaAtras;
-
-var escenaActual = scDificultad;
-/* ----------------------------- */
-
-
-
 /* ----------- VISTA ----------- */
-const iptTexto    = document.getElementById("ipt-texto");
-const optTexto    = document.getElementById("ref-texto");
-const optPpm      = document.getElementById("opt-ppm");
-const optProgreso = document.getElementById("opt-progreso");
-
 function InicializarVista()
 {
   iptTexto.placeholder = palabras[idPalabraActual];
   iptTexto.readOnly = false;
   iptTexto.value = "";
+  iptTexto.style.backgroundColor = "white";
+  iptTexto.style.color = "black";
 
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";
@@ -43,36 +19,24 @@ function InicializarVista()
 
 
 
+
 /* -------- CONTROLADOR -------- */
-var idPalabraActual = 0;                                                        // Id de la palabra que tiene que escribir el jugador.
-var idCharActual    = 0;                                                        // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
-var tIni            = new Date();                                               // Momento de inicio del juego.
-
-var palabras   = [];                                                            // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
-var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
-var texto      = "";                                                            // Reconstruyo el texto a partir del array de las palabras, poniendo spans.
-
-var dificultad =
+function SeleccionarDificultad(dificultad)
 {
-  fase1:
+  switch (dificultad)
   {
-    carga: 14,
-    descarga: 13
-  },
-  fase2:
-  {
-    carga: 34,
-    descarga: 24
-  },
-  fase3:
-  {
-    carga: 40,
-    descarga: 19
-  },
-  fase4:
-  {
-    carga: 27,
-    descarga: 9
+    case "facil":
+      dificultad = dificultades.facil;
+      break;
+
+    default:
+    case "medio":
+      dificultad = dificultades.medio;
+      break;
+
+    case "dificil":
+      dificultad = dificultades.dificil;
+      break;
   }
 }
 
@@ -87,7 +51,7 @@ function InicializarControlador()
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
   texto      = ConstruirTextoRevisado(palabras);
 
-  alert(dificultad.fase2.descarga);
+  dificultad = dificultades.medio;
 }
 
 

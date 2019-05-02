@@ -19,7 +19,7 @@ document.getElementById("resultados_inicio").addEventListener("click", function(
 
 function SceneMachine(direccion)
 {
-  // OCULTAR
+  // Oculto el panel que se estaba mostrando
   switch (escenaActual)
   {
     default:
@@ -41,7 +41,7 @@ function SceneMachine(direccion)
   }
 
 
-  // REVELAR
+  // Revelo el panel que se tiene que mostrar
   escenaActual = direccion;
 
   switch (direccion)
@@ -84,8 +84,9 @@ function IniciarCuentaAtras()
       SceneMachine(scJuego);
       clearInterval(cuenta);
     }
-  }, 1000);
+  }, 850);                                                                      // 850 en lugar de 1000 aposta por UX
 }
+
 
 function ActualizarCuentaAtras(numero)
 {
