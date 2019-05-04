@@ -95,5 +95,9 @@ function QuemarMecha()
       porQuemar.parentNode.classList.add("p-explosion");
       chispa.classList.add("p-explosion");
     }
+    else if (parseInt(chispa.dataset.gchar) === largoTexto - 1)
+    {
+      chispa.parentNode.classList.add("p-explosion");
+    }
   }
 }

@@ -98,10 +98,8 @@ select:focus, textarea:focus, input:focus {
   text-align: center;
 }
 .palabra-actual {
-  color: red;
+  color: dodgerblue;
   text-decoration: underline;
-  font-size: 1.3em;
-  font-weight: bold;
   text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
 }
 
@@ -477,13 +475,13 @@ footer{
 	color:red;}
 
 .l-chispa{
-	border-bottom: 0.10em solid brown;
-	padding-bottom: 0.2em;
+	border-bottom: 0.15em solid red;
+	padding-bottom: 0.175em;
 	color:red;
 }
 .l-chispa::after{
 	content:"";
-	background-image:url("chispa.png");
+	background-image:url(".Images/boom.png");
 	position:absolute;
 	top: 1.25em;
 	left: -1.3em;
@@ -528,7 +526,7 @@ footer{
 
 @keyframes explosion{
 	from{
-		background-image:url("boom.png");
+		background-image:url(".Images/boom.png");
 		transform:scale(1);}
 	50%{transform:scale(1.5);}
 	99%{transform:scale(1);}
