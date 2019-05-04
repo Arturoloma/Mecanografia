@@ -114,27 +114,15 @@ function InicializarHotZone(dificultadSeleccionada)
   {
     case "facil":
       dificultad = dificultades.facil;
-      /*tHotZone += dificultades.facil.fases[0].carga + dificultades.facil.fases[0].descarga
-                + dificultades.facil.fases[1].carga + dificultades.facil.fases[1].descarga
-                + dificultades.facil.fases[2].carga + dificultades.facil.fases[2].descarga
-                + dificultades.facil.fases[3].carga + dificultades.facil.fases[3].descarga;*/
       break;
 
     default:
     case "medio":
       dificultad = dificultades.medio;
-      /*tHotZone += dificultades.medio.fases[0].carga + dificultades.medio.fases[0].descarga
-                + dificultades.medio.fases[1].carga + dificultades.medio.fases[1].descarga
-                + dificultades.medio.fases[2].carga + dificultades.medio.fases[2].descarga
-                + dificultades.medio.fases[3].carga + dificultades.medio.fases[3].descarga;*/
       break;
 
     case "dificil":
       dificultad = dificultades.dificil;
-      /*tHotZone += dificultades.dificil.fases[0].carga + dificultades.dificil.fases[0].descarga
-                + dificultades.dificil.fases[1].carga + dificultades.dificil.fases[1].descarga
-                + dificultades.dificil.fases[2].carga + dificultades.dificil.fases[2].descarga
-                + dificultades.dificil.fases[3].carga + dificultades.dificil.fases[3].descarga;*/
       break;
   }
 

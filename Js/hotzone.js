@@ -26,7 +26,7 @@ function HotZone (ciclosRestantes)
            }
 
          case 3:
-           if (idCharCarga >= charsPorFase * (faseActual + 1))
+           if (idCharCarga >= largoTexto)
            {
              tLoop = (dificultad.fases[faseActual].descarga * 1000) / charsUltimaFase;
              console.log("FASE " + (faseActual + 1) + "(DESCARGANDO)");
@@ -68,21 +68,20 @@ function HotZone (ciclosRestantes)
            break;
 
          case 3:
-           if (idCharDescarga >= charsPorFase * (faseActual + 1))
+           if (idCharDescarga >= largoTexto)
            {
-             //cargando = true;
+             faseActual++;
            }
            break;
        }
      }
 
-     if (--ciclosRestantes)
+     if (faseActual < 4)
      {
-       HotZone(ciclosRestantes);
+       HotZone();
      }
      else
      {
-       console.log("Ciclos restantes: " + ciclosRestantes);
        console.log("Fin de hotzone");
      }
    }, tLoop);

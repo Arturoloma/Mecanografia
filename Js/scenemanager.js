@@ -42,7 +42,7 @@ function SceneMachine(direccion)
 
     case scJuego:
       InicializarVista(idPalabraActual);
-      HotZone((charsPorFase * 3 * 2) + (charsUltimaFase * 2));
+      HotZone();
       panelJuego.classList.remove("ocultar_elemento");
       iptTexto.focus();
       break;

@@ -52,10 +52,10 @@ const dificultades =
               fase3: { carga: 14, descarga: 13 },
               fase4: { carga: 14, descarga: 13 }
            },
-  medio:   {  fases: [{ carga: 8, descarga: 5 },
-                      { carga: 6, descarga: 7 },
-                      { carga: 9, descarga: 10 },
-                      { carga: 6, descarga:  8 }]
+  medio:   {  fases: [{ carga: 2, descarga: 1 },
+                      { carga: 1, descarga: 2 },
+                      { carga: 1, descarga: 3 },
+                      { carga: 2, descarga: 2 }]
            },
   dificil: {  fase1: { carga: 14, descarga: 13 },
               fase2: { carga: 14, descarga: 13 },
