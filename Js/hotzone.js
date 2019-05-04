@@ -6,10 +6,7 @@ function HotZone (ciclosRestantes)
    {
      if (cargando)
      {
-       // INSTRUCCIONES AL CONTROLADOR
-       console.log("Fase " + (faseActual + 1) + "(cargando)" + " - ch" + idCharCarga);
-
-       idCharCarga++;
+       CargarOleada();
 
        switch (faseActual)
        {
@@ -20,8 +17,8 @@ function HotZone (ciclosRestantes)
            if (idCharCarga >= charsPorFase * (faseActual + 1))
            {
              tLoop = (dificultad.fases[faseActual].descarga * 1000) / charsPorFase;
-             console.log("FASE " + (faseActual + 1) + "(DESCARGANDO)");
-             console.log("T CICLO: " + tLoop / 1000 + " segs.");
+             // console.log("FASE " + (faseActual + 1) + "(DESCARGANDO)");
+             // console.log("T CICLO: " + tLoop / 1000 + " segs.");
              cargando = false;
            }
 
@@ -29,8 +26,8 @@ function HotZone (ciclosRestantes)
            if (idCharCarga >= largoTexto)
            {
              tLoop = (dificultad.fases[faseActual].descarga * 1000) / charsUltimaFase;
-             console.log("FASE " + (faseActual + 1) + "(DESCARGANDO)");
-             console.log("T CICLO: " + tLoop / 1000 + " segs.");
+             // console.log("FASE " + (faseActual + 1) + "(DESCARGANDO)");
+             // console.log("T CICLO: " + tLoop / 1000 + " segs.");
              cargando = false;
            }
            break;
@@ -38,9 +35,7 @@ function HotZone (ciclosRestantes)
      }
      else
      {
-       // INSTRUCCIONES AL CONTROLADOR
-       console.log("Fase " + (faseActual + 1) + "(descargando)" + " - ch" + idCharDescarga);
-       idCharDescarga++;
+       DescargarOleada();
 
        switch (faseActual)
        {
@@ -51,8 +46,8 @@ function HotZone (ciclosRestantes)
            {
              faseActual++;
              tLoop = (dificultad.fases[faseActual].carga * 1000) / charsPorFase;
-             console.log("FASE " + (faseActual + 1) + "(CARGANDO)");
-             console.log("T CICLO: " + tLoop / 1000 + " segs.");
+             //console.log("FASE " + (faseActual + 1) + "(CARGANDO)");
+             //console.log("T CICLO: " + tLoop / 1000 + " segs.");
              cargando = true;
            }
 
@@ -61,8 +56,8 @@ function HotZone (ciclosRestantes)
            {
              faseActual++;
              tLoop = (dificultad.fases[faseActual].carga * 1000) / charsUltimaFase;
-             console.log("FASE " + (faseActual + 1) + "(CARGANDO)");
-             console.log("T CICLO: " + tLoop / 1000 + " segs.");
+             //console.log("FASE " + (faseActual + 1) + "(CARGANDO)");
+             //console.log("T CICLO: " + tLoop / 1000 + " segs.");
              cargando = true;
            }
            break;

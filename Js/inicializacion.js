@@ -74,18 +74,18 @@ function ConstruirTextoRevisado(palabras)
       // Si no estoy en el último caracter, abro <span> y añado sus coordenadas en un atributo data-char, pero no cierro el <span> de la palabra.
       if   (j !== palabras[i].length - 1)
       {
-        textoRevisado += "<span data-char='" + j + "' data-g-char='" + gChar + "' class=''>" + palabras[i].charAt(j) + "</span>";
+        textoRevisado += "<span data-char='" + j + "' data-gchar='" + gChar + "' class=''>" + palabras[i].charAt(j) + "</span>";
         gChar++;
       }
       // Si estoy en el último caracter, también cierro el <span> de la palabra.
       else
       {
-        textoRevisado += "<span data-char='" + j + "' data-g-char='" + gChar + "' class=''>" + palabras[i].charAt(j) + "</span></span>";
+        textoRevisado += "<span data-char='" + j + "' data-gchar='" + gChar + "' class=''>" + palabras[i].charAt(j) + "</span></span>";
         gChar++;
         // Además, si no estoy en la última palabra, añado un espacio a la derecha con su propio <span> y coordenadas como data-space.
         if (i !== palabras.length - 1)
         {
-          textoRevisado += "<span data-space='" + i + "' data-g-char='" + gChar + "' class=''> </span>";
+          textoRevisado += "<span data-space='" + i + "' data-gchar='" + gChar + "' class=''> </span>";
           gChar++;
         }
       }

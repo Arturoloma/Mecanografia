@@ -87,3 +87,19 @@ function CalcularProgreso()
   const progreso = Math.floor(100*(idCharActual / largoTexto));
   MostrarProgreso(progreso);
 }
+
+
+function CargarOleada()
+{
+  //console.log("Fase " + (faseActual + 1) + "(cargando)" + " - ch" + idCharCarga);
+  ActualizarOleada();
+  idCharCarga++;
+}
+
+
+function DescargarOleada()
+{
+  // console.log("Fase " + (faseActual + 1) + "(descargando)" + " - ch" + idCharDescarga);
+  QuemarMecha();
+  idCharDescarga++;
+}
