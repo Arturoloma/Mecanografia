@@ -236,6 +236,8 @@ section p{
   right:0;
   top: 100px;
   /*display: none;*/
+
+  animation: DeslizFadeIN 1s ease;
 }
 
 #span_dificultad{
@@ -318,6 +320,8 @@ section p{
   text-align: center;
   line-height: 300px;
   display: none;
+
+  animation: DeslizFadeIN 1s ease;
 }
 
 #div_juego{
@@ -332,6 +336,8 @@ section p{
   right: 0;
   top: 50px;
   display: none;
+
+  animation: DeslizFadeIN 1s ease;
 }
 
 #boton_volver_inicio, #boton_reiniciar_juego{
@@ -369,6 +375,8 @@ section p{
   right: 0;
   top: 50px;
   display: none;
+
+  animation: DeslizFadeIN 1s ease;
 }
 
 #span_resultados{
@@ -462,3 +470,56 @@ footer{
   text-align: justify;
   padding: 20px;
 }
+
+
+/***** FADE IN/OUT PANTALLAS *****/
+
+@keyframes DeslizFadeIN {
+    from {transform: translateX(4000px);}
+    0% {opacity: 0.00;}
+    10% {opacity: 0.10;}
+    15% {opacity: 0.15;}
+    20% {opacity: 0.20;}
+    25% {opacity: 0.25;}
+    30% {opacity: 0.30;}
+    35% {opacity: 0.35;}
+    40% {opacity: 0.40;}
+    45% {opacity: 0.45;}
+    50% {opacity: 0.50;}
+    55% {opacity: 0.55;}
+    60% {opacity: 0.60;}
+    65% {opacity: 0.65;}
+    70% {opacity: 0.70;}
+    75% {opacity: 0.75;}
+    80% {opacity: 0.80;}
+    80% {opacity: 0.85;}
+    90% {opacity: 0.90;}
+    95% {opacity: 0.95;}
+    100% {opacity: 1;}
+    to {transform: translateX(0px);}
+  }
+
+  @keyframes DeslizFadeOUT {
+      from {transform: translateX(0px);}
+      0% {opacity: 1;}
+      10% {opacity: 0.95;}
+      15% {opacity: 0.90;}
+      20% {opacity: 0.85;}
+      25% {opacity: 0.80;}
+      30% {opacity: 0.75;}
+      35% {opacity: 0.70;}
+      40% {opacity: 0.65;}
+      45% {opacity: 0.60;}
+      50% {opacity: 0.55;}
+      55% {opacity: 0.50;}
+      60% {opacity: 0.45;}
+      65% {opacity: 0.40;}
+      70% {opacity: 0.35;}
+      75% {opacity: 0.30;}
+      80% {opacity: 0.25;}
+      80% {opacity: 0.20;}
+      90% {opacity: 0.15;}
+      95% {opacity: 0.10;}
+      100% {opacity: 0.00;}
+      to {transform: translateX(-4000px);}
+    }
