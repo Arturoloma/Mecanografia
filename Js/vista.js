@@ -1,5 +1,11 @@
 'use strict'
 
+function ActualizarCuentaAtras(numero)
+{
+  panelCuentaAtras.innerHTML = numero;
+}
+
+
 function ResaltarPalabraActual(resaltar)
 {
   for (var i = 0 ; i < palabras[idPalabraActual].length ; i++)
@@ -104,4 +110,14 @@ function ExplosionarAnterior(porQuemar, chispa)
 function ExplosionarUltima(chispa)
 {
   chispa.parentNode.classList.add("p-explosion");
+}
+
+
+function MostrarResultados(progreso, ppm, perErrores)
+{
+  document.getElementById("resultados_dificultad").innerHTML  = dificultad.nombre;
+  document.getElementById("resultados_progreso").innerHTML    = progreso + "%";
+  document.getElementById("resultados_ppm").innerHTML         = ppm;
+  document.getElementById("resultados_errores").innerHTML     = errores;
+  document.getElementById("resultados_per-errores").innerHTML = perErrores.toFixed(2) + "%";
 }

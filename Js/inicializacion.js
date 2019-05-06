@@ -25,7 +25,8 @@ function InicializarControlador()
 {
   idPalabraActual = 0;                                                          // Id de la palabra que tiene que escribir el jugador.
   idCharActual    = 0;                                                          // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
-  tIni = new Date();                                                            // Momento de inicio del juego.
+  tIni            = new Date();                                                 // Momento de inicio del juego.
+  errores         = 0;
 
   palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
@@ -127,10 +128,5 @@ function InicializarHotZone(dificultadSeleccionada)
   }
 
   tLoop = (dificultad.fases[faseActual].carga * 1000) / charsPorFase;
-  console.log("Largo del texto: " + largoTexto);
-  console.log("Chars por fase: " + charsPorFase);
-  console.log("Chars última fase: " + charsUltimaFase);
-  console.log("Fase " + (faseActual + 1) + "(cargando)");
-  console.log("t loop: " + tLoop / 1000 + " segs.");
 }
 /* ----------------------------- */

@@ -52,27 +52,3 @@ function SceneMachine(direccion)
       break;
   }
 }
-
-
-function IniciarCuentaAtras()
-{
-  tRestanteCuentaAtras = tTotalCuentaAtras;
-  ActualizarCuentaAtras(tRestanteCuentaAtras);
-
-  var cuenta = setInterval(function()
-  {
-    tRestanteCuentaAtras -= 1;
-    ActualizarCuentaAtras(tRestanteCuentaAtras);
-    if (tRestanteCuentaAtras <= 0)
-    {
-      SceneMachine(scJuego);
-      clearInterval(cuenta);
-    }
-  }, 850);                                                                      // 850 en lugar de 1000 aposta por UX
-}
-
-
-function ActualizarCuentaAtras(numero)
-{
-  panelCuentaAtras.innerHTML = numero;
-}

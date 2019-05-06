@@ -1,5 +1,22 @@
 'use strict'
 
+function IniciarCuentaAtras()
+{
+  tRestanteCuentaAtras = tTotalCuentaAtras;
+  ActualizarCuentaAtras(tRestanteCuentaAtras);
+
+  var cuenta = setInterval(function()
+  {
+    tRestanteCuentaAtras -= 1;
+    ActualizarCuentaAtras(tRestanteCuentaAtras);
+    if (tRestanteCuentaAtras <= 0)
+    {
+      SceneMachine(scJuego);
+      clearInterval(cuenta);
+    }
+  }, 850);                                                                      // 850 en lugar de 1000 a propósito, por experiencia de usuario
+}
+
 
 function ControlarAvanceDePalabra(subIpt, subRef)
 {
@@ -21,8 +38,6 @@ function ControlarVictoria(subIpt, subRef)
 
   if (iptCorrecto)
   {
-    CalcularPPM();
-    CalcularProgreso();
     GameOver();
   }
 }
@@ -32,8 +47,6 @@ function ControlarDerrota(porQuemar)
 {
   if (parseInt(porQuemar.parentNode.dataset.word) >= idPalabraActual)
   {
-    CalcularPPM();
-    CalcularProgreso();
     GameOver();
   }
 }
@@ -41,8 +54,15 @@ function ControlarDerrota(porQuemar)
 
 function ControlarSiInputCorrecto(subIpt, subRef)
 {
-  EstilizarInput(subIpt === subRef);
-  return subIpt === subRef;
+  const iptCorrecto = subIpt === subRef;
+
+  if (!iptCorrecto)
+  {
+    errores++;
+  }
+  EstilizarInput(iptCorrecto);
+
+  return iptCorrecto;
 }
 
 
@@ -76,10 +96,15 @@ function AvanzarPalabra()
 
 function GameOver()
 {
-  ResaltarPalabraActual(false);
   idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
   BloquearInput();
+
+  const progreso = CalcularProgreso();
+  const ppm = CalcularPPM();
+  const perErrores = 100 * (errores / idCharActual);
+
   SceneMachine(scResultados);
+  MostrarResultados(progreso, ppm, perErrores);
 }
 
 
@@ -90,6 +115,7 @@ function CalcularPPM()
   const ppm = Math.abs(Math.floor(idCharActual / tTotal));
 
   MostrarPPM(ppm);
+  return ppm;                                                                   // Para el game over
 }
 
 
@@ -97,12 +123,12 @@ function CalcularProgreso()
 {
   const progreso = Math.floor(100*(idCharActual / largoTexto));
   MostrarProgreso(progreso);
+  return progreso;                                                              // Para el game over
 }
 
 
 function CargarOleada()
 {
-  //console.log("Fase " + (faseActual + 1) + "(cargando)" + " - ch" + idCharCarga);
   ActualizarOleada();
   idCharCarga++;
 }
