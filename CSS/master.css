@@ -632,6 +632,10 @@ footer{
   padding: 20px;
 }
 
+#enlacefooter{
+  color: white !important;
+}
+
 /********** Clases para JS **********/
 .ocultar_elemento{
   display: none;
