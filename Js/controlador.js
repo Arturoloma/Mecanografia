@@ -1,5 +1,27 @@
 'use strict'
 
+function SeleccionarDificultad(dificultadSeleccionada)
+{
+  switch (dificultadSeleccionada)
+  {
+    case "facil":
+      dificultad = dificultades.facil;
+      break;
+
+    default:
+    case "normal":
+      dificultad = dificultades.normal;
+      break;
+
+    case "dificil":
+      dificultad = dificultades.dificil;
+      break;
+  }
+
+  ActivarBotonDificultad(dificultadSeleccionada);
+}
+
+
 function IniciarCuentaAtras()
 {
   tRestanteCuentaAtras = tTotalCuentaAtras;
@@ -60,7 +82,7 @@ function ControlarSiInputCorrecto(subIpt, subRef)
   {
     errores++;
   }
-  
+
   EstilizarInput(iptCorrecto);
   subIptAnterior = subIpt;
 

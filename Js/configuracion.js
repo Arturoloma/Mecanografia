@@ -50,22 +50,22 @@ var texto      = "";
 const dificultades =
 {
   facil:   {  nombre: "fácil",
-              fases: [{ carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 }]
+              fases: [{ carga: 32, descarga: 26 },
+                      { carga: 29, descarga: 23 },
+                      { carga: 26, descarga: 20 },
+                      { carga: 23, descarga: 17 }]
            },
-  medio:   {  nombre: "medio",
-              fases: [{ carga: 25, descarga: 25 },
-                      { carga: 20, descarga: 20 },
-                      { carga: 15, descarga: 15 },
-                      { carga: 10, descarga: 10 }]
+  normal:   { nombre: "normal",
+              fases: [{ carga: 20, descarga: 15 },
+                      { carga: 17, descarga: 13 },
+                      { carga: 16, descarga: 11 },
+                      { carga: 13, descarga:  9 }]
            },
   dificil: {  nombre: "difícil",
-              fases: [{ carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 }]
+              fases: [{ carga: 11, descarga:  9 },
+                      { carga:  9, descarga:  7 },
+                      { carga:  7, descarga:  5 },
+                      { carga:  5, descarga:  3 }]
            }
 };
 

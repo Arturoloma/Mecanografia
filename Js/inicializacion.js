@@ -102,7 +102,7 @@ function ConstruirTextoRevisado(palabras)
 
 
 /* ---------- HOT ZONE --------- */
-function InicializarHotZone(dificultadSeleccionada)
+function InicializarHotZone()
 {
   faseActual = 0;
   cargando = true;
@@ -110,24 +110,6 @@ function InicializarHotZone(dificultadSeleccionada)
   idCharDescarga = 0;
   charsPorFase = Math.round(largoTexto / 4);
   charsUltimaFase = largoTexto - (charsPorFase * 3);
-
-
-  switch (dificultadSeleccionada)
-  {
-    case "facil":
-      dificultad = dificultades.facil;
-      break;
-
-    default:
-    case "medio":
-      dificultad = dificultades.medio;
-      break;
-
-    case "dificil":
-      dificultad = dificultades.dificil;
-      break;
-  }
-
   tLoop = (dificultad.fases[faseActual].carga * 1000) / charsPorFase;
 }
 /* ----------------------------- */

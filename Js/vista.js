@@ -1,5 +1,33 @@
 'use strict'
 
+function ActivarBotonDificultad(dificultadSeleccionada)
+{
+  const btnFacil   = document.getElementById("boton_nivel_facil");
+  const btnNormal  = document.getElementById("boton_nivel_normal");
+  const btnDificil = document.getElementById("boton_nivel_dificil");
+
+  btnFacil.classList.remove("activo");
+  btnNormal.classList.remove("activo");
+  btnDificil.classList.remove("activo");
+  
+  switch (dificultadSeleccionada)
+  {
+    case "facil":
+      btnFacil.classList.add("activo");
+      break;
+
+    default:
+    case "normal":
+      btnNormal.classList.add("activo");
+      break;
+
+    case "dificil":
+      btnDificil.classList.add("activo");
+      break;
+  }
+}
+
+
 function ActualizarCuentaAtras(numero)
 {
   panelCuentaAtras.innerHTML = numero;

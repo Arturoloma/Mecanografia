@@ -19,6 +19,14 @@ document.getElementById("resultados_inicio").addEventListener("click", function(
 
 
 
+/* -------- DIFICULTAD --------- */
+document.getElementById("boton_nivel_facil").addEventListener("click", function(){ SeleccionarDificultad("facil"); }, false);
+document.getElementById("boton_nivel_normal").addEventListener("click", function(){ SeleccionarDificultad("normal"); }, false);
+document.getElementById("boton_nivel_dificil").addEventListener("click", function(){ SeleccionarDificultad("dificil"); }, false);
+/* ----------------------------- */
+
+
+
 
 /* ----------- JUEGO ----------- */
 /**
