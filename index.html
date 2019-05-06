@@ -63,7 +63,7 @@
                 <div class="lunar"></div>
               </div>
             </div>
-            <div id="boton_jugar" onclick="contadorActivado();"><span id="span_jugar">JUGAR</span></div>
+            <div id="inicio_jugar" onclick="contadorActivado();"><span id="span_jugar">JUGAR</span></div>
           </div>
 
 
@@ -77,13 +77,13 @@
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
             <p id="opt-progreso">0%</p>
-            <div id="boton_volver_inicio">
+            <div id="juego_inicio">
               <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio">Inicio</p>
             </div>
             <div id="boton_reiniciar_juego">
               <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
-              <p id="reinicio">Reiniciar</p>
+              <p id="juego_juego">Reiniciar</p>
             </div>
           </div>
 
@@ -91,18 +91,18 @@
           <div id="div_resultados">
             <div id="resultados">
               <span id="span_resultados">RESULTADOS</span>
-              <div id="etiqueta">Dificultad:</div><div id="info"> Fácil </div>
-              <div id="etiqueta">Progreso: </div><div id="info"> 100% </div>
-              <div id="etiqueta">Pulsaciones por minuto: </div><div id="info"> 300 ppm </div>
-              <div id="etiqueta">Número de errores: </div><div id="info"> 15 </div>
-              <div id="etiqueta">Porcentaje de error: </div><div id="info"> 5% </div>
+              <div id="etiqueta">Dificultad:</div><div id="resultados_dificultad" class= "info"> Fácil </div>
+              <div id="etiqueta">Progreso: </div><div id="resultados_progreso" class= "info"> 100% </div>
+              <div id="etiqueta">Pulsaciones por minuto: </div><div id="resultados_ppm" class= "info"> 300 ppm </div>
+              <div id="etiqueta">Número de errores: </div><div id="resultados_errores" class= "info"> 15 </div>
+              <div id="etiqueta">Porcentaje de error: </div><div id="resultados_per-errores" class= "info"> 5% </div>
             </div>
-            <div id="boton_volver_inicio_res">
+            <div id="resultados_inicio">
               <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio_res">Inicio</p>
             </div>
-            <div id="boton_reiniciar_juego_res">
-              <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
+            <div id="resultados_jugar">
+              <img src="./Images/reset.png" alt="Reinicio" width="65px" height="65px">
               <p id="reinicio_res">Reiniciar</p>
             </div>
           </div>
