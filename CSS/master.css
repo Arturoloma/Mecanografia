@@ -88,7 +88,7 @@ select:focus, textarea:focus, input:focus {
 /* PÁGINA */
 
 .palabra-actual {
-  color: red;
+  color: rgb(2, 208, 187);
   text-decoration: underline;
   font-weight: bold;
   text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
