@@ -132,6 +132,7 @@ header{
   height: 80px;
   top: 4px;
   left: 8px;
+  cursor: pointer;
 }
 
 .logo_bee_juego{
@@ -232,6 +233,12 @@ section p{
   letter-spacing: 1px;
   text-align: justify;
   text-shadow: 2px 0 0 #111, -2px 0 0 #111, 0 2px 0 #111, 0 -2px 0 #111, 1px 1px #111, -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111;
+}
+
+section article img{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 #section_inicio{
@@ -621,7 +628,7 @@ footer{
   background-color: #000;
   font-size: 1.1em;
   color: #FFF;
-  text-align: justify;
+  text-align: center;
   padding: 20px;
 }
 
