@@ -21,9 +21,20 @@ function ControlarVictoria(subIpt, subRef)
 
   if (iptCorrecto)
   {
-    Victoria();
     CalcularPPM();
     CalcularProgreso();
+    GameOver();
+  }
+}
+
+
+function ControlarDerrota(porQuemar)
+{
+  if (parseInt(porQuemar.parentNode.dataset.word) >= idPalabraActual)
+  {
+    CalcularPPM();
+    CalcularProgreso();
+    GameOver();
   }
 }
 
@@ -63,7 +74,7 @@ function AvanzarPalabra()
 }
 
 
-function Victoria()
+function GameOver()
 {
   ResaltarPalabraActual(false);
   idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
@@ -99,7 +110,32 @@ function CargarOleada()
 
 function DescargarOleada()
 {
-  // console.log("Fase " + (faseActual + 1) + "(descargando)" + " - ch" + idCharDescarga);
-  QuemarMecha();
+  const chispa = document.querySelector("span[data-gchar='" + idCharDescarga + "']");
+
+  AvanzarChispa(chispa);
+
+  if (chispa.dataset.char === "0")
+  {
+     PrenderPalabra(chispa);
+  }
+  if (idCharDescarga > 0)
+  {
+    const porQuemar = document.querySelector("span[data-gchar='" + (idCharDescarga - 1) + "']");
+    QuemarMecha(porQuemar);
+
+    // Explosión de la palabra anterior a la prendida
+    if(chispa.dataset.space)
+    {
+      ExplosionarAnterior(porQuemar, chispa);
+      ControlarDerrota(porQuemar);
+    }
+    // Explosión de la última palabra del texto
+    else if (parseInt(chispa.dataset.gchar) === largoTexto - 1)
+    {
+      ExplosionarUltima(chispa);
+      ControlarDerrota(porQuemar);
+    }
+  }
+
   idCharDescarga++;
 }

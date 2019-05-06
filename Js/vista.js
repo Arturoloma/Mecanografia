@@ -68,36 +68,40 @@ function ActualizarOleada()
 }
 
 
-function QuemarMecha()
+function AvanzarChispa(chispa)
 {
-  const chispa = document.querySelector("span[data-gchar='" + idCharDescarga + "']");
   chispa.classList.remove("p-oleada");
   chispa.classList.add("l-chispa");
+}
 
-  if (chispa.dataset.char === "0")
+
+function PrenderPalabra(chispa)
+{
+  const charsPorExplotar = chispa.parentNode.querySelectorAll("span");
+
+  for (var i = 0 ; i < charsPorExplotar.length ; i++)
   {
-    const charsPorExplotar = chispa.parentNode.querySelectorAll("span");
-
-    for (var i = 0 ; i < charsPorExplotar.length ; i++)
-    {
-      charsPorExplotar[i].classList.remove("p-oleada");
-      charsPorExplotar[i].classList.add("l-sin-quemar");
-    }
+    charsPorExplotar[i].classList.remove("p-oleada");
+    charsPorExplotar[i].classList.add("l-sin-quemar");
   }
+}
 
-  if (idCharDescarga > 0) {
-    const porQuemar = document.querySelector("span[data-gchar='" + (idCharDescarga - 1) + "']");
-    porQuemar.classList.remove("l-chispa");
-    porQuemar.classList.add("l-quemada");
 
-    if(chispa.dataset.space)
-    {
-      porQuemar.parentNode.classList.add("p-explosion");
-      chispa.classList.add("p-explosion");
-    }
-    else if (parseInt(chispa.dataset.gchar) === largoTexto - 1)
-    {
-      chispa.parentNode.classList.add("p-explosion");
-    }
-  }
+function QuemarMecha(porQuemar)
+{
+  porQuemar.classList.remove("l-chispa");
+  porQuemar.classList.add("l-quemada");
+}
+
+
+function ExplosionarAnterior(porQuemar, chispa)
+{
+  porQuemar.parentNode.classList.add("p-explosion");
+  chispa.classList.add("p-explosion");
+}
+
+
+function ExplosionarUltima(chispa)
+{
+  chispa.parentNode.classList.add("p-explosion");
 }

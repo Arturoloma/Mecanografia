@@ -71,7 +71,7 @@ function HotZone (ciclosRestantes)
        }
      }
 
-     if (faseActual < 4)
+     if (escenaActual === scJuego && faseActual < 4)
      {
        HotZone();
      }

@@ -501,7 +501,7 @@ footer{
 .p-explosion{
 	border-bottom: 0.08em dotted grey;
 	padding-bottom: 0.2em;
-	animation: humo 1s linear 0.4s forwards normal;
+	animation: humo 1s linear 0s forwards normal;
 	color:red;
 }
 
@@ -514,7 +514,7 @@ footer{
 	height: 1em;
 	background-size: cover;
 	z-index: 100;
-	animation: explosion 1s linear 0.5 forwards  normal;
+	animation: explosion 1s linear 0s forwards  normal;
 }
 
 @keyframes chispa{
