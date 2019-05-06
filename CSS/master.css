@@ -275,7 +275,7 @@ section article img{
   left:0;
   right:0;
   top: 100px;
-  display: none;
+  /*display: none;*/
 
   animation: DeslizFadeIN 1s ease;
 }
@@ -309,7 +309,7 @@ section article img{
 
 #boton_nivel_facil:hover, #boton_nivel_normal:hover, #boton_nivel_dificil:hover{
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 #boton_nivel_facil{
@@ -517,7 +517,7 @@ section article img{
   left: 0;
   right: 0;
   top: 0px;
-  /*display: none;*/
+  display: none;
 
   animation: DeslizFadeIN 1s ease;
 }
@@ -639,6 +639,9 @@ footer{
 /********** Clases para JS **********/
 .ocultar_elemento{
   display: none;
+}
+.activo {
+  transform: scale(1.1);
 }
 
 
