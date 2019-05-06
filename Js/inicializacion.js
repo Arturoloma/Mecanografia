@@ -26,7 +26,8 @@ function InicializarControlador()
   idPalabraActual = 0;                                                          // Id de la palabra que tiene que escribir el jugador.
   idCharActual    = 0;                                                          // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
   tIni            = new Date();                                                 // Momento de inicio del juego.
-  errores         = 0;
+  errores         = 0;                                                          // Número de errores que ha tenido el jugador hasta ahora.
+  subIptAnterior  = "";                                                         // Lo que el usuario tenía escrito antes del último refresco del input.
 
   palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.

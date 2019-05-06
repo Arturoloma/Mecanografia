@@ -56,11 +56,13 @@ function ControlarSiInputCorrecto(subIpt, subRef)
 {
   const iptCorrecto = subIpt === subRef;
 
-  if (!iptCorrecto)
+  if (!iptCorrecto && subIpt.length > subIptAnterior.length)
   {
     errores++;
   }
+  
   EstilizarInput(iptCorrecto);
+  subIptAnterior = subIpt;
 
   return iptCorrecto;
 }

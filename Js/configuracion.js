@@ -32,10 +32,11 @@ const optProgreso = document.getElementById("opt-progreso");
 
 
 /* -------- CONTROLADOR -------- */
-var idPalabraActual = 0;                                                        // Id de la palabra que tiene que escribir el jugador.
-var idCharActual    = 0;                                                        // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
-var tIni            = new Date();                                               // Momento de inicio del juego.
-var errores         = 0;
+var idPalabraActual   = 0;                                                      // Id de la palabra que tiene que escribir el jugador.
+var idCharActual      = 0;                                                      // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
+var tIni              = new Date();                                             // Momento de inicio del juego.
+var errores           = 0;                                                      // Número de errores que ha tenido el jugador hasta ahora.
+var subIptAnterior    = "";                                                     // Lo que el usuario tenía escrito antes del último refresco del input.
 
 var palabras   = [];                                                            // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
 var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
@@ -55,9 +56,9 @@ const dificultades =
                       { carga: 10, descarga: 10 }]
            },
   medio:   {  nombre: "medio",
-              fases: [{ carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
-                      { carga: 10, descarga: 10 },
+              fases: [{ carga: 25, descarga: 25 },
+                      { carga: 20, descarga: 20 },
+                      { carga: 15, descarga: 15 },
                       { carga: 10, descarga: 10 }]
            },
   dificil: {  nombre: "difícil",
