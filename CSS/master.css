@@ -609,11 +609,13 @@ section article img{
 /*======================================================*/
 
 #section_creditos{
+  position: relative;
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
 
 #section_sobre_proyecto{
+  position: relative;
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
