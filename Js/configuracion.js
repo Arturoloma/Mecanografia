@@ -69,7 +69,7 @@ const dificultades =
            }
 };
 
-var dificultad = {};
+var dificultad = dificultades.normal;
 var faseActual = 0;
 var cargando = true;
 var charsPorFase = 0;
