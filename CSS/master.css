@@ -113,6 +113,7 @@ header{
   left: 2%;
   border-radius: 50%;
   background: white;
+  z-index: 100;
 }
 
 #div_logo h1{
@@ -240,11 +241,8 @@ section article img{
   margin-bottom: 10px;
 }
 
-#section_inicio{
-  margin-bottom: 50px;
-}
-
 #section_jugar{
+  position: relative;
   border-top: 1px solid white;
   margin-bottom: 50px;
 }
@@ -259,6 +257,7 @@ section article img{
   padding-bottom: 56.25%;
   border-radius: 25px;
   font-family: 'letters_for_learnersregular', "Gloria Hallelujah";
+
 }
 
 /* == Elegir nivel de dificultad == */
