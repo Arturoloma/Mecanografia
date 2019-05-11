@@ -67,7 +67,14 @@
             <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
-            <p id="opt-progreso">0%</p>
+
+            <div class="opt-progreso-base">
+              <div id="opt-progreso-wasabee"></div>
+              <div id="opt-progreso-relleno">
+                <p id="opt-progreso">0%</p>
+              </div>
+            </div>
+            
             <div id="juego_inicio">
               <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio">Inicio</p>
