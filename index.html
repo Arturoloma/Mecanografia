@@ -11,7 +11,14 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./CSS/master.css">
     <!-- JavaScript -->
-    <script type="text/javascript" src="./JS/prototipo_01.js" defer></script>
+    <script type="text/javascript" src="./Js/libreria.js" defer></script>
+    <script type="text/javascript" src="./Js/configuracion.js" defer></script>
+    <script type="text/javascript" src="./Js/inicializacion.js" defer></script>
+    <script type="text/javascript" src="./Js/scenemanager.js" defer></script>
+    <script type="text/javascript" src="./Js/vista.js" defer></script>
+    <script type="text/javascript" src="./Js/controlador.js" defer></script>
+    <script type="text/javascript" src="./Js/userinput.js" defer></script>
+    <script type="text/javascript" src="./Js/hotzone.js" defer></script>
   </head>
   <body translate="no" onscroll="navFixed()">
     <header>
@@ -58,7 +65,7 @@
           </div>
 
 
-          <div id="div_cuenta_atras">3
+          <div id="div_cuenta_atras" class="ocultar_elemento">3
           </div>
 
 
@@ -74,7 +81,7 @@
                 <p id="opt-progreso">0%</p>
               </div>
             </div>
-            
+
             <div id="juego_inicio">
               <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
               <p id="inicio">Inicio</p>
@@ -86,7 +93,7 @@
           </div>
 
 
-          <div id="div_resultados">
+          <div id="div_resultados" class="ocultar_elemento">
             <div id="resultados">
               <span id="span_resultados">RESULTADOS</span>
               <div id="etiqueta">Dificultad:</div><div id="resultados_dificultad" class= "info"> Fácil </div>
