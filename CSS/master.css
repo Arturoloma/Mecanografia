@@ -3,6 +3,7 @@
 /* Variables */
 :root {
   --content-width: 1920px;
+  --progreso: 0%;
 }
 /* Configuración general */
 * {
