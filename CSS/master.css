@@ -262,7 +262,6 @@ section article img{
   left:0;
   right:0;
   top: 100px;
-  display: none;
 
   animation: DeslizFadeIN 1s ease;
 }
@@ -383,7 +382,6 @@ section article img{
   font-size: 14em;
   text-align: center;
   line-height: 300px;
-  display: none;
 
   animation: DeslizFadeIN 1s ease;
 }
@@ -400,7 +398,6 @@ section article img{
   right: 0;
   top: 50px;
   font-family: "letters_for_learnersregular";
-  /*display: none;*/
 
   animation: DeslizFadeIN 1s ease;
 }
@@ -524,7 +521,6 @@ section article img{
   left: 0;
   right: 0;
   top: 0px;
-  display: none;
 
   animation: DeslizFadeIN 1s ease;
 }
