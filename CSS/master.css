@@ -465,10 +465,10 @@ section article img{
   border-radius: 25px;
 }
 
-#juego_inicio, #boton_reiniciar_juego{
+#juego_inicio, #juego_juego{
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 90px;
+  height: 120px;
   cursor: pointer;
 }
 
@@ -486,12 +486,12 @@ section article img{
   left:7%;
 }
 
-#boton_reiniciar_juego{
+#juego_juego{
   left: 95%;
-  bottom: 40%;
+  bottom: 29%;
 }
 
-#juego_juego{
+#reinicio{
   position: absolute;
   font-size: 2em;
   font-family: "letters_for_learnersregular" !important;
@@ -500,7 +500,7 @@ section article img{
   left:-4%;
 }
 
-#juego_inicio:hover, #boton_reiniciar_juego:hover{
+#juego_inicio:hover, #juego_juego:hover{
   transform:scale(1.1);
 }
 
