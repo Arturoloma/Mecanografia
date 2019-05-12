@@ -6,8 +6,8 @@ function InicializarVista()
   iptTexto.placeholder = palabras[idPalabraActual];
   iptTexto.readOnly = false;
   iptTexto.value = "";
-  iptTexto.style.backgroundColor = "white";
-  iptTexto.style.color = "black";
+  iptTexto.classList.add("input_correcto");
+  iptTexto.classList.remove("input_incorrecto");
 
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";

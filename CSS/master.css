@@ -28,7 +28,13 @@ html{
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: var(--bg-color,white);
+  /* fondo de lunares */
+  background:
+        radial-gradient(white 15%, transparent 16%),
+        radial-gradient(white 15%, transparent 16%),
+        #a2feff; /*Azul claro fondo */
+  background-position: 0 0, 300px 300px;
+  background-size: 120px 120px;
   color: var(--font-color,black);
 }
 h1,h2,h3,h4,h5,h6 {
@@ -187,13 +193,6 @@ header nav ul li a:hover{
 main{
   width: 100%;
   height: 100%;
-  /* fondo de lunares */
-  background:
-        radial-gradient(white 15%, transparent 16%),
-        radial-gradient(white 15%, transparent 16%),
-        #a2feff; /*Azul claro fondo */
-  background-position: 0 0, 300px 300px;
-  background-size: 120px 120px;
 }
 
 section{
@@ -264,7 +263,7 @@ section article img{
   right:0;
   top: 100px;
 
-  animation: DeslizFadeIN 1s ease;
+  animation: DeslizFadeIN 0.6s ease;
 }
 
 #span_dificultad{
@@ -296,7 +295,7 @@ section article img{
 
 #boton_nivel_facil:hover, #boton_nivel_normal:hover, #boton_nivel_dificil:hover{
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 #boton_nivel_facil{
@@ -384,13 +383,13 @@ section article img{
   text-align: center;
   line-height: 300px;
 
-  animation: DeslizFadeIN 1s ease;
+  animation: DeslizFadeIN 0.6s ease;
 }
 
 /* ===== Juego ===== */
 
 #div_juego{
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 700px;
   margin-left: auto;
@@ -400,7 +399,7 @@ section article img{
   top: 50px;
   font-family: "letters_for_learnersregular";
 
-  animation: DeslizFadeIN 1s ease;
+  /*animation: DeslizFadeIN 5s ease;*/
 }
 
 #ref-texto{
@@ -427,7 +426,6 @@ section article img{
   border: 0;
   margin: 15px auto;
   padding: 10px 15px;
-  background-image: linear-gradient(to right, #5ff1fb, #c8d5d9);
   border-radius: 25px;
   font-family: "letters_for_learnersregular" !important;
   font-size: 1.8em
@@ -523,7 +521,7 @@ section article img{
   right: 0;
   top: 0px;
 
-  animation: DeslizFadeIN 1s ease;
+  animation: DeslizFadeIN 0.6s ease;
 }
 
 #resultados{
@@ -648,61 +646,29 @@ footer{
   display: none;
 }
 .activo {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
-
+.input_correcto{
+  color: black;
+  background-image: linear-gradient(to right, #5ff1fb, #c8d5d9);
+}
+.input_incorrecto{
+  color: white;
+  background-image: linear-gradient(to right, #d62b14, #f5bcbc);
+}
 
 /***** FADE IN/OUT PANTALLAS *****/
 
 @keyframes DeslizFadeIN {
-    from {transform: translateX(4000px);}
-    0% {opacity: 0.00;}
-    10% {opacity: 0.10;}
-    15% {opacity: 0.15;}
-    20% {opacity: 0.20;}
-    25% {opacity: 0.25;}
-    30% {opacity: 0.30;}
-    35% {opacity: 0.35;}
-    40% {opacity: 0.40;}
-    45% {opacity: 0.45;}
-    50% {opacity: 0.50;}
-    55% {opacity: 0.55;}
-    60% {opacity: 0.60;}
-    65% {opacity: 0.65;}
-    70% {opacity: 0.70;}
-    75% {opacity: 0.75;}
-    80% {opacity: 0.80;}
-    80% {opacity: 0.85;}
-    90% {opacity: 0.90;}
-    95% {opacity: 0.95;}
-    100% {opacity: 1;}
-    to {transform: translateX(0px);}
-  }
-
-  @keyframes DeslizFadeOUT {
-      from {transform: translateX(0px);}
-      0% {opacity: 1;}
-      10% {opacity: 0.95;}
-      15% {opacity: 0.90;}
-      20% {opacity: 0.85;}
-      25% {opacity: 0.80;}
-      30% {opacity: 0.75;}
-      35% {opacity: 0.70;}
-      40% {opacity: 0.65;}
-      45% {opacity: 0.60;}
-      50% {opacity: 0.55;}
-      55% {opacity: 0.50;}
-      60% {opacity: 0.45;}
-      65% {opacity: 0.40;}
-      70% {opacity: 0.35;}
-      75% {opacity: 0.30;}
-      80% {opacity: 0.25;}
-      80% {opacity: 0.20;}
-      90% {opacity: 0.15;}
-      95% {opacity: 0.10;}
-      100% {opacity: 0.00;}
-      to {transform: translateX(-4000px);}
+    from {
+      transform: translateX(200%);
+      opacity: 0.00;
     }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
 
 
 /***** ANIMACIONES *****/

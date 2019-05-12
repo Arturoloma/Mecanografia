@@ -9,7 +9,7 @@ function ActivarBotonDificultad(dificultadSeleccionada)
   btnFacil.classList.remove("activo");
   btnNormal.classList.remove("activo");
   btnDificil.classList.remove("activo");
-  
+
   switch (dificultadSeleccionada)
   {
     case "facil":
@@ -56,13 +56,13 @@ function EstilizarInput(iptCorrecto)
 {
   if (iptCorrecto)
   {
-    iptTexto.style.backgroundColor = "white";
-    iptTexto.style.color = "black";
+    iptTexto.classList.add("input_correcto");
+    iptTexto.classList.remove("input_incorrecto");
   }
   else
   {
-    iptTexto.style.backgroundColor = "red";
-    iptTexto.style.color = "white";
+    iptTexto.classList.remove("input_correcto");
+    iptTexto.classList.add("input_incorrecto");
   }
 }
 
