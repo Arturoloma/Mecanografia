@@ -1,6 +1,6 @@
 'use strict'
 
-function HotZone (ciclosRestantes)
+function HotZone ()
 {
    setTimeout(function ()
    {

@@ -87,7 +87,7 @@ function ConstruirTextoRevisado(palabras)
         // Además, si no estoy en la última palabra, añado un espacio a la derecha con su propio <span> y coordenadas como data-space.
         if (i !== palabras.length - 1)
         {
-          textoRevisado += "<span data-space='" + i + "' data-gchar='" + gChar + "' class=''> </span>";
+          textoRevisado += "<span data-space='" + i + "' data-gchar='" + gChar + "' class=''>&#32;</span>";
           gChar++;
         }
       }

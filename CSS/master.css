@@ -459,7 +459,7 @@ section article img{
   height: 2em;
   border-radius: 20px;
   background-image: linear-gradient(to right, #5ff1fb, #c8d5d9);
-  width:var(--progreso);
+  width:var(--progreso, 0%);
 }
 #opt-progreso-wasabee{
   position: absolute;
@@ -675,30 +675,32 @@ footer{
 
   .palabra-actual{
     color: rgb(2, 208, 187);
-    text-decoration: underline;
     font-weight: bold;
     text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
   }
 
   .p-oleada{
   	border-bottom: 0.10em solid brown;
-  	padding-bottom: 0.6em;
+  	padding-bottom: 0.05em;
   }
-  .l-sin-quemar{
-  	border-bottom: 0.10em solid brown;
-  	padding-bottom: 0.6em;
-  	color:red;}
 
-  .l-chispa{
-  	border-bottom: 0.10em solid brown;
-  	padding-bottom: 0.6em;
-  	color:red;
+  .l-sin-quemar{
+    border-bottom: 0.10em solid brown;
+  	padding-bottom: 0.05em;
+  	color: red;
   }
+
+  .l-chispa{}
+
+  span{
+      position: relative;
+    }
+
   .l-chispa::after{
   	content:"";
-  	background-image:url("chispa.png");
-  	position:absolute;
-  	top: 1.25em;
+  	background-image:url("../Images/chispa.png");
+  	position: absolute;
+  	top: 0.65em;
   	left: -1.3em;
   	background-repeat: no-repeat;
   	background-position: center;
@@ -708,28 +710,27 @@ footer{
   	z-index: 100;
   	animation: chispa 0.5s linear infinite;
   }
+
   .l-quemada{
   	border-bottom: 0.08em dotted grey;
-  	padding-bottom: 0.6em;
-  	color:red;
+  	padding-bottom: 0.05em;
   }
+
   .p-explosion{
-  	border-bottom: 0.08em dotted grey;
-  	padding-bottom: 0.6em;
-  	animation: humo 1s linear 0.4s forwards normal;
+  	animation: humo 1s linear 0s forwards normal;
   	color:red;
   }
 
   .p-explosion::after{
   	content:"";
   	position:absolute;
-  	bottom: 0.6em;
-  	left: 0.5em;
+  	bottom: 0;
+  	left: 0;
   	width: 1em;
   	height: 1em;
   	background-size: cover;
   	z-index: 100;
-  	animation: explosion 1s linear 0.5 forwards  normal;
+  	animation: explosion 1s linear 0s forwards normal;
   }
 
   @keyframes chispa{
@@ -741,7 +742,7 @@ footer{
 
   @keyframes explosion{
   	from{
-  		background-image:url("boom.png");
+  		background-image:url("../Images/boom.png");
   		transform:scale(1);}
   	50%{transform:scale(1.5);}
   	99%{transform:scale(1);}

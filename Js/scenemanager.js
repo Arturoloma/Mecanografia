@@ -35,7 +35,7 @@ function SceneMachine(direccion)
 
     case scCuentaAtras:
       InicializarControlador();
-      InicializarHotZone("medio");
+      InicializarHotZone();
       IniciarCuentaAtras();
       panelCuentaAtras.classList.remove("ocultar_elemento");
       break;
