@@ -717,7 +717,7 @@ footer{
   }
 
   .p-explosion{
-  	animation: humo 1s linear 0s forwards normal;
+  	/*animation: humo 1s linear 0s forwards normal;*/
   	color:red;
   }
 
