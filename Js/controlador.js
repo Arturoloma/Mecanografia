@@ -161,7 +161,6 @@ function CargarOleada()
 function DescargarOleada()
 {
   const chispa = document.querySelector("span[data-gchar='" + idCharDescarga + "']");
-
   AvanzarChispa(chispa);
 
   if (chispa.dataset.char === "0")
@@ -176,7 +175,7 @@ function DescargarOleada()
     // Explosión de la palabra anterior a la prendida
     if(chispa.dataset.space)
     {
-      ExplosionarAnterior(porQuemar, chispa);
+      ExplosionarAnterior(porQuemar);
       ControlarDerrota(porQuemar);
     }
     // Explosión de la última palabra del texto

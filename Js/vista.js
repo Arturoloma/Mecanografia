@@ -124,14 +124,16 @@ function PrenderPalabra(chispa)
 function QuemarMecha(porQuemar)
 {
   porQuemar.classList.remove("l-chispa");
-  porQuemar.classList.add("l-quemada");
+  if (!porQuemar.dataset.space)
+  {
+    porQuemar.classList.add("l-quemada");
+  }
 }
 
 
 function ExplosionarAnterior(porQuemar, chispa)
 {
   porQuemar.parentNode.classList.add("p-explosion");
-  chispa.classList.add("p-explosion");
 }
 
 
