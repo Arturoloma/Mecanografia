@@ -143,7 +143,7 @@ function ControlarSiInputCorrecto(subIpt, subRef)
  * ControlarSiUltimaPalabraCorrecta() compara dos cadenas de caracteres y
  * contabiliza un error si no lo son. A continuación, pide a la Vista que
  * estilice la caja de texto del input en función de la comparación. Luego,
- * compara si el input es igual a la última palabra y devuelve true o false. 
+ * compara si el input es igual a la última palabra y devuelve true o false.
  */
 function ControlarSiUltimaPalabraCorrecta(subIpt, subRef)
 {
@@ -193,7 +193,16 @@ function GameOver()
 
   const progreso = CalcularProgreso();
   const ppm = CalcularPPM();
-  const perErrores = 100 * (errores / idCharActual);
+
+  /*
+   * Solo tiene sentido calcular el porcentaje de errores si ha habido alguno y
+   * he escrito al menos una palabra correctamente.
+   */
+  var perErrores = 0;
+  if (errores > 0)
+  {
+    if (idCharActual > 0) { perErrores = 100 * (errores / idCharActual); }
+  }
 
   SceneMachine(scResultados);
   MostrarResultados(progreso, ppm, perErrores);

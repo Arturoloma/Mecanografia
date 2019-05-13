@@ -23,6 +23,7 @@ function InicializarVista()
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";
   optProgreso.innerHTML = "0%";
+  document.documentElement.style.setProperty('--progreso', "0%");
 
   ResaltarPalabraActual(true);
 }
