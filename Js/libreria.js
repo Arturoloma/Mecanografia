@@ -1,4 +1,14 @@
-var libreria = new Array();
+'use strict'
+
+/***
+ * libreria.js guarda todos los textos que pueden salir en el juego en un array
+ * llamado libreria.
+***/
+
+
+
+
+var libreria = [];
 
 /* Texto de prueba */
 libreria[0] = "En la actualidad, en lengua española, se utilizan los términos mecanógrafo y mecanógrafa para denominar a personas con conocimientos de mecanografía, es decir que, con soltura (a alta velocidad, sin necesidad de mirar el teclado) son capaces de introducir texto en una máquina de escribir. Además la mecanografía es una asignatura que por lo general suele impartirse a jóvenes que cursan la secundaria. En algunas escuelas esta disciplina incluye taquigrafía: taquimecanografía. Entre otros ejercicios que se realizan en la clase de mecanografía, se emprenden prácticas de tres quintetos, hojas enteras, etc.";

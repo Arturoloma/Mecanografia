@@ -1,5 +1,17 @@
+'use strict'
 
-/* ------- SCENE MANAGER ------- */
+/***
+ * configuracion.js almacena todas las variables globales. Sus valores pueden
+ * ser dados directamente aquí o actualizados por el Controlador según necesidad
+***/
+
+
+
+
+
+/* ----------------------------- SCENE MANAGER ------------------------------ */
+
+// Paneles
 const panelDificultad  = document.getElementById("div_dificultad");
 const panelCuentaAtras = document.getElementById("div_cuenta_atras");
 const panelJuego       = document.getElementById("div_juego");
@@ -16,22 +28,28 @@ var tTotalCuentaAtras    = 4;
 var tRestanteCuentaAtras = tTotalCuentaAtras;
 
 var escenaActual = scDificultad;
-/* ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
 
 
 
 
-/* ----------- VISTA ----------- */
+
+/* --------------------------------- VISTA ---------------------------------- */
+
 const iptTexto    = document.getElementById("ipt-texto");
 const optTexto    = document.getElementById("ref-texto");
 const optPpm      = document.getElementById("opt-ppm");
 const optProgreso = document.getElementById("opt-progreso");
-/* ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
 
 
 
 
-/* -------- CONTROLADOR -------- */
+
+/* ------------------------------ CONTROLADOR ------------------------------- */
+
 var idPalabraActual   = 0;                                                      // Id de la palabra que tiene que escribir el jugador.
 var idCharActual      = 0;                                                      // Id a nivel de texto del primer caracter de la palabra que tiene que escribir el jugador.
 var tIni              = new Date();                                             // Momento de inicio del juego.
@@ -41,12 +59,15 @@ var subIptAnterior    = "";                                                     
 var palabras   = [];                                                            // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
 var largoTexto = 0;                                                             // Número de caracteres del texto, incluyendo espacios.
 var texto      = "";
-/* ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
 
 
 
 
-/* ---------- HOT ZONE --------- */
+
+/* ------------------------------- HOT ZONE --------------------------------- */
+
 const dificultades =
 {
   facil:   {  nombre: "fácil",
@@ -77,4 +98,5 @@ var charsUltimaFase = 0;
 var idCharCarga = 0;
 var idCharDescarga = 0;
 var tLoop = 0;
-/* ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
