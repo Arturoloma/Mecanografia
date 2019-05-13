@@ -107,8 +107,14 @@ function ConstruirTextoRevisado(palabras)
     // Este bucle añade los caracteres con sus spans
     for (var j = 0 ; j < palabras[i].length ; j++)
     {
-      // Abro y cierro el <span/> del caracter y añado sus atributos.
-      if   (j !== palabras[i].length - 1)
+      // Hago esto sólo para el primer caracter del texto
+      if (i === 0 && j === 0)
+      {
+        textoRevisado += "<span data-char='" + j + "' data-gchar='" + gChar + "' class='p-oleada'>" + palabras[i].charAt(j) + "</span>";
+        gChar++;
+      }
+      // Abro y cierro el <span/> del caracter, y añado sus atributos.
+      else if   (j !== palabras[i].length - 1)
       {
         textoRevisado += "<span data-char='" + j + "' data-gchar='" + gChar + "' class=''>" + palabras[i].charAt(j) + "</span>";
         gChar++;

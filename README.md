@@ -2,12 +2,12 @@
 Los scripts se basan en una estructura de Modelo - Vista - Controlador y están divididos de manera que cada uno se dedique a una cosa concreta.
 
 * Modelo:
-  - userinput.js      =>   Dedicado a detectar los inputs durante el juego y pedir a controlador.js que haga algo en función del tipo de input.
+  - userinput.js      =>   Dedicado a detectar los inputs  y pedir al Controlador que haga algo en función del tipo de input.
   - hotzone.js        =>   Detecta los cambios de fase del juego y pide a controlador.js que haga las operaciones pertinentes.
-  - scenemanager.js   =>   Detecta cuándo se dan las condiciones para que se cambie de escena y requiere el cambio.
 
 * Controlador:
-  - controlador.js    =>   Encargado del grueso de la lógica de la aplicación.
+  - scenemanager.js   =>   Gestiona los cambios de escena y llama a inicializacion.js cuando es necesario reiniciar valores.
+  - controlador.js    =>   Encargado del grueso de la lógica del juego.
   - inicializacion.js =>   Asigna y reinicia valores a variables globales que tienen que inicializarse en momentos concretos posteriores a la carga de la página.
 
 * Vista:

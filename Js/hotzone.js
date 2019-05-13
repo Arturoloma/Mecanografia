@@ -26,7 +26,7 @@
 function HotZone()
 {
    // Lo que hay dentro del setTimeout se hace después de tiempo == tLoop
-   setTimeout(function ()
+   var tormenta = setTimeout(function ()
    {
      // CARGANDO
      if (cargando)
@@ -104,6 +104,10 @@ function HotZone()
      if (escenaActual === scJuego && faseActual < 4)
      {
        HotZone();
+     }
+     else
+     {
+       window.clearTimeout(tormenta);                                           // Limpieza del timeout por seguridad
      }
    }, tLoop);
 }
