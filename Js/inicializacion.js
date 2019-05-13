@@ -69,7 +69,7 @@ function ConstruirTextoRevisado(palabras)
   for (var i = 0 ; i < palabras.length ; i++)
   {
     // Abro <span> y añado las coordenadas de la palabra en un atributo data-word.
-    textoRevisado += "<span data-word='" + i + "' class=''>";
+    textoRevisado += "<span data-word='" + i + "' data-length='" + palabras[i].length + "' class=''>";
 
     for (var j = 0 ; j < palabras[i].length ; j++)
     {

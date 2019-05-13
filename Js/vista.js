@@ -133,7 +133,13 @@ function QuemarMecha(porQuemar)
 
 function ExplosionarAnterior(porQuemar, chispa)
 {
-  porQuemar.parentNode.classList.add("p-explosion");
+  const porExplosionar = porQuemar.parentNode;
+  var   leftOffset = (parseInt(porExplosionar.dataset.length) / 2) - 2;
+    if (leftOffset < 0) leftOffset = 0;
+
+  document.documentElement.style.setProperty('--mitad-palabra', leftOffset + "ch");
+  console.log(getComputedStyle(document.documentElement).getPropertyValue('--mitad-palabra'));
+  porExplosionar.classList.add("p-explosion");
 }
 
 

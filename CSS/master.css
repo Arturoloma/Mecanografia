@@ -4,6 +4,7 @@
 :root {
   --content-width: 1920px;
   --progreso: 0%;
+  --mitad-palabra: 3ch;
 }
 /* Configuración general */
 * {
@@ -63,13 +64,13 @@ select, textarea, input {
 select:focus, textarea:focus, input:focus {
 	outline: none;
 	border-color: transparent;
-	box-shadow: 0 0 1pt 1pt var(--theme-color,orange);
+	box-shadow: 0 0 1pt 1pt orange;
 }
 .btn {
   box-sizing: content-box;
 	display: inline-block;
 	padding: 10px 15px;
-	background-color: var(--theme-color,orange);
+	background-color: orange;
 	border-style: none;
 	font-weight: 700;
 }
@@ -246,7 +247,7 @@ section article img{
   padding-bottom: 56.25%;
   border-radius: 25px;
   font-family: 'letters_for_learnersregular', "Gloria Hallelujah";
-
+  font-weight: 500;
 }
 
 /* ===== Elegir nivel de dificultad ===== */
@@ -675,8 +676,8 @@ footer{
 
   .palabra-actual{
     color: rgb(2, 208, 187);
-    font-weight: bold;
-    text-shadow: 2px 0 0 #EEE, -2px 0 0 #EEE, 0 2px 0 #EEE, 0 -2px 0 #EEE, 1px 1px #EEE, -1px -1px 0 #EEE, 1px -1px 0 #EEE, -1px 1px 0 #EEE;
+    /*font-weight: bold;*/
+    text-shadow: 1px 1px 1px rgba(2, 208, 187, 0.85);
   }
 
   .p-oleada{
@@ -723,13 +724,13 @@ footer{
 
   .p-explosion::after{
   	content:"";
-  	position:absolute;
+  	position: absolute;
   	bottom: 0;
-  	left: 0;
+  	left: var(--mitad-palabra, 0);
   	width: 1em;
   	height: 1em;
   	background-size: cover;
-  	z-index: 100;
+  	z-index: 100000;
   	animation: explosion 1s linear 0s forwards normal;
   }
 
@@ -743,9 +744,9 @@ footer{
   @keyframes explosion{
   	from{
   		background-image:url("../Images/boom.png");
-  		transform:scale(1);}
-  	50%{transform:scale(1.5);}
-  	99%{transform:scale(1);}
+  		transform:scale(0.9);}
+  	50%{transform:scale(1);}
+  	99%{transform:scale(0.75);}
   	to{transform:scale(0);}
   }
 
