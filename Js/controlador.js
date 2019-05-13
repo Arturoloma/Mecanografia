@@ -1,5 +1,20 @@
 'use strict'
 
+/***
+ * controlador.js gestiona la lógica de la aplicación y hace las llamadas
+ * correspondientes a la Vista para mostrar los cambios al usuario.
+***/
+
+
+
+
+
+/**
+ * SeleccionarDificultad() actualiza la dificultad de la variable global
+ * situada en configuracion.js en función de la dificultad indicada por el
+ * Modelo (en userinput.js). A continuación, indica a la Vista que actualice
+ * el estado de los botones de selección de dificultad.
+ */
 function SeleccionarDificultad(dificultadSeleccionada)
 {
   switch (dificultadSeleccionada)
@@ -22,6 +37,11 @@ function SeleccionarDificultad(dificultadSeleccionada)
 }
 
 
+/**
+ * IniciarCuentaAtras() reinicia el tiempo restante de la cuenta atrás y llama
+ * a la vista para que la actualice cada segundo. Cuando la cuenta acaba, le
+ * pide al scenemanager.js que abra el panel de juego.
+ */
 function IniciarCuentaAtras()
 {
   tRestanteCuentaAtras = tTotalCuentaAtras;
@@ -40,6 +60,11 @@ function IniciarCuentaAtras()
 }
 
 
+/**
+ * ControlarAvanceDePalabra() quita el espacio del input, comprueba si es
+ * correcto y, si lo es, hace que la palabra actual que tiene que escribir el
+ * jugador avance, calcula las pulsaciones por minuto y el progreso (%).
+ */
 function ControlarAvanceDePalabra(subIpt, subRef)
 {
   const subIptNoEspacio = EliminarEspacioDelInput(subIpt);
@@ -54,20 +79,32 @@ function ControlarAvanceDePalabra(subIpt, subRef)
 }
 
 
+/**
+ * ControlarVictoria() comprueba si el usuario ha completado el texto y, si lo
+ * ha hecho, llama al fin del juego.
+ */
 function ControlarVictoria(subIpt, subRef)
 {
   const iptCorrecto = ControlarSiUltimaPalabraCorrecta(subIpt, subRef);
 
   if (iptCorrecto)
   {
-    idCharActual += palabras[idPalabraActual].length;                       // Sumo el número de caracteres de la palabra actual (que es la última)
+    idCharActual += palabras[idPalabraActual].length;                           // Sumo el número de caracteres de la palabra actual (que es la última) para poder calcular el progreso.
     GameOver();
   }
 }
 
 
+/**
+ * ControlarDerrota() comprueba si el usuario ha perdido debido a la tormenta y,
+ * si lo ha hecho, llama al fin del juego.
+ */
 function ControlarDerrota(porQuemar)
 {
+  /*
+   * Si el caracter cuya mecha se va a quemar pertenece a una palabra posterior
+   * a la palabra que está escribiendo el jugador, fin del juego.
+   */
   if (parseInt(porQuemar.parentNode.dataset.word) >= idPalabraActual)
   {
     GameOver();
@@ -75,10 +112,21 @@ function ControlarDerrota(porQuemar)
 }
 
 
+/**
+ * ControlarSiInputCorrecto() compara dos cadenas de caracteres y devuelve true
+ * si son iguales. Además, contabiliza un error si no lo son. A continuación,
+ * pide a la Vista que estilice la caja de texto del input en función de la
+ * comparación.
+ */
 function ControlarSiInputCorrecto(subIpt, subRef)
 {
   const iptCorrecto = subIpt === subRef;
 
+  /*
+   * El error se contabiliza si la comparación devuelve false Y si el input
+   * actual del usuario es más largo que el input anterior, para no contabilizar
+   * errores de más cuando haya varios consecutivos y los esté borrando.
+   */
   if (!iptCorrecto && subIpt.length > subIptAnterior.length)
   {
     errores++;
@@ -91,9 +139,29 @@ function ControlarSiInputCorrecto(subIpt, subRef)
 }
 
 
+/**
+ * ControlarSiUltimaPalabraCorrecta() compara dos cadenas de caracteres y
+ * contabiliza un error si no lo son. A continuación, pide a la Vista que
+ * estilice la caja de texto del input en función de la comparación. Luego,
+ * compara si el input es igual a la última palabra y devuelve true o false. 
+ */
 function ControlarSiUltimaPalabraCorrecta(subIpt, subRef)
 {
-  EstilizarInput(subIpt === subRef);
+  const iptCorrecto = subIpt === subRef;
+
+  /*
+   * El error se contabiliza si la comparación devuelve false Y si el input
+   * actual del usuario es más largo que el input anterior, para no contabilizar
+   * errores de más cuando haya varios consecutivos y los esté borrando.
+   */
+  if (!iptCorrecto && subIpt.length > subIptAnterior.length)
+  {
+    errores++;
+  }
+
+  EstilizarInput(iptCorrecto);
+  subIptAnterior = subIpt;
+
   return subIpt === palabras[idPalabraActual];
 }
 
