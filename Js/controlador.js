@@ -166,6 +166,11 @@ function ControlarSiUltimaPalabraCorrecta(subIpt, subRef)
 }
 
 
+/**
+ * EliminarEspacioDelInput() extrae una cadena de caracteres igual a la que haya
+ * escrito el usuario menos el último, que se presupone que es un espacio, y la
+ * devuelve. A continuación, llama a la Vista para que actualice el input.
+ */
 function EliminarEspacioDelInput(subIpt)
 {
   subIpt = subIpt.substring(0,subIpt.length-1);
@@ -175,18 +180,28 @@ function EliminarEspacioDelInput(subIpt)
 }
 
 
+/**
+ * AvanzarPalabra() pide a la Vista que deje de resaltar la palabra actual. A
+ * continuación actualiza los índices de palabra y caracter actuales, pide a
+ * la Vista que resalte la nueva palabra actual y que resetee el input.
+ */
 function AvanzarPalabra()
 {
   ResaltarPalabraActual(false);
 
   idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
-  idPalabraActual += 1;                                                         // Actualizo el id de la palabra actual DESPUÉS de lo anterior
+  idPalabraActual += 1;                                                         // Tengo que actualizar el id de la palabra actual DESPUÉS de lo anterior
 
   ResaltarPalabraActual(true);
   ResetInput();
 }
 
 
+/**
+ * GameOver() bloquea el input para evitar que el usuario produzca errores en el
+ * cálculo de los resultados, los calcula, pide al scenemanager.js que cambie a
+ * la escena de resultados y se los pasa a la Vista.
+ */
 function GameOver()
 {
   BloquearInput();
@@ -209,6 +224,10 @@ function GameOver()
 }
 
 
+/**
+ * CalcularPPM() calcula las posiciones por minuto del jugador en base a las
+ * palabras que ha escrito correctamente y las devuelve.
+ */
 function CalcularPPM()
 {
   const tAhora = new Date();
@@ -216,18 +235,26 @@ function CalcularPPM()
   const ppm = Math.abs(Math.floor(idCharActual / tTotal));
 
   MostrarPPM(ppm);
-  return ppm;                                                                   // Para el game over
+  return ppm;                                                                   // Necesario para el game over
 }
 
 
+/**
+ * CalcularProgreso() calcula el progreso del jugador (en porcentaje) en base a
+ * las palabras que ha escrito correctamente y lo devuelve.
+ */
 function CalcularProgreso()
 {
   const progreso = Math.floor(100*(idCharActual / largoTexto));
   MostrarProgreso(progreso);
-  return progreso;                                                              // Para el game over
+  return progreso;                                                              // Necesario para el game over
 }
 
 
+/**
+ * CargarOleada() pide a la vista que añada mecha al siguiente caracter de la
+ * oleada y suma uno al id del caracter al que hay que añadir mecha.
+ */
 function CargarOleada()
 {
   ActualizarOleada();
@@ -235,6 +262,21 @@ function CargarOleada()
 }
 
 
+/**
+ * DescargarOleada() calcula en qué posición debería estar la chispa y pide a la
+ * Vista que la muestre.
+ *
+ * Si la chispa está en el primer caracter de una palabra, pide a la Vista que
+ * añada el estilo a la nueva palabra que va a explotar.
+ *
+ * Si la chispa está más allá del primer caracter, la Vista deberá quemar la
+ * mecha del caracter anterior al que tiene la chispa.
+ *
+ * Si la chispa está en un espacio, tendrá que explotar la palabra anterior a
+ * ese espacio.
+ *
+ * Si está en el último caracter del texto, explotará la última palabra.
+ */
 function DescargarOleada()
 {
   const chispa = document.querySelector("span[data-gchar='" + idCharDescarga + "']");
