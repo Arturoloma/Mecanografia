@@ -138,7 +138,6 @@ function ExplosionarAnterior(porQuemar, chispa)
     if (leftOffset < 0) leftOffset = 0;
 
   document.documentElement.style.setProperty('--mitad-palabra', leftOffset + "ch");
-  console.log(getComputedStyle(document.documentElement).getPropertyValue('--mitad-palabra'));
   porExplosionar.classList.add("p-explosion");
 }
 

@@ -60,6 +60,7 @@ function ControlarVictoria(subIpt, subRef)
 
   if (iptCorrecto)
   {
+    idCharActual += palabras[idPalabraActual].length;                       // Sumo el número de caracteres de la palabra actual (que es la última)
     GameOver();
   }
 }
@@ -120,7 +121,6 @@ function AvanzarPalabra()
 
 function GameOver()
 {
-  idCharActual += palabras[idPalabraActual].length + 1;                         // Sumo el número de caracteres de la palabra actual + un espacio
   BloquearInput();
 
   const progreso = CalcularProgreso();
