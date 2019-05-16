@@ -2,157 +2,169 @@
 <html lang="es-ES" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Mecanografía</title>
+    <title>Wasabee - Juego de Mecanografía</title>
+    <!--Favicon-->
+    <link rel= "shortcut icon" type= "image/x-icon" href= "./Images/favicon.ico">
     <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Schoolbell|Shadows+Into+Light|Indie+Flower" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./CSS/master.css">
     <!-- JavaScript -->
-    <script type="text/javascript" src="./JS/prototipo_01.js" defer></script>
+    <script type="text/javascript" src="./Js/libreria.js" defer></script>
+    <script type="text/javascript" src="./Js/configuracion.js" defer></script>
+    <script type="text/javascript" src="./Js/inicializacion.js" defer></script>
+    <script type="text/javascript" src="./Js/scenemanager.js" defer></script>
+    <script type="text/javascript" src="./Js/vista.js" defer></script>
+    <script type="text/javascript" src="./Js/controlador.js" defer></script>
+    <script type="text/javascript" src="./Js/userinput.js" defer></script>
+    <script type="text/javascript" src="./Js/hotzone.js" defer></script>
   </head>
-  <body translate="no" onscroll="navFixed()">
+  <body translate="no">
     <header>
       <div id="div_logo">
-        <h1>Logo<span id="span_logo">WEB</span></h1>
+        <h1>Wasa<span id="span_logo">bee</span></h1> <!-- Hidden -->
+        <a href="#section_jugar"><img class="logo_bee" src="./Images/logo2.png" alt="Wasabee"></a>
+
       </div>
       <nav id="navi">
         <ul>
-          <li><a href="#section_inicio">Inicio</a></li>
           <li><a href="#section_jugar">Jugar</a></li>
-          <li><a href="#section_practicar">Practicar</a></li>
-          <li><a href="#section_reglas">Reglas</a></li>
-          <li><a href="#section_faqs">FAQs</a></li>
-          <li><a href="#section_contacto">Contacto</a></li>
+          <li><a href="#section_creditos">Créditos</a></li>
+          <li><a href="#section_sobre_proyecto">Sobre el proyecto</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="container" id="contenedor">
 
-      <section id="section_inicio">
-        <h2>BIENVENID@S A 'NOMBRE_DEL_JUEGO'</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </section>
-
       <section id="section_jugar">
         <h2>¡JUGAR ONLINE!</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+
         <div id="pantalla_juego">
+
           <div id="div_dificultad">
-            <span id="span_dificultad">NIVEL DE DIFICULTAD</span>
-            <div id="boton_nivel_facil">FÁCIL</div>
-            <div id="boton_nivel_normal">NORMAL</div>
-            <div id="boton_nivel_dificil">DIFÍCIL</div>
-            <div id="boton_jugar" onclick=""><span id="span_jugar">JUGAR</span></div>
+            <div id="span_dificultad">ELIGE DIFICULTAD</div>
+            <div id="boton_nivel_facil">Fácil
+              <div id="lunares_facil"><div class="lunar"></div></div>
+            </div>
+            <div id="boton_nivel_normal" class="activo">Normal
+              <div id="lunares_normal">
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+              </div>
+            </div>
+            <div id="boton_nivel_dificil">Difícil
+              <div id="lunares_dificil">
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+                <div class="lunar"></div>
+              </div>
+            </div>
+            <div id="inicio_jugar"><span id="span_jugar">JUGAR</span></div>
           </div>
 
-          <div id="div_cuenta_atras">3
-          </div>
 
-          <div id="div_juego">
-            <!--
+          <div id="div_cuenta_atras" class="ocultar_elemento">3</div>
 
+
+          <div id="div_juego" class="ocultar_elemento">
             <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
-            <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
+            <input id="ipt-texto" class="input_correcto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba"
             onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
             <p id="opt-ppm">0 ppm</p>
-            <p id="opt-progreso">0%</p>
-            <div id="boton_volver_inicio">Volver al Inicio
+
+            <div class="opt-progreso-base">
+              <div id="opt-progreso-wasabee"></div>
+              <div id="opt-progreso-relleno">
+                <p id="opt-progreso">0%</p>
+              </div>
             </div>
-            <div id="boton_reiniciar_juego">Reiniciar juego
+
+            <div id="juego_inicio">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
+              <p id="inicio">Inicio</p>
             </div>
-            
-          -->
+            <div id="juego_juego">
+              <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
+              <p id="reinicio">Reiniciar</p>
+            </div>
           </div>
 
-          <div id="div_resultados">
-            <span id="span_resultados">RESULTADOS</span>
-            <p>Dificultad: </p>
-            <p>Progreso: </p>
-            <p>Pulsaciones por minuto: </p>
-            <p>Número de errores: </p>
-            <p>Porcentaje de error: </p>
+
+          <div id="div_resultados" class="ocultar_elemento">
+            <div id="resultados">
+              <span id="span_resultados">RESULTADOS</span>
+              <div id="etiqueta">Dificultad:</div><div id="resultados_dificultad" class= "info"> Fácil </div>
+              <div id="etiqueta">Progreso: </div><div id="resultados_progreso" class= "info"> 100% </div>
+              <div id="etiqueta">Pulsaciones por minuto: </div><div id="resultados_ppm" class= "info"> 300 ppm </div>
+              <div id="etiqueta">Número de errores: </div><div id="resultados_errores" class= "info"> 15 </div>
+              <div id="etiqueta">Porcentaje de error: </div><div id="resultados_per-errores" class= "info"> 5% </div>
+            </div>
+            <div id="resultados_inicio">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
+              <p id="inicio_res">Inicio</p>
+            </div>
+            <div id="resultados_jugar">
+              <img src="./Images/reset.png" alt="Reinicio" width="65px" height="65px">
+              <p id="reinicio_res">Reiniciar</p>
+            </div>
           </div>
+
         </div>
       </section>
 
-      <section id="section_practicar">
-        <h2>PRUEBA EL JUEGO</h2>
+
+      <section id="section_creditos">
+        <h2>CRÉDITOS</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-
-        <h3>DEMO</h3>
-        <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
-        <input id="ipt-texto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba" oninput="GameManager()"
-               onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
-        <p id="opt-ppm">0 ppm</p>
-        <p id="opt-progreso">0%</p>
+        <article>
+          <h3>Nombre 1</h3>
+          <img src="abejita_01.jpg" alt="imagen de una abeja" title="foto de abeja 1">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        <article>
+          <h3>Nombre 2</h3>
+          <img src="abejita_01.jpg" alt="imagen de una abeja" title="foto de abeja 2">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        <article>
+          <h3>Nombre 3</h3>
+          <img src="abejita_01.jpg" alt="imagen de una abeja" title="foto de abeja 3">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        <article>
+          <h3>Nombre 4</h3>
+          <img src="abejita_01.jpg" alt="imagen de una abeja" title="foto de abeja 4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        <article>
+          <h3>Nombre 5</h3>
+          <img src="abejita_01.jpg" alt="imagen de una abeja" title="foto de abeja 5">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
       </section>
 
-      <section id="section_reglas">
-        <h2>REGLAS DEL JUEGO</h2>
-        <ul>
-          <li>Regla 1:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </li>
-          <li>Regla 2:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </li>
-          <li>Regla 3:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </li>
-          <li>Regla 4:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </li>
-          <li>Regla 5:
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </li>
-        </ul>
-      </section>
-
-      <section id="section_faqs">
-        <h2>PREGUNTAS FRECUENTES</h2>
-        <h3>Pregunta 1</h3>
+      <section id="section_sobre_proyecto">
+        <h2>SOBRE EL PROYECTO</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Pregunta 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Pregunta 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Pregunta 4</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Pregunta 5</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
 
-      <section id="section_contacto">
-        <h2>CONTÁCTANOS</h2>
-        <form action="#" method="post">
-          <input name="nombre" placeholder="Nombre" >
-          <input name="apellidos" placeholder="Apellidos">
-          <input name="email" placeholder="Email">
-          <input name="telefono" placeholder="Teléfono">
-          <textarea name="caja_texto" id="caja_texto" rows="8" cols="80" placeholder="Escribe aquí tu comentario..."></textarea>
-          <button type="button" id="boton_enviar" onclick="alert('Formulario enviado! (prueba)');">ENVIAR</button>
-        </form>
-      </section>
 
     </main>
 
     <footer>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <p>Copyright© 2019 WASABEE GAME - TODOS LOS DERECHOS RESERVADOS <br> Av. Wasabee 123, Madrid, Spain. | Teléfono: 987654321 | Email: wasabee.game@gmail.com</p>
+      <p><a id="enlacefooter" href="#">Política de Privacidad</a> | <a id="enlacefooter" href="#">Política de Cookies</a> | <a id="enlacefooter" href="#">Redes Sociales</a>
       </p>
-      <p>COPYRIGHT 2018-2019</p>
     </footer>
 
   </body>
