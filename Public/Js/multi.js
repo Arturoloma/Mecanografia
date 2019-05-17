@@ -25,6 +25,6 @@ socket.on("envioProgreso",function(datos){
   if (datos[0]!=usuario){
     enemigo=datos[1];
     document.getElementById("opt-progreso-multi").innerHTML=enemigo+"%";
-    document.documentElement.style.setProperty('--progreso2', enemigo + "%");
+    document.documentElement.style.setProperty('--progreso-multi', enemigo + "%");
   }
 });
