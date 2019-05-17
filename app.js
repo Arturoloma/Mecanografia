@@ -1,24 +1,5 @@
 'use strict'
-/*
-const http = require('http');
 
-const port=process.env.PORT || 3000
-
-const server = http.createServer((req, res) => {
-
-res.statusCode = 200;
-
-res.setHeader('Content-Type', 'text/html');
-
-res.end('<h1>Hello World</h1>');
-
-});
-
-server.listen(port,() => {
-
-console.log(`Server running at port `+port);
-
-});*/
 //Estancias necesarias
 var express = require('express');
 var app = express();
@@ -26,7 +7,7 @@ var server = require('http').Server(app);
 var socket = require("socket.io");
 var io = socket(server);
 var port = process.env.PORT || 3000;
-app.use(express.static('public'));
+app.use('/static', express.static(__dirname + '/public'));
 
 var connections=[];
 var players=[];
@@ -37,7 +18,6 @@ io.sockets.on('connection', function(socket) {
 //recibe la informacion de jugadores
   socket.on("start",function(data){
     players=data;
-    console.log("Conectados: "+players+" "+connections.length);
   });
 });
 
