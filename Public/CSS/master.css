@@ -4,6 +4,7 @@
 :root {
   --content-width: 1920px;
   --progreso: 0%;
+  --Progreso-multi:0%;
   --mitad-palabra: 3ch;
 }
 /* Configuración general */
@@ -491,7 +492,7 @@ section article img{
   height: 2em;
   border-radius: 20px;
   background-image: linear-gradient(to right, #5ff1fb, #c8d5d9);
-  width:var(--progreso, 0%);
+  width:var(--progreso-multi, 0%);
 }
 
 #opt-progreso-wasabee{
@@ -508,7 +509,7 @@ section article img{
 	background-size:cover;
 	height: 1.5em;
   width: 2em;
-	animation: aleteo 0.5s step-end infinite,movimiento 5s linear infinite;
+	animation: aleteo 0.5s step-end infinite,movimiento-multi 5s linear infinite;
 }
 
 #juego_inicio, #juego_juego{
@@ -811,5 +812,12 @@ footer{
   	from{right:96%;}
     96%{opacity:1;}
     to{right: calc(96% - var(--progreso));
+    opacity: 0;}
+  }
+
+  @keyframes movimiento-multi{
+    from{right:96%;}
+    96%{opacity:1;}
+    to{right: calc(96% - var(--progreso-multi));
     opacity: 0;}
   }
