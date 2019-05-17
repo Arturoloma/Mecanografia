@@ -36,7 +36,7 @@ app.get("/", function(req, res)
    * la almacena en la variable __dirname. Al ser url, no se puede concatenar como
    * si fuera texto plano. Para hacerlo sin tener que parsear, usamos el método join.
    */
-  res.sendFile(path.join(__dirname + "/public-angular/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 //Escucha del server
