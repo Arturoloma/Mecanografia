@@ -12,7 +12,7 @@ function usuario(){
 
 //Envia su progreso al servidor
 function enviar(){
-      progress=CalcularProgreso(progreso);
+      progress=CalcularProgreso(progress);
       data=[usuario,progress];
       socket.emit("start",data);
     }
