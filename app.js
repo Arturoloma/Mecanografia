@@ -28,6 +28,16 @@ function envioProgreso(){
 //Para que lo envie cada segundo
 setInterval(envioProgreso,1000);
 
+// Respuesta con index.html cuando no hay una ruta añadida
+app.get("/", function(req, res)
+{
+  /**
+   * El módulo path detecta automáticamente la ruta (como url) de los archivos y
+   * la almacena en la variable __dirname. Al ser url, no se puede concatenar como
+   * si fuera texto plano. Para hacerlo sin tener que parsear, usamos el método join.
+   */
+  res.sendFile(path.join(__dirname + "/public-angular/index.html"));
+});
 
 //Escucha del server
 server.listen(port, function() {
