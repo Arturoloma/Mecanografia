@@ -7,7 +7,7 @@ var server = require('http').Server(app);
 var socket = require("socket.io");
 var io = socket(server);
 var port = process.env.PORT || 3000;
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/Public'));
 
 var connections=[];
 var players=[];
@@ -36,7 +36,7 @@ app.get("/", function(req, res)
    * la almacena en la variable __dirname. Al ser url, no se puede concatenar como
    * si fuera texto plano. Para hacerlo sin tener que parsear, usamos el método join.
    */
-  res.sendFile(path.join(__dirname + "/public/index.html"));
+  res.sendFile(path.join(__dirname + "/Public/index.html"));
 });
 
 //Escucha del server
