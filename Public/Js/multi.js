@@ -1,6 +1,5 @@
 "use strict"
 var socket = io.connect();
-var roomId = "";
 
 
 
@@ -18,9 +17,13 @@ socket.on("nombre_duplicado", function(nuevoNombre)
 });
 
 
-socket.on("start", function()
+socket.on("start", function(jugadores)
 {
   document.getElementById("span_jugar").innerHTML = "¡Partida lista!";
+
+  if (jugadores.jugador1 === miNombre) { nombreEnemigo = jugadores.jugador2; }
+  else                                 { nombreEnemigo = jugadores.jugador1; }
+
   SceneMachine(scCuentaAtras);
 });
 

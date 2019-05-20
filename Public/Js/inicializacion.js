@@ -22,6 +22,7 @@ function InicializarVista()
 
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";
+  document.getElementById("nombre_contrincante").innerHTML = "Tu contrincante (" + nombreEnemigo + ")";
   optProgreso.innerHTML = "0%";
   document.getElementById("opt-progreso-multi").innerHTML = "0%";
   document.documentElement.style.setProperty('--progreso', "0%");

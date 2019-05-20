@@ -17,8 +17,6 @@ io.sockets.on("connection", function(socket)
 {
   socket.on("join_queue", function(nombre)
   {
-    console.log(nombre);
-
     var roomId = "room_" + nextRoom;
 
     socket.emit("assign_room", roomId);
@@ -26,15 +24,13 @@ io.sockets.on("connection", function(socket)
 
     if (playerWaiting.id !== "")
     {
-      // COMPROBAR QUE ESTO SE HACE CORRECTAMENTE
       if (playerWaiting.nombre === nombre)
       {
-        console.log("Los nombres son iguales: " + playerWaiting + " - " + nombre);
-        console.log("Nuevo nombre: " + nombre + "2");
-        socket.emit("nombre_duplicado", nombre + "2");
+        nombre += "_2";
+        socket.emit("nombre_duplicado", nombre);
       }
 
-      io.to(roomId).emit("start");
+      io.to(roomId).emit("start", { jugador1: playerWaiting.nombre, jugador2: nombre });
 
       playerWaiting.id = "";
       playerWaiting.nombre = "";
