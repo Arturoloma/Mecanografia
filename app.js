@@ -25,6 +25,7 @@ io.sockets.on("connection", function(socket)
     if (playerWaiting !== "")
     {
       io.to(roomId).emit("start");
+      playerWaiting = "";
       nextRoom++;
     }
     else

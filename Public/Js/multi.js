@@ -7,6 +7,7 @@ var roomId = "";
 
 socket.on("assign_room", function(room)
 {
+  console.log("Room del jugador " + socket.id + " -> " + room);
   roomId = room;
 });
 
