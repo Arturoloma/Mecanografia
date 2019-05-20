@@ -23,7 +23,9 @@ function InicializarVista()
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";
   optProgreso.innerHTML = "0%";
+  document.getElementById("opt-progreso-multi").innerHTML = "0%";
   document.documentElement.style.setProperty('--progreso', "0%");
+  document.documentElement.style.setProperty('--progreso-multi', "0%");
 
   ResaltarPalabraActual(true);
 }
