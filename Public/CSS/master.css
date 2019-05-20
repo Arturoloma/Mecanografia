@@ -209,7 +209,7 @@ section h2{
   color: #31da41;
   margin-bottom: 30px;
   text-align: justify;
-  text-shadow: 2px 0 0 #FFF, -2px 0 0 #FFF, 0 2px 0 #FFF, 0 -2px 0 #FFF, 1px 1px 0 #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
+  text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
 section h3{
