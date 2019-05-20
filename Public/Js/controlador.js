@@ -92,7 +92,7 @@ function ControlarVictoria(subIpt, subRef)
   if (iptCorrecto)
   {
     idCharActual += palabras[idPalabraActual].length;                           // Sumo el número de caracteres de la palabra actual (que es la última) para poder calcular el progreso.
-    GameOver();
+    GameOver(true);
   }
 }
 
@@ -109,7 +109,7 @@ function ControlarDerrota(porQuemar)
    */
   if (parseInt(porQuemar.parentNode.dataset.word) >= idPalabraActual)
   {
-    GameOver();
+    GameOver(false);
   }
 }
 
@@ -204,7 +204,7 @@ function AvanzarPalabra()
  * cálculo de los resultados, los calcula, pide al scenemanager.js que cambie a
  * la escena de resultados y se los pasa a la Vista.
  */
-function GameOver()
+function GameOver(textoCompletado)
 {
   BloquearInput();
 
@@ -220,9 +220,17 @@ function GameOver()
     if (idCharActual > 0) { perErrores = 100 * (errores / idCharActual); }
   }
 
+  // Extraigo la variable del CSS para no tener que hacer una global
+  var posicion = 0;
+  var progresoEnemigo = getComputedStyle(document.documentElement).getPropertyValue('--progreso-multi');
+  progresoEnemigo = parseInt(progresoEnemigo.substring(0, progresoEnemigo.length - 1));
+
+  if (progresoEnemigo > progreso ) { posicion = 2; }
+  else if (progresoEnemigo < progreso) { posicion = 1; }
+
   EnviarProgresoAlServidor(progreso);
   SceneMachine(scResultados);
-  MostrarResultados(progreso, ppm, perErrores);
+  MostrarResultados(progreso, ppm, perErrores, posicion);
 }
 
 

@@ -236,11 +236,16 @@ function ExplosionarUltima(chispa)
  * MostrarResultados() actualiza los valores del panel de resultados en función
  * de lo que le indique el Controlador y la configuración.
  */
-function MostrarResultados(progreso, ppm, perErrores)
+function MostrarResultados(progreso, ppm, perErrores, posicion)
 {
+  var textoPosicion = "";
+  if (posicion === 0) { textoPosicion = "¡Empate!"; }
+  else                { textoPosicion = posicion + "º"; }
+
   document.getElementById("resultados_dificultad").innerHTML  = dificultad.nombre;
   document.getElementById("resultados_progreso").innerHTML    = progreso + "%";
   document.getElementById("resultados_ppm").innerHTML         = ppm;
   document.getElementById("resultados_errores").innerHTML     = errores;
   document.getElementById("resultados_per-errores").innerHTML = perErrores.toFixed(2) + "%";
+  document.getElementById("resultado_multi").innerHTML        = textoPosicion;
 }
