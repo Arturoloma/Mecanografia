@@ -20,6 +20,9 @@ io.sockets.on("connection", function(socket)
   {
     io.sockets.emit("actualizar_progreso", datos);
   });
+
+  // Lo que tenga que pasar cuando un usuario se desconecte
+  socket.on('disconnect', function(){ });
 });
 
 

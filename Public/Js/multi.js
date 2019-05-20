@@ -10,17 +10,17 @@ socket.on("actualizar_progreso", function (datos)
 
 function ActualizarProgresoEnemigo(datos)
 {
-  if (datos.jugador !== miNombre)
+  if (datos.jugador !== socket.id)
   {
-    console.log("Progreso de " + datos.jugador + ": " + datos.progreso + "%");
+    // console.log("Id: " + socket.id + " - Progreso: " + datos.progreso + "%");
     document.getElementById("opt-progreso-multi").innerHTML = datos.progreso + "%";
     document.documentElement.style.setProperty('--progreso-multi', datos.progreso + "%");
-  }  
+  }
 }
 
 
 
 function EnviarProgresoAlServidor(progreso)
 {
-  socket.emit("nuevo_progreso", { jugador: miNombre, progreso: progreso });
+  socket.emit("nuevo_progreso", { jugador: socket.id, progreso: progreso });
 }
