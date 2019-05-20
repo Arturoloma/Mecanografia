@@ -74,7 +74,8 @@ function ControlarAvanceDePalabra(subIpt, subRef)
   {
     AvanzarPalabra();
     CalcularPPM();
-    CalcularProgreso();
+    const progreso = CalcularProgreso();
+    EnviarProgresoAlServidor(progreso);
   }
 }
 
@@ -208,7 +209,6 @@ function GameOver()
 
   const progreso = CalcularProgreso();
   const ppm = CalcularPPM();
-
   /*
    * Solo tiene sentido calcular el porcentaje de errores si ha habido alguno y
    * he escrito al menos una palabra correctamente.
@@ -219,6 +219,7 @@ function GameOver()
     if (idCharActual > 0) { perErrores = 100 * (errores / idCharActual); }
   }
 
+  EnviarProgresoAlServidor(progreso);
   SceneMachine(scResultados);
   MostrarResultados(progreso, ppm, perErrores);
 }
