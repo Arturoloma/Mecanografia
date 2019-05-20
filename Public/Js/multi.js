@@ -12,7 +12,13 @@ socket.on("assign_room", function(room)
 });
 
 
-socket.on("start", function(hayOtroJugador)
+socket.on("nombre_duplicado", function(nuevoNombre)
+{
+  miNombre = nuevoNombre;
+});
+
+
+socket.on("start", function()
 {
   document.getElementById("span_jugar").innerHTML = "¡Partida lista!";
   SceneMachine(scCuentaAtras);
@@ -27,8 +33,10 @@ socket.on("actualizar_progreso", function (datos)
 
 function UnirseACola()
 {
+  miNombre = document.getElementById("nombre").value;
   document.getElementById("span_jugar").innerHTML = "Esperando a otro jugador";
-  socket.emit("join_queue");
+
+  socket.emit("join_queue", miNombre);
 }
 
 

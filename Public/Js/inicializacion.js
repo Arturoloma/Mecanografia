@@ -51,8 +51,6 @@ function InicializarControlador()
   palabras   = libreria[IndexarTextoAleatorio()].match(/\S+/gi);                // Elijo un texto al azar de la librería y lo divido en un array buscando cualquier bloque de texto que no sea un " ".
   largoTexto = CalcularLargoDelTexto();                                         // Número de caracteres del texto, incluyendo espacios.
   texto      = ConstruirTextoRevisado(palabras);
-
-  miNombre = document.getElementById("nombre").value;
 }
 
 

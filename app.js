@@ -10,27 +10,40 @@ var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + '/Public'));
 
 var nextRoom = 0;
-var playerWaiting = "";
+var playerWaiting = { id: "", nombre: "" };
 
 
 io.sockets.on("connection", function(socket)
 {
-  socket.on("join_queue", function()
+  socket.on("join_queue", function(nombre)
   {
+    console.log(nombre);
+
     var roomId = "room_" + nextRoom;
 
     socket.emit("assign_room", roomId);
     socket.join(roomId);
 
-    if (playerWaiting !== "")
+    if (playerWaiting.id !== "")
     {
+      // COMPROBAR QUE ESTO SE HACE CORRECTAMENTE
+      if (playerWaiting.nombre === nombre)
+      {
+        console.log("Los nombres son iguales: " + playerWaiting + " - " + nombre);
+        console.log("Nuevo nombre: " + nombre + "2");
+        socket.emit("nombre_duplicado", nombre + "2");
+      }
+
       io.to(roomId).emit("start");
-      playerWaiting = "";
+
+      playerWaiting.id = "";
+      playerWaiting.nombre = "";
       nextRoom++;
     }
     else
     {
-      playerWaiting = socket.id;
+      playerWaiting.id = socket.id;
+      playerWaiting.nombre = nombre;
     }
   });
 
@@ -44,9 +57,10 @@ io.sockets.on("connection", function(socket)
 
   socket.on('disconnect', function()
   {
-    if (socket.id === playerWaiting)
+    if (socket.id === playerWaiting.id)
     {
-      playerWaiting = "";
+      playerWaiting.id = "";
+      playerWaiting.nombre = "";
     }
   });
 });
