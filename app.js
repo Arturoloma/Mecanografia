@@ -9,39 +9,91 @@ var io = socket(server);
 var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + '/Public'));
 
-var nextRoom = 0;
-var playerWaiting = { id: "", nombre: "" };
+
+var queues =
+[
+  {
+    nextRoom: 0,
+    playerWaiting: { id: "", nombre: "" }
+  },
+  {
+    nextRoom: 0,
+    playerWaiting: { id: "", nombre: "" }
+  },
+  {
+    nextRoom: 0,
+    playerWaiting: { id: "", nombre: "" }
+  }
+];
 
 
 io.sockets.on("connection", function(socket)
 {
-  socket.on("join_queue", function(nombre)
+  socket.on("join_queue", function(datos)
   {
-    var roomId = "room_" + nextRoom;
+    // Asignación de cola en función del nivel de dificultad elegido
+    var queueId = -1;
+    switch (datos.dificultad)
+    {
+      default:
+      case "fácil":
+        queueId = 0;
+        break;
 
+      case "normal":
+        queueId = 1;
+        break;
+
+      case "difícil":
+        queueId = 2;
+        break;
+    }
+
+    // Si el cliente estaba en espera para otra dificultad, le elimino de esa cola
+    for (var i = 0 ; i < queues.length ; i++)
+    {
+      // No me interesa eliminarle de la cola a la que se acaba de apuntar
+      if ( i !== queueId )
+      {
+        if (socket.id === queues[i].playerWaiting.id)
+        {
+          queues[i].playerWaiting.id = "";
+          queues[i].playerWaiting.nombre = "";
+        }
+      }
+    }
+
+    // Envío de la id de la sala asignada al cliente
+    var roomId = "room_" + queueId + "-" + queues[queueId].nextRoom;
     socket.emit("assign_room", roomId);
     socket.join(roomId);
 
-    if (playerWaiting.id !== "")
+    // Si hay un jugador esperando en la sala, la partida comienza y preparo la siguiente
+    if (queues[queueId].playerWaiting.id !== "")
     {
-      if (playerWaiting.nombre === nombre)
+      // Si los nombres de los jugadores son iguales, modifico el del segundo
+      if (queues[queueId].playerWaiting.nombre === datos.nombre)
       {
-        nombre += "_2";
-        socket.emit("nombre_duplicado", nombre);
+        datos.nombre += "_2";
+        socket.emit("nombre_duplicado", datos.nombre);
       }
 
-      io.to(roomId).emit("start", { jugador1: playerWaiting.nombre, jugador2: nombre });
+      // Ordeno que comience la partida
+      io.to(roomId).emit("start", { jugador1: queues[queueId].playerWaiting.nombre, jugador2: datos.nombre });
 
-      playerWaiting.id = "";
-      playerWaiting.nombre = "";
-      nextRoom++;
+      // Preparación de la siguiente sala
+      queues[queueId].playerWaiting.id = "";
+      queues[queueId].playerWaiting.nombre = "";
+      queues[queueId].nextRoom++;
     }
     else
     {
-      playerWaiting.id = socket.id;
-      playerWaiting.nombre = nombre;
+      // Si la sala está vacía, pongo al jugador en espera
+      queues[queueId].playerWaiting.id = socket.id;
+      queues[queueId].playerWaiting.nombre = datos.nombre;
     }
   });
+
 
 
   socket.on("nuevo_progreso", function(datos)
@@ -53,10 +105,15 @@ io.sockets.on("connection", function(socket)
 
   socket.on('disconnect', function()
   {
-    if (socket.id === playerWaiting.id)
+    // Si un jugador se desconecta, compruebo si estaba esperando y le borro
+    for (var i = 0 ; i < queues.length ; i++)
     {
-      playerWaiting.id = "";
-      playerWaiting.nombre = "";
+      if (socket.id === queues[i].playerWaiting.id)
+      {
+        queues[i].playerWaiting.id = "";
+        queues[i].playerWaiting.nombre = "";
+        break;
+      }
     }
   });
 });

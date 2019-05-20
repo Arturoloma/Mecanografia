@@ -39,7 +39,7 @@ function UnirseACola()
   miNombre = document.getElementById("nombre").value;
   document.getElementById("span_jugar").innerHTML = "Esperando a otro jugador";
 
-  socket.emit("join_queue", miNombre);
+  socket.emit("join_queue", { nombre: miNombre, dificultad: dificultad.nombre });
 }
 
 
