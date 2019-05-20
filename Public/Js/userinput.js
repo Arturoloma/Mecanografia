@@ -18,10 +18,10 @@ document.getElementById("inicio_jugar").addEventListener("click",function(){ Uni
 document.getElementById("juego_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
 
 // Juego => Juego
-document.getElementById("juego_juego").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
+// document.getElementById("juego_juego").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
 
 // Resultados => Juego
-document.getElementById("resultados_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
+// document.getElementById("resultados_jugar").addEventListener("click", function(){ SceneMachine(scCuentaAtras); }, false);
 
 // Resultados => Seleccionar dificultad
 document.getElementById("resultados_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
