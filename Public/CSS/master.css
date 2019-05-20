@@ -505,7 +505,7 @@ section div img{
 #opt-progreso-relleno-multi{
   height: 2em;
   border-radius: 20px;
-  background-image: linear-gradient(to right, #5ff1fb, #c8d5d9);
+  background-image: linear-gradient(to right, #ff6666, #ffcccc);
   width:var(--progreso-multi, 0%);
 }
 
