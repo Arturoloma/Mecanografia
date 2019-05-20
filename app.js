@@ -71,20 +71,24 @@ io.sockets.on("connection", function(socket)
     // Si hay un jugador esperando en la sala, la partida comienza y preparo la siguiente
     if (queues[queueId].playerWaiting.id !== "")
     {
-      // Si los nombres de los jugadores son iguales, modifico el del segundo
-      if (queues[queueId].playerWaiting.nombre === datos.nombre)
+      // Solo comienzo si el que está en la sala no soy yo mismo
+      if (queues[queueId].playerWaiting.id !== socket.id)
       {
-        datos.nombre += "_2";
-        socket.emit("nombre_duplicado", datos.nombre);
+        // Si los nombres de los jugadores son iguales, modifico el del segundo
+        if (queues[queueId].playerWaiting.nombre === datos.nombre)
+        {
+          datos.nombre += "_2";
+          socket.emit("nombre_duplicado", datos.nombre);
+        }
+
+        // Ordeno que comience la partida
+        io.to(roomId).emit("start", { jugador1: queues[queueId].playerWaiting.nombre, jugador2: datos.nombre });
+
+        // Preparación de la siguiente sala
+        queues[queueId].playerWaiting.id = "";
+        queues[queueId].playerWaiting.nombre = "";
+        queues[queueId].nextRoom++;
       }
-
-      // Ordeno que comience la partida
-      io.to(roomId).emit("start", { jugador1: queues[queueId].playerWaiting.nombre, jugador2: datos.nombre });
-
-      // Preparación de la siguiente sala
-      queues[queueId].playerWaiting.id = "";
-      queues[queueId].playerWaiting.nombre = "";
-      queues[queueId].nextRoom++;
     }
     else
     {
