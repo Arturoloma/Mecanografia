@@ -9,16 +9,23 @@ var io = socket(server);
 var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + '/Public'));
 
-
+var nextRoom = 0;
+var playerWaiting = false;
 
 
 io.sockets.on("connection", function(socket)
 {
-  // Cada vez que haya una conexión tendré que hacer algo por aquí de cara al emparejamiento
+  var roomId = "room_" + nextRoom;
+
+  socket.emit("new_room", roomId);
+  socket.join(roomId);
+  playerWaiting = !playerWaiting;
+  if (!playerWaiting) { nextRoom++; }
+
 
   socket.on("nuevo_progreso", function(datos)
   {
-    io.sockets.emit("actualizar_progreso", datos);
+    io.to(datos.room).emit("actualizar_progreso", datos);
   });
 
   // Lo que tenga que pasar cuando un usuario se desconecte
