@@ -15,12 +15,19 @@ var playerWaiting = false;
 
 io.sockets.on("connection", function(socket)
 {
-  var roomId = "room_" + nextRoom;
+  socket.on("join_queue", function()
+  {
+    var roomId = "room_" + nextRoom;
 
-  socket.emit("new_room", roomId);
-  socket.join(roomId);
-  playerWaiting = !playerWaiting;
-  if (!playerWaiting) { nextRoom++; }
+    socket.emit("assign_room", roomId);
+    socket.join(roomId);
+    playerWaiting = !playerWaiting;
+    if (!playerWaiting)
+    {
+      io.to(roomId).emit("start");
+      nextRoom++;
+    }
+  });
 
 
   socket.on("nuevo_progreso", function(datos)

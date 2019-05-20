@@ -12,7 +12,7 @@
 /* ---------------------- INPUTS DE CAMBIO DE ESCENA ------------------------ */
 
 // Seleccionar dificultad => Juego
-document.getElementById("inicio_jugar").addEventListener("click",function(){ SceneMachine(scCuentaAtras); }, false);
+document.getElementById("inicio_jugar").addEventListener("click",function(){ UnirseACola(); }, false);
 
 // Juego => Seleccionar dificultad
 document.getElementById("juego_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);

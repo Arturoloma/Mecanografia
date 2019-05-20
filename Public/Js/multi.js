@@ -5,9 +5,16 @@ var roomId = "";
 
 
 
-socket.on("new_room", function(room)
+socket.on("assign_room", function(room)
 {
   roomId = room;
+});
+
+
+socket.on("start", function(hayOtroJugador)
+{
+  document.getElementById("span_jugar").innerHTML = "¡Partida lista!";
+  SceneMachine(scCuentaAtras);
 });
 
 
@@ -15,6 +22,13 @@ socket.on("actualizar_progreso", function (datos)
 {
   ActualizarProgresoEnemigo(datos);
 });
+
+
+function UnirseACola()
+{
+  document.getElementById("span_jugar").innerHTML = "Esperando a otro jugador";
+  socket.emit("join_queue");
+}
 
 
 function ActualizarProgresoEnemigo(datos)
@@ -26,7 +40,6 @@ function ActualizarProgresoEnemigo(datos)
     document.documentElement.style.setProperty('--progreso-multi', datos.progreso + "%");
   }
 }
-
 
 
 function EnviarProgresoAlServidor(progreso)

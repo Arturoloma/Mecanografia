@@ -37,6 +37,7 @@ function SeleccionarDificultad(dificultadSeleccionada)
 }
 
 
+
 /**
  * IniciarCuentaAtras() reinicia el tiempo restante de la cuenta atrás y llama
  * a la vista para que la actualice cada segundo. Cuando la cuenta acaba, le
