@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + '/Public'));
 
 var nextRoom = 0;
-var playerWaiting = false;
+var playerWaiting = "";
 
 
 io.sockets.on("connection", function(socket)
@@ -21,11 +21,15 @@ io.sockets.on("connection", function(socket)
 
     socket.emit("assign_room", roomId);
     socket.join(roomId);
-    playerWaiting = !playerWaiting;
-    if (!playerWaiting)
+
+    if (playerWaiting !== "")
     {
       io.to(roomId).emit("start");
       nextRoom++;
+    }
+    else
+    {
+      playerWaiting = socket.id;
     }
   });
 
@@ -35,8 +39,15 @@ io.sockets.on("connection", function(socket)
     io.to(datos.room).emit("actualizar_progreso", datos);
   });
 
-  // Lo que tenga que pasar cuando un usuario se desconecte
-  socket.on('disconnect', function(){ });
+
+
+  socket.on('disconnect', function()
+  {
+    if (socket.id === playerWaiting)
+    {
+      playerWaiting = "";
+    }
+  });
 });
 
 
