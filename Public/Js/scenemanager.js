@@ -52,6 +52,7 @@ function SceneMachine(direccion)
     default:
     case scDificultad:
       panelDificultad.classList.remove("ocultar_elemento");
+      document.getElementById("span_jugar").innerHTML = "JUGAR";
       break;
 
     /*
