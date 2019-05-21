@@ -294,7 +294,7 @@ section div img{
   position: relative;
   left: 39%;
   top: -5%;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 #boton_nivel_facil, #boton_nivel_normal, #boton_nivel_dificil{
@@ -578,7 +578,7 @@ section div img{
 
 #resultados{
   position: relative;
-  width: 55%;
+  width: 75%;
   height: 75%;
   top: 5%;
   padding: 20px;
@@ -592,7 +592,7 @@ section div img{
   display: block;
   color: #000;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   font-size: 4em;
 }
 
@@ -628,6 +628,8 @@ section div img{
 #resultados_inicio{
   left: 5%;
   bottom: 0%;
+  width: 80px;
+  height: 70px;
 }
 
 #inicio_res{
