@@ -280,7 +280,7 @@ section ul li{
 #span_dificultad{
   display: block;
   width: 40%;
-  line-height: 80px;
+  line-height: 60px;
   color: black;
   font-size: 3.2em;
   font-weight: normal;
@@ -293,8 +293,14 @@ section ul li{
 #nombre_usuario {
   position: relative;
   top: -7%;
-  font-size: 30px;
+  font-size: 3em;
   text-align: center;
+  margin: 40px;
+}
+#nombre{
+  text-align: center;
+  font-size: 0.5em;
+  width: 7em;
 }
 
 #boton_nivel_facil, #boton_nivel_normal, #boton_nivel_dificil{
