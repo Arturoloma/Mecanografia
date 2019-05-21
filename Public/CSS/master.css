@@ -685,17 +685,14 @@ section ul li{
 }
 
 #integrante1, #integrante2, #integrante3, #integrante4, #integrante5{
-  width: 350px;
+  width: 340px;
+  height: 590px;
   display: inline-block;
   padding: 0 18px;
   /*min-width: 400px;*/
   margin-top: 50px;
   text-align: center;
   float: left;
-}
-
-#integrante1, #integrante2{
-  width:300px;
 }
 
 .logo_linkedin{
