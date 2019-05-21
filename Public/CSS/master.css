@@ -285,21 +285,21 @@ section div img{
   font-size: 3.2em;
   font-weight: normal;
   text-align: center;
-  margin: 30px auto;
+  margin: 28px auto;
   background-color: #a2feff;
   border-radius: 10px;
 }
 
 #nombre_usuario {
   position: relative;
-  left: 5%;
-  top: -15%;
-  font-size: 20px;
+  left: 39%;
+  top: -5%;
+  font-size: 25px;
 }
 
 #boton_nivel_facil, #boton_nivel_normal, #boton_nivel_dificil{
   position: absolute;
-  top: 40%;
+  top: 45.5%;
   width: 20%;
   height: 20%;
   background-color: #a2feff;
@@ -325,7 +325,7 @@ section div img{
 }
 
 #boton_nivel_dificil{
-  left: 65%;
+  left: 66%;
 }
 
 .lunar{
@@ -353,7 +353,7 @@ section div img{
 #lunares_dificil{
   position: relative;
   top: -18%;
-  left: 30%;
+  left: 34%;
 }
 
 #inicio_jugar{
@@ -379,7 +379,8 @@ section div img{
   color: black;
   display: block;
   text-align: center;
-  line-height: 70px;
+  line-height: 25px;
+  top: 10px;
   font-size: 3em;
 }
 
