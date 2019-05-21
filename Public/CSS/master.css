@@ -231,7 +231,7 @@ section ul li{
   list-style-position: inside;
 }
 
-section div img{
+.img_perfil{
   width: 200px;
   height: 250px;
   margin-top: 50px;
@@ -293,7 +293,7 @@ section div img{
 #nombre_usuario {
   position: relative;
   left: 39%;
-  top: -5%;
+  top: -7%;
   font-size: 30px;
 }
 
@@ -592,7 +592,7 @@ section div img{
   display: block;
   color: #000;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 4em;
 }
 
@@ -628,8 +628,6 @@ section div img{
 #resultados_inicio{
   left: 5%;
   bottom: 0%;
-  width: 80px;
-  height: 70px;
 }
 
 #inicio_res{
