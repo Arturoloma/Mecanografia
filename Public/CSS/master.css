@@ -292,9 +292,9 @@ section ul li{
 
 #nombre_usuario {
   position: relative;
-  left: 39%;
   top: -7%;
   font-size: 30px;
+  text-align: center;
 }
 
 #boton_nivel_facil, #boton_nivel_normal, #boton_nivel_dificil{
