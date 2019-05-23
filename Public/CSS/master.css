@@ -233,8 +233,10 @@ section ul li{
 
 .img_perfil{
   width: 200px;
-  height: 250px;
-  margin-top: 50px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 7%;
 }
 
 .enlaces_externos{
@@ -665,7 +667,8 @@ section ul li{
 
 #section_creditos{
   border-top: 1px solid white;
-  margin-bottom: 50px;
+
+
 }
 
 #section_creditos p{
@@ -673,26 +676,37 @@ section ul li{
 }
 
 #divIntegrantes{
+  position:relative;
   width: 100%;
-  text-align: center;
+  margin-top: 50px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-#integrante1, #integrante2, #integrante3, #integrante4, #integrante5{
-  width: 340px;
-  height: 590px;
+.integrante{
+  width: 400px;
+  height: 500px;
+  text-align: center;
   display: inline-block;
   padding: 0 18px;
   /*min-width: 400px;*/
-  margin-top: 50px;
-  text-align: center;
+
   float: left;
 }
+.descripcion_integrante{
+  position: relative;
+  text-align:left;
+  overflow: hidden;
+}
 
-.logo_linkedin{
+.logo_linkedin, .logo_gmail{
   width: 30px;
   height: 30px;
-  margin-top: 5px;
+  position: relative;
+  top:9px;
 }
 
 
