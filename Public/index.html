@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es-ES" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wasabee - Juego de Mecanografía</title>
+    <!--Favicon-->
+    <link rel= "shortcut icon" type= "image/x-icon" href= "./Images/favicon.ico">
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Schoolbell|Shadows+Into+Light|Indie+Flower" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./CSS/master.css">
+    <!-- JavaScript -->
+    <script type="text/javascript" src="./Js/libreria.js" defer></script>
+    <script type="text/javascript" src="./Js/configuracion.js" defer></script>
+    <script type="text/javascript" src="./Js/inicializacion.js" defer></script>
+    <script type="text/javascript" src="./Js/scenemanager.js" defer></script>
+    <script type="text/javascript" src="./Js/vista.js" defer></script>
+    <script type="text/javascript" src="./Js/controlador.js" defer></script>
+    <script type="text/javascript" src="./Js/userinput.js" defer></script>
+    <script type="text/javascript" src="./Js/hotzone.js" defer></script>
+    <script type="text/javascript" src="./Js/socket.io.js" defer></script>
+    <script type="text/javascript" src="./Js/multi.js" defer></script>
+
+  </head>
+  <body translate="no">
+    <header>
+      <div id="div_logo">
+        <h1>Wasa<span id="span_logo">bee</span></h1> <!-- Hidden -->
+        <a href="#section_jugar"><img class="logo_bee" src="./Images/logo2.png" alt="Wasabee"></a>
+
+      </div>
+      <nav id="navi">
+        <ul>
+          <li><a href="#section_jugar">Jugar</a></li>
+          <li><a href="#section_creditos">¿Quiénes somos?</a></li>
+          <li><a href="#section_sobre_proyecto">Sobre el proyecto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" id="contenedor">
+
+      <section id="section_jugar">
+        <h2>¡JUGAR ONLINE!</h2>
+
+        <div id="pantalla_juego">
+
+          <div id="div_dificultad">
+            <div id="span_dificultad">ELIGE DIFICULTAD</div>
+            <div id="nombre_usuario">Usuario: <input id="nombre" type="text" placeholder="¿Cómo quieres que te vean?" maxlength="18"></div>
+            <div id="boton_nivel_facil" class="boton_dificultad clickable">Fácil
+              <div class="lunares">
+                <span class="lunar"></span>
+              </div>
+            </div>
+            <div id="boton_nivel_normal" class="boton_dificultad activo clickable">Normal
+              <div class="lunares">
+                <span class="lunar"></span>
+                <span class="lunar"></span>
+              </div>
+            </div>
+            <div id="boton_nivel_dificil" class="boton_dificultad clickable">Difícil
+              <div class="lunares">
+                <span class="lunar"></span>
+                <span class="lunar"></span>
+                <span class="lunar"></span>
+              </div>
+            </div>
+            <div id="inicio_jugar"><span id="span_single" class="btn_dif">1 JUGADOR</span><span id="span_jugar" class="btn_dif">2 JUGADORES</span></div>
+          </div>
+
+
+          <div id="div_cuenta_atras" class="ocultar_elemento">3</div>
+
+
+          <div id="div_juego" class="ocultar_elemento">
+            <p id="ref-texto" class="unselectable" onCopy="return false" onCut="return false" onmousedown="return false"></p>
+            <input id="ipt-texto" class="input_correcto" type="text" name="ipt-usuario" maxlength="100" placeholder="Escribe aquí el texto de arriba"
+            onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete=off>
+            <p id="opt-ppm">0 ppm</p>
+
+            <div class="opt-progreso-base">
+              <div id="opt-progreso-wasabee"></div>
+              <div id="opt-progreso-relleno">
+                <p id="opt-progreso">0%</p>
+              </div>
+            </div>
+
+            <p id="nombre_contrincante">Tu contrincante
+              <div class="opt-progreso-multi">
+                <div id="opt-progreso-wasabee-multi"></div>
+                <div id="opt-progreso-relleno-multi">
+                  <p id="opt-progreso-multi">0%</p>
+                </div>
+              </div>
+            </p>
+
+            <div id="juego_inicio">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
+              <p id="inicio">Inicio</p>
+            </div>
+            <!--
+            <div id="juego_juego">
+              <img src="./Images/reset.png" alt="Reinicio" width="70px" height="70px">
+              <p id="reinicio">Reiniciar</p>
+            </div>
+            -->
+          </div>
+
+
+          <div id="div_resultados" class="ocultar_elemento">
+            <div id="resultados">
+              <span id="span_resultados">RESULTADOS</span>
+              <div id="etiqueta">Dificultad:</div><div id="resultados_dificultad" class= "info"> Fácil </div>
+              <div id="etiqueta">Progreso: </div><div id="resultados_progreso" class= "info"> 100% </div>
+              <div id="etiqueta">Pulsaciones por minuto: </div><div id="resultados_ppm" class= "info"> 300 ppm </div>
+              <div id="etiqueta">Número de errores: </div><div id="resultados_errores" class= "info"> 15 </div>
+              <div id="etiqueta">Porcentaje de error: </div><div id="resultados_per-errores" class= "info"> 5% </div>
+              <div id="etiqueta">Posición multijugador: </div><div id="resultado_multi" class="info"> ¡Primer puesto! </div>
+            </div>
+            <div id="resultados_inicio">
+              <img src="./Images/logo2.png" alt="Inicio" width="80px" height="70px">
+              <p id="inicio_res">Inicio</p>
+            </div>
+            <!--
+            <div id="resultados_jugar">
+              <img src="./Images/reset.png" alt="Reinicio" width="65px" height="65px">
+              <p id="reinicio_res">Reiniciar</p>
+            </div>
+            -->
+          </div>
+
+        </div>
+      </section>
+
+
+      <section id="section_creditos">
+        <h2>¿QUIÉNES SOMOS?</h2>
+
+        <div id="divIntegrantes">
+          <div class="integrante">
+            <a href="https://www.linkedin.com/in/joaoalbertodossantosolaio/">
+              <img src="Images/Alberto.jpg" alt="imagen integrante 1" title="Joao Alberto Dos Santos Olaio" class="img_perfil">
+            </a>
+            <h3>Joao Alberto Dos Santos Olaio</h3>
+            <p class="descripcion_integrante">Licenciado en ingeniería química. Desarrollador web Front-End.</p>
+            <p class="descripcion_integrante">
+              <p><a href="mailto:jalberto.dos@gmail.com">
+                <img src="Images/gmail_logo.png" alt="" class="logo_gmail"> jalberto.dos@gmail.com</a></p>
+              <p><a href="https://www.linkedin.com/in/joaoalbertodossantosolaio/">
+                <img src="Images/linkedin_logo.png" alt="" class="logo_linkedin"> /in/joaoalbertodossantosolaio</a></p></p>
+
+          </div>
+          <div class="integrante">
+            <a href="https://www.linkedin.com/in/arturoloma/">
+              <img src="Images/Arturo.png" alt="imagen integrante 2" title="Arturo López Márquez" class="img_perfil">
+            </a>
+            <h3>Arturo López Márquez</h3>
+            <p class="descripcion_integrante">Técnico superior en animación 3D y videojuegos. Desarrollador web Front-End.</p>
+            <p class="descripcion_integrante">
+              <p><a href="mailto:arturoloma3d@gmail.com">
+                <img src="Images/gmail_logo.png" alt="" class="logo_gmail"> arturoloma3d@gmail.com</a></p>
+              <p><a href="https://www.linkedin.com/in/arturoloma/">
+                <img src="Images/linkedin_logo.png" alt="" class="logo_linkedin"> /in/arturoloma</a></p></p>
+
+          </div>
+          <div class="integrante">
+            <a href="https://www.linkedin.com/in/victoriaelizabetizquierdogirona/">
+              <img src="Images/Eli.jpg" alt="imagen integrante 3" title="Victoria Elizabet Izquierdo Girona" class="img_perfil">
+            </a>
+            <h3>Victoria Elizabet Izquierdo Girona</h3>
+            <p class="descripcion_integrante">Desarrolladora web Front-End (Mean stack). Formadora.</p>
+            <p class="descripcion_integrante">
+              <p><a href="mailto:elizabetizquierdowork@gmail.com">
+                <img src="Images/gmail_logo.png" alt="" class="logo_gmail"> elizabetizquierdowork@gmail.com</a></p>
+              <p><a href="https://www.linkedin.com/in/victoriaelizabetizquierdogirona/">
+                <img src="Images/linkedin_logo.png" alt="" class="logo_linkedin"> /in/victoriaelizabetizquierdogirona</a></p></p>
+          </div>
+
+          <div class="integrante">
+            <a href="https://www.linkedin.com/in/martatorrecillaparra/">
+              <img src="Images/Marta.jpg" alt="imagen integrante 4" title="Marta Torrecilla Parra" class="img_perfil">
+            </a>
+            <h3>Marta Torrecilla Parra</h3>
+            <p class="descripcion_integrante">Bioquímica, Neurocientífica. Desarrolladora web Front-End.</p>
+            <p class="descripcion_integrante">
+              <p><a href="mailto:martatorrecillaparra@gmail.com">
+                <img src="Images/gmail_logo.png" alt="" class="logo_gmail"> martatorrecillaparra@gmail.com</a></p>
+              <p><a href="https://www.linkedin.com/in/martatorrecillaparra/">
+                <img src="Images/linkedin_logo.png" alt="" class="logo_linkedin"> /in/martatorrecillaparra</a></p></p>
+          </div>
+
+          <div class="integrante">
+            <a href="#">
+              <img src="Images/Chris.jpg" alt="imagen integrante 5" title="Christhian Cano García" class="img_perfil">
+            </a>
+            <h3>Christhian Cano García</h3>
+            <p class="descripcion_integrante">Desarrollador web Front-End. Apasionado de la informática y las nuevas tecnologías.</p>
+            <p class="descripcion_integrante">
+              <p><a href="mailto:christhian907@gmail.com">
+                <img src="Images/gmail_logo.png" alt="" class="logo_gmail"> christhian907@gmail.com</a></p>
+              <p><a href="https://www.linkedin.com/in/christhian-gc-510277/">
+                <img src="Images/linkedin_logo.png" alt="" class="logo_linkedin"> /in/christhian-gc-510277</a></p></p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="section_sobre_proyecto">
+        <h2>SOBRE EL PROYECTO</h2>
+        <p>Nuestra intención con este proyecto es implementar los conocimientos obtenidos en
+          el curso, tales como: JavaScript, HTML5, CSS3, Node JS, etc.</p>
+
+          <p>Hemos decidido crear una página web llamada 'Wasabee', que cuenta con un juego para practicar mecanografía (escritura con teclado), a través de diferentes textos aleatorios y con 3
+            dificultades disponibles. En la página encontramos diferentes lenguajes (de programación y
+            de etiquetas), mostrados en el diseño web, las animaciones y las diferentes funcionalidades del
+            juego. La página cuenta con varias secciones, como información del proyecto, el juego y referencias/créditos a los creadores.</p>
+
+            <p>Se nos ocurrió que con Wasabee podríamos trabajar los siguientes aspectos:
+              <ul>
+                <li>Motivación y refuerzo de habilidades y conocimientos</li>
+                <li>Fomento de la competencia sana</li>
+                <li>Desafío constante gracias a la dificultad progresiva</li>
+              </ul>
+            </p>
+
+            <p>Optamos por gamificar la mecanografía con la idea de poder acercarla en colegios, cursos online, empresas o incluso como forma de
+              ejercitar las manos como parte de un tratamiento o rehabilitación, como por ejemplo: la
+              artritis y artrosis. Somos conscientes de que cada vez los ordenadores forman más parte de nuestra vida y de nuestro día a día.
+            </p>
+
+          </section>
+
+
+    </main>
+
+    <footer>
+      <p>WASABEE GAME ©Copyright 2019 - TODOS LOS DERECHOS RESERVADOS <br> Av. Wasabee 123, Madrid, Spain. | Teléfono: 987654321 | Email: wasabee.game@gmail.com</p>
+      <p><a id="enlacefooter" href="#">Política de Privacidad</a> | <a id="enlacefooter" href="#">Política de Cookies</a> | <a id="enlacefooter" href="#">Redes Sociales</a>
+      </p>
+    </footer>
+
+  </body>
+</html>
