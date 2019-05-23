@@ -41,6 +41,9 @@ function InicializarSeleccionDificultad()
 
 function InicializarVista()
 {
+  var nombreContrincante = document.getElementById("nombre_contrincante");
+  var optProgresoMulti = document.getElementsByClassName("opt-progreso-multi")[0];
+
   iptTexto.placeholder = palabras[idPalabraActual];
   iptTexto.readOnly = false;
   iptTexto.value = "";
@@ -49,11 +52,22 @@ function InicializarVista()
 
   optTexto.innerHTML = texto;
   optPpm.innerHTML = "0 ppm";
-  document.getElementById("nombre_contrincante").innerHTML = "Tu contrincante (" + nombreEnemigo + ")";
   optProgreso.innerHTML = "0%";
-  document.getElementById("opt-progreso-multi").innerHTML = "0%";
   document.documentElement.style.setProperty('--progreso', "0%");
-  document.documentElement.style.setProperty('--progreso-multi', "0%");
+
+  if (jugandoMulti)
+  {
+    nombreContrincante.style.display = "block";
+    optProgresoMulti.style.display = "block";
+    document.getElementById("opt-progreso-multi").innerHTML = "0%";
+    document.getElementById("nombre_contrincante").innerHTML = "Tu contrincante (" + nombreEnemigo + ")";
+    document.documentElement.style.setProperty('--progreso-multi', "0%");
+  }
+  else
+  {
+    nombreContrincante.style.display = "none";
+    optProgresoMulti.style.display = "none";
+  }
 
   ResaltarPalabraActual(true);
 }

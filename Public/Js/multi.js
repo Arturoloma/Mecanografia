@@ -25,7 +25,9 @@ socket.on("start", function(jugadores)
     if (jugadores.jugador1 === miNombre) { nombreEnemigo = jugadores.jugador2; }
     else                                 { nombreEnemigo = jugadores.jugador1; }
     SceneMachine(scCuentaAtras);
+
     enCola = false;
+    jugandoMulti = true;
   }
 });
 
@@ -63,16 +65,22 @@ function SalirDeCola()
 
 function ActualizarProgresoEnemigo(datos)
 {
-  if (datos.jugador !== miNombre)
+  if (jugandoMulti)
   {
-    //console.log("Room Id: " + datos.room + " - Player Id: " + datos.jugador + " - Progreso: " + datos.progreso + "%");
-    document.getElementById("opt-progreso-multi").innerHTML = datos.progreso + "%";
-    document.documentElement.style.setProperty('--progreso-multi', datos.progreso + "%");
+    if (datos.jugador !== miNombre)
+    {
+      //console.log("Room Id: " + datos.room + " - Player Id: " + datos.jugador + " - Progreso: " + datos.progreso + "%");
+      document.getElementById("opt-progreso-multi").innerHTML = datos.progreso + "%";
+      document.documentElement.style.setProperty('--progreso-multi', datos.progreso + "%");
+    }
   }
 }
 
 
 function EnviarProgresoAlServidor(progreso)
 {
-  socket.emit("nuevo_progreso", { room: roomId, jugador: miNombre, progreso: progreso });
+  if (jugandoMulti)
+  {
+    socket.emit("nuevo_progreso", { room: roomId, jugador: miNombre, progreso: progreso });
+  }
 }

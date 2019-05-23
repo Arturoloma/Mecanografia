@@ -107,6 +107,7 @@ var tLoop = 0;
 
 /* ----------------------------- MULTIJUGADOR ------------------------------- */
 var enCola = false;
+var jugandoMulti = false;
 var roomId = "";
 var miNombre = "";
 var nombreEnemigo = "";

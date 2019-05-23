@@ -63,12 +63,14 @@ function IniciarCuentaAtras()
 
 function ComenzarJuegoSingle()
 {
-  // No deberías estar en cola si llegas aquí, pero por si acaso
+  // No deberías estar en cola o multi si llegas aquí, pero por si acaso
   if (enCola)
   {
     socket.emit("leave_queue");
     enCola = false;
-  }  
+  }
+  if (jugandoMulti) { jugandoMulti = false; }
+
   SceneMachine(scCuentaAtras);
 }
 
@@ -222,8 +224,8 @@ function GameOver(textoCompletado)
 
   const progreso = CalcularProgreso();
   const ppm = CalcularPPM();
-  /*
-   * Solo tiene sentido calcular el porcentaje de errores si ha habido alguno y
+
+  /* Solo tiene sentido calcular el porcentaje de errores si ha habido alguno y
    * he escrito al menos una palabra correctamente.
    */
   var perErrores = 0;
@@ -232,15 +234,20 @@ function GameOver(textoCompletado)
     if (idCharActual > 0) { perErrores = 100 * (errores / idCharActual); }
   }
 
-  // Extraigo la variable del CSS para no tener que hacer una global
-  var posicion = 0;
-  var progresoEnemigo = getComputedStyle(document.documentElement).getPropertyValue('--progreso-multi');
-  progresoEnemigo = parseInt(progresoEnemigo.substring(0, progresoEnemigo.length - 1));
+  // Si estoy jugando solo, la posición multijugador es "--". Si no, la calculo.
+  var posicion = "--";
+  if (jugandoMulti)
+  {
+    // Extraigo la variable del CSS para no tener que hacer una global
+    var progresoEnemigo = getComputedStyle(document.documentElement).getPropertyValue('--progreso-multi');
+    progresoEnemigo = parseInt(progresoEnemigo.substring(0, progresoEnemigo.length - 1));
 
-  if (progresoEnemigo > progreso ) { posicion = 2; }
-  else if (progresoEnemigo < progreso) { posicion = 1; }
+    if (progresoEnemigo > progreso ) { posicion = 2; }
+    else if (progresoEnemigo < progreso) { posicion = 1; }
 
-  EnviarProgresoAlServidor(progreso);
+    EnviarProgresoAlServidor(progreso);
+    jugandoMulti = false;
+  }
   SceneMachine(scResultados);
   MostrarResultados(progreso, ppm, perErrores, posicion);
 }

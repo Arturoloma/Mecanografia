@@ -51,6 +51,7 @@ function SceneMachine(direccion)
   {
     default:
     case scDificultad:
+      jugandoMulti = false;
       panelDificultad.classList.remove("ocultar_elemento");
       InicializarSeleccionDificultad();
       break;

@@ -269,8 +269,15 @@ function ExplosionarUltima(chispa)
 function MostrarResultados(progreso, ppm, perErrores, posicion)
 {
   var textoPosicion = "";
-  if (posicion === 0) { textoPosicion = "¡Empate!"; }
-  else                { textoPosicion = posicion + "º"; }
+  if (jugandoMulti)
+  {
+    if (posicion === 0) { textoPosicion = "¡Empate!"; }
+    else                { textoPosicion = posicion + "º"; }
+  }
+  else
+  {
+    textoPosicion = posicion;
+  }
 
   document.getElementById("resultados_dificultad").innerHTML  = dificultad.nombre;
   document.getElementById("resultados_progreso").innerHTML    = progreso + "%";
