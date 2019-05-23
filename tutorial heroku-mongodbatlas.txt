@@ -1,0 +1,89 @@
+heroku--> https://www.heroku.com/
+
+mongodb atlas--> https://www.mongodb.com/cloud/atlas
+
+git--> desde el cliente instalado, no solo web
+
+email y cuenta del heroku (@)-->
+wasabee.team.2019@gmail.com
+Wasabee2019 / W@sabee2019
+
+
+https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true
+
+
+Pasos
+1. Create new app--> wasabee
+2. Europa
+3. Crear
+
+4. Instalar cliente de heroku
+5. Se abre la consola y se escribe heroku --version para que te muestre la
+versión instalada
+6. heroku login
+7. crear nuevo repositorio de git
+8. Inicializarlo en una carpeta que ya exista
+
+9. MongoDB Atlas --> crear cuenta (la misma que en heroku)
+10. Construir un cluster
+11. Provider & Region --> aws
+12. Región --> Europa, gratis
+13. Cluster Tier --> la gratis
+14. Nombrar el cluster --> ClusterWasabee
+15. Tarda 5-7 minutos
+
+16. En cmd, entramos en la carpeta inicializada en git, la del proyecto y se escribe
+git.init
+17. Para conectar heroku git:remote -a wasabee
+18. Login en heroku
+19. Repositorio creado en remoto y conectado a heroku
+
+20. comandos de git cuando cambiamos archivos en nuestro repositorio y queremos subirlos
+git status --> lista archivos con cambios
+git add . --> subes todos
+git add "app.js" --> subes solo eso
+git commit -am "mensaje del commit" --> confirmas los cambios que vas a subir
+git push heroku master --> subo los cambios a la rama master en heroku
+git tab
+
+21. ClusterWasabee
+security
+IP whitelist
+permitir para todos
+
+create database users --> añadir usuario nuevo con privilegios de lectura y escritura
+U: Wasabee / P: Wasabee2019
+
+22. En Collections encontraremos los datos de la base de datos. Si una base no existe y la
+llamamos desde la app, se crea.
+en la app, llamaremos al usuario con su contraseña en mongoose.connect (user:password)
+
+23. Modos de conexión: connect your application --> da una línea de código que va en mongoose.connect
+IMPORTANTE: reemplazar usuario y contraseña donde viene password
+
+24. cambiar la conexión al server--> el puerto por el que escucha heroku
+app.set('port', process.env.PORT || 8080);
+
+var server = app.listen(app.get('port'), function(){
+  console.log('Servidor corriendo en el puerto ', app.get('port'));
+});
+
+25. editamos package.json --> nodemon suele dar problemas al subir al heroku
+"start": "node app.js",
+"serve": "nodemon app.js" --> en consola pondriamos npm serve nodemon app.js en lugar de solo nodemon app.js
+
+26. También habría que cambiar las direcciones locales de las peticiones app.get/post/put/delete por las que
+de heroku --> heroku - settings - dominio --> ese dominio es el que va en lugar de localhost.
+lo que vaya después del localhost con barra se mantiene
+ej. https://localhost:8080/tipos --> https://wasabee.herokuapp.com/tipos
+
+27. para que no suba node modules -->.gitignore --> archivo que cntiene las carpetas que git debe ignorar -->node_modules
+
+
+28. Para hacer commits desde gitkraken en heroku
+https://stackoverflow.com/questions/40572761/how-to-push-pull-with-gitkrakent-to-from-heroku
+
+29. Cuando se haya subido commiteado y todo, en cmd heroku open --> para abrir el proyecto
+
+30. https://medium.freecodecamp.org/how-to-deploy-a-nodejs-app-to-heroku-from-github-without-installing-heroku-on-your-machine-433bec770efe
+Para hacerlo desde github en lugar de heroku
