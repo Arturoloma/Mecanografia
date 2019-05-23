@@ -11,8 +11,15 @@
 
 /* ---------------------- INPUTS DE CAMBIO DE ESCENA ------------------------ */
 
-// Seleccionar dificultad => Juego
-document.getElementById("inicio_jugar").addEventListener("click",function(){ UnirseACola(); }, false);
+// Seleccionar dificultad => 1 jugador
+document.getElementById("span_single").addEventListener("click", function()
+{
+  if (!enCola) { ComenzarJuegoSingle(); }
+  else         { SalirDeCola(); }
+}, false);
+
+// Seleccionar dificultad => Multijugador
+document.getElementById("span_jugar").addEventListener("click",function(){ UnirseACola(); }, false);
 
 // Juego => Seleccionar dificultad
 document.getElementById("juego_inicio").addEventListener("click", function(){ SceneMachine(scDificultad); }, false);
@@ -33,10 +40,21 @@ document.getElementById("resultados_inicio").addEventListener("click", function(
 
 
 /* ------------------- INPUTS DE SELECCIÓN DE DIFICULTAD -------------------- */
+const btnFacil = document.getElementById("boton_nivel_facil");
+const btnNormal = document.getElementById("boton_nivel_normal");
+const btnDificil = document.getElementById("boton_nivel_dificil");
 
-document.getElementById("boton_nivel_facil").addEventListener("click", function(){ SeleccionarDificultad("facil"); }, false);
-document.getElementById("boton_nivel_normal").addEventListener("click", function(){ SeleccionarDificultad("normal"); }, false);
-document.getElementById("boton_nivel_dificil").addEventListener("click", function(){ SeleccionarDificultad("dificil"); }, false);
+btnFacil.addEventListener("click", function() {
+  if (btnFacil.classList.contains("clickable")) { SeleccionarDificultad("facil"); }
+}, false);
+
+btnNormal.addEventListener("click", function() {
+  if (btnFacil.classList.contains("clickable")) { SeleccionarDificultad("normal"); }
+}, false);
+
+btnDificil.addEventListener("click", function() {
+  if (btnFacil.classList.contains("clickable")) { SeleccionarDificultad("dificil"); }
+}, false);
 
 /* -------------------------------------------------------------------------- */
 

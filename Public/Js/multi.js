@@ -6,7 +6,7 @@ var socket = io.connect();
 
 socket.on("assign_room", function(room)
 {
-  console.log("Room del jugador " + socket.id + " -> " + room);
+  //console.log("Room del jugador " + socket.id + " -> " + room);
   roomId = room;
 });
 
@@ -19,12 +19,14 @@ socket.on("nombre_duplicado", function(nuevoNombre)
 
 socket.on("start", function(jugadores)
 {
-  document.getElementById("span_jugar").innerHTML = "¡Partida lista!";
-
-  if (jugadores.jugador1 === miNombre) { nombreEnemigo = jugadores.jugador2; }
-  else                                 { nombreEnemigo = jugadores.jugador1; }
-
-  SceneMachine(scCuentaAtras);
+  if (enCola)
+  {
+    document.getElementById("span_jugar").innerHTML = "¡Partida lista!";
+    if (jugadores.jugador1 === miNombre) { nombreEnemigo = jugadores.jugador2; }
+    else                                 { nombreEnemigo = jugadores.jugador1; }
+    SceneMachine(scCuentaAtras);
+    enCola = false;
+  }
 });
 
 
@@ -36,10 +38,26 @@ socket.on("actualizar_progreso", function (datos)
 
 function UnirseACola()
 {
-  miNombre = document.getElementById("nombre").value;
-  document.getElementById("span_jugar").innerHTML = "Esperando a otro jugador";
+  if (!enCola)
+  {
+    enCola = true;
+    miNombre = document.getElementById("nombre").value;
 
-  socket.emit("join_queue", { nombre: miNombre, dificultad: dificultad.nombre });
+    EstiloBotonesEnCola();
+
+    socket.emit("join_queue", { nombre: miNombre, dificultad: dificultad.nombre });
+  }
+}
+
+
+function SalirDeCola()
+{
+  if (enCola)
+  {
+    socket.emit("leave_queue");
+    InicializarSeleccionDificultad();
+    enCola = false;
+  }
 }
 
 
@@ -47,7 +65,7 @@ function ActualizarProgresoEnemigo(datos)
 {
   if (datos.jugador !== miNombre)
   {
-    console.log("Room Id: " + datos.room + " - Player Id: " + datos.jugador + " - Progreso: " + datos.progreso + "%");
+    //console.log("Room Id: " + datos.room + " - Player Id: " + datos.jugador + " - Progreso: " + datos.progreso + "%");
     document.getElementById("opt-progreso-multi").innerHTML = datos.progreso + "%";
     document.documentElement.style.setProperty('--progreso-multi', datos.progreso + "%");
   }

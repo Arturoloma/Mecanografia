@@ -12,6 +12,33 @@
 
 /* --------------------------------- VISTA ---------------------------------- */
 
+function InicializarSeleccionDificultad()
+{
+  const spanSingle = document.getElementById("span_single");
+  var btnsDif = document.getElementsByClassName("boton_dificultad");
+
+  spanSingle.innerHTML = "1 JUGADOR";
+  spanSingle.style.backgroundColor = "#a2feff";
+  spanSingle.style.color = "black";
+  document.getElementById("span_jugar").innerHTML = "2 JUGADORES";
+  document.getElementById("nombre").readOnly = false;
+
+  for (var i = 0 ; i < btnsDif.length ; i++)
+  {
+    var lunares = btnsDif[i].getElementsByClassName("lunares")[0].getElementsByClassName("lunar");
+
+    for (var j = 0 ; j < lunares.length ; j++)
+    {
+      lunares[j].style.backgroundColor = "#03c4d0";
+    }
+
+    btnsDif[i].style.backgroundColor = "#a2feff";
+    btnsDif[i].style.color = "black";
+    btnsDif[i].classList.add("clickable");
+  }
+}
+
+
 function InicializarVista()
 {
   iptTexto.placeholder = palabras[idPalabraActual];

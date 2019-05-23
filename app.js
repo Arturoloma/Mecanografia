@@ -100,6 +100,13 @@ io.sockets.on("connection", function(socket)
 
 
 
+  socket.on("leave_queue", function()
+  {
+    AbandonarCola(socket);
+  });
+
+
+
   socket.on("nuevo_progreso", function(datos)
   {
     io.to(datos.room).emit("actualizar_progreso", datos);
@@ -109,18 +116,23 @@ io.sockets.on("connection", function(socket)
 
   socket.on('disconnect', function()
   {
-    // Si un jugador se desconecta, compruebo si estaba esperando y le borro
-    for (var i = 0 ; i < queues.length ; i++)
-    {
-      if (socket.id === queues[i].playerWaiting.id)
-      {
-        queues[i].playerWaiting.id = "";
-        queues[i].playerWaiting.nombre = "";
-        break;
-      }
-    }
+    AbandonarCola(socket);
   });
 });
+
+
+function AbandonarCola(socket)
+{
+  for (var i = 0 ; i < queues.length ; i++)
+  {
+    if (socket.id === queues[i].playerWaiting.id)
+    {
+      queues[i].playerWaiting.id = "";
+      queues[i].playerWaiting.nombre = "";
+      break;
+    }
+  }
+}
 
 
 

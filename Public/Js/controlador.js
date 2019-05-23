@@ -61,6 +61,18 @@ function IniciarCuentaAtras()
 }
 
 
+function ComenzarJuegoSingle()
+{
+  // No deberías estar en cola si llegas aquí, pero por si acaso
+  if (enCola)
+  {
+    socket.emit("leave_queue");
+    enCola = false;
+  }  
+  SceneMachine(scCuentaAtras);
+}
+
+
 /**
  * ControlarAvanceDePalabra() quita el espacio del input, comprueba si es
  * correcto y, si lo es, hace que la palabra actual que tiene que escribir el

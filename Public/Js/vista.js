@@ -44,6 +44,36 @@ function ActivarBotonDificultad(dificultadSeleccionada)
 }
 
 
+function EstiloBotonesEnCola()
+{
+  const spanSingle = document.getElementById("span_single");
+  var btnsDif = document.getElementsByClassName("boton_dificultad");
+
+  for (var i = 0 ; i < btnsDif.length ; i++)
+  {
+    if (btnsDif[i].classList.contains("activo") === false)
+    {
+      var lunares = btnsDif[i].getElementsByClassName("lunares")[0].getElementsByClassName("lunar");
+
+      btnsDif[i].style.backgroundColor = "#dedede";
+      btnsDif[i].style.color = "rgb(96, 96, 96)";
+
+      for (var j = 0 ; j < lunares.length ; j++)
+      {
+        lunares[j].style.backgroundColor = "rgb(128, 128, 128)";
+      }
+    }
+    btnsDif[i].classList.remove("clickable");
+  }
+
+  spanSingle.innerHTML = "Cancelar";
+  spanSingle.style.backgroundColor = "#ff6666";
+  spanSingle.style.color = "white";
+  document.getElementById("span_jugar").innerHTML = "Esperando a otro jugador";
+  document.getElementById("nombre").readOnly = true;
+}
+
+
 /**
  * ActualizarCuentaAtras() escribe el número de segundos que quedan de cuenta
  * atrás en el panel de la cuenta atrás.
